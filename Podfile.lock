@@ -1,24 +1,16 @@
 PODS:
-  - FrameLayoutKit (3.7.2)
   - LFLiveKit_ (2.7.8)
-  - SwiftLint (0.32.0)
 
 DEPENDENCIES:
-  - FrameLayoutKit
   - LFLiveKit_
-  - SwiftLint (= 0.32.0)
 
 SPEC REPOS:
   trunk:
-    - FrameLayoutKit
     - LFLiveKit_
-    - SwiftLint
 
 SPEC CHECKSUMS:
-  FrameLayoutKit: d184e034ba28e20dc4d7dd1832dbf47e7a5b339e
   LFLiveKit_: c128ab5e3da93d797af8015ff0f05f11b855b5c6
-  SwiftLint: 009a898ef2a1c851f45e1b59349bf6ff2ddc990d
 
-PODFILE CHECKSUM: 9ce31d49773581b2f9a554c3f2eea37c6cd86633
+PODFILE CHECKSUM: f391d7a9f1d51a0abb8acb2c74f5d10d1c8f60f7
 
 COCOAPODS: 1.9.1

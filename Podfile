@@ -6,8 +6,6 @@ target 'UZBroadcast' do
   use_frameworks!
 
   pod 'LFLiveKit_'
-  pod 'FrameLayoutKit'
-  pod 'SwiftLint', '0.32.0'
 
 end
 
@@ -16,7 +14,5 @@ target 'UZBroadcastExample' do
 	use_frameworks!
 	
 	pod 'LFLiveKit_'
-	pod 'FrameLayoutKit'
-	pod 'SwiftLint', '0.32.0'
 	
 end
