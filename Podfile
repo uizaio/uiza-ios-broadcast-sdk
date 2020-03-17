@@ -10,3 +10,13 @@ target 'UZBroadcast' do
   pod 'SwiftLint', '0.32.0'
 
 end
+
+target 'UZBroadcastExample' do
+	platform :ios, '9.0'
+	use_frameworks!
+	
+	pod 'LFLiveKit_'
+	pod 'FrameLayoutKit'
+	pod 'SwiftLint', '0.32.0'
+	
+end

@@ -29,9 +29,12 @@ $ pod install
 ## Usage
 
 ```swift
-let viewController = UZLiveStreamViewController()
-viewController.startLive(broadcastURL: BROADCAST_URL)
-self.present(viewController, animated: true, completion: nil)
+let broadcaster = UZBroadcastViewController()
+let config = UZBroadcastConfig(cameraPosition: .front, videoResolution: ._720, videoBitrate: ._3000, videoFPS: ._30, audioBitrate: ._128Kbps, audioSampleRate: ._44_1khz, adaptiveBitrate: true)
+broadcaster.prepareForBroadcast(withConfig: config)
+//...
+broadcaster.startBroadcast(broadcastURL: BROADCAST_URL)
+present(broadcaster, animated: true, completion: nil)
 ```
 
 Remember to add these usage description keys into `Info.plist` file:

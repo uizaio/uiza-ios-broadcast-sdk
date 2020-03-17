@@ -3,26 +3,35 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0B86467BF5B2F4DDDF08B493 /* Pods_UZBroadcastExample.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 736143D2C5B7F2AEE6CD67D5 /* Pods_UZBroadcastExample.framework */; };
 		144329BAE6A1DE0A5F173B71 /* Pods_UZBroadcast.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EF8A4333A7FFB476D5F3B081 /* Pods_UZBroadcast.framework */; };
 		63FD92D0241D1385001B7A48 /* UZBroadcast.h in Headers */ = {isa = PBXBuildFile; fileRef = 63FD92CE241D1385001B7A48 /* UZBroadcast.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		63FD92D8241D16BC001B7A48 /* UZLiveStreamUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63FD92D6241D16BC001B7A48 /* UZLiveStreamUIView.swift */; };
-		63FD92D9241D16BC001B7A48 /* UZLiveStreamViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63FD92D7241D16BC001B7A48 /* UZLiveStreamViewController.swift */; };
-		63FD92DC241D16ED001B7A48 /* UZButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63FD92DB241D16ED001B7A48 /* UZButton.swift */; };
-		63FD92DF241D1834001B7A48 /* Number+Extentions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63FD92DE241D1834001B7A48 /* Number+Extentions.swift */; };
+		63FD92D9241D16BC001B7A48 /* UZBroadcastViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63FD92D7241D16BC001B7A48 /* UZBroadcastViewController.swift */; };
+		63FD93182420CE0F001B7A48 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63FD93172420CE0F001B7A48 /* AppDelegate.swift */; };
+		63FD931C2420CE0F001B7A48 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63FD931B2420CE0F001B7A48 /* ViewController.swift */; };
+		63FD93212420CE11001B7A48 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 63FD93202420CE11001B7A48 /* Assets.xcassets */; };
+		63FD93242420CE11001B7A48 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 63FD93222420CE11001B7A48 /* LaunchScreen.storyboard */; };
+		63FD932C2420CE48001B7A48 /* UZBroadcastViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63FD92D7241D16BC001B7A48 /* UZBroadcastViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		395EDC59E31CB618A2166C3B /* Pods-UZBroadcast.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-UZBroadcast.debug.xcconfig"; path = "Target Support Files/Pods-UZBroadcast/Pods-UZBroadcast.debug.xcconfig"; sourceTree = "<group>"; };
 		63FD92CB241D1385001B7A48 /* UZBroadcast.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = UZBroadcast.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		63FD92CE241D1385001B7A48 /* UZBroadcast.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UZBroadcast.h; sourceTree = "<group>"; };
-		63FD92D6241D16BC001B7A48 /* UZLiveStreamUIView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UZLiveStreamUIView.swift; sourceTree = "<group>"; };
-		63FD92D7241D16BC001B7A48 /* UZLiveStreamViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UZLiveStreamViewController.swift; sourceTree = "<group>"; };
-		63FD92DB241D16ED001B7A48 /* UZButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UZButton.swift; sourceTree = "<group>"; };
-		63FD92DE241D1834001B7A48 /* Number+Extentions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Number+Extentions.swift"; sourceTree = "<group>"; };
+		63FD92D7241D16BC001B7A48 /* UZBroadcastViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UZBroadcastViewController.swift; sourceTree = "<group>"; };
+		63FD93152420CE0F001B7A48 /* UZBroadcastExample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = UZBroadcastExample.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		63FD93172420CE0F001B7A48 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		63FD931B2420CE0F001B7A48 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		63FD93202420CE11001B7A48 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		63FD93232420CE11001B7A48 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		63FD93252420CE11001B7A48 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		6B21D85E0865922D15523052 /* Pods-UZBroadcastExample.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-UZBroadcastExample.debug.xcconfig"; path = "Target Support Files/Pods-UZBroadcastExample/Pods-UZBroadcastExample.debug.xcconfig"; sourceTree = "<group>"; };
+		736143D2C5B7F2AEE6CD67D5 /* Pods_UZBroadcastExample.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_UZBroadcastExample.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		A0B6EF4FB63B81AB6C72FF8C /* Pods-UZBroadcastExample.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-UZBroadcastExample.release.xcconfig"; path = "Target Support Files/Pods-UZBroadcastExample/Pods-UZBroadcastExample.release.xcconfig"; sourceTree = "<group>"; };
 		BA6E4E7392722432E0BAF2EA /* Pods-UZBroadcast.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-UZBroadcast.release.xcconfig"; path = "Target Support Files/Pods-UZBroadcast/Pods-UZBroadcast.release.xcconfig"; sourceTree = "<group>"; };
 		EF8A4333A7FFB476D5F3B081 /* Pods_UZBroadcast.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_UZBroadcast.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -36,6 +45,14 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		63FD93122420CE0F001B7A48 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				0B86467BF5B2F4DDDF08B493 /* Pods_UZBroadcastExample.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -44,6 +61,8 @@
 			children = (
 				395EDC59E31CB618A2166C3B /* Pods-UZBroadcast.debug.xcconfig */,
 				BA6E4E7392722432E0BAF2EA /* Pods-UZBroadcast.release.xcconfig */,
+				6B21D85E0865922D15523052 /* Pods-UZBroadcastExample.debug.xcconfig */,
+				A0B6EF4FB63B81AB6C72FF8C /* Pods-UZBroadcastExample.release.xcconfig */,
 			);
 			path = Pods;
 			sourceTree = "<group>";
@@ -52,6 +71,7 @@
 			isa = PBXGroup;
 			children = (
 				63FD92CD241D1385001B7A48 /* UZBroadcast */,
+				63FD93162420CE0F001B7A48 /* UZBroadcastExample */,
 				63FD92CC241D1385001B7A48 /* Products */,
 				5B3EB2491822F118BD363CC5 /* Pods */,
 				A80ECAFE15E19A8C19674C07 /* Frameworks */,
@@ -62,6 +82,7 @@
 			isa = PBXGroup;
 			children = (
 				63FD92CB241D1385001B7A48 /* UZBroadcast.framework */,
+				63FD93152420CE0F001B7A48 /* UZBroadcastExample.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -69,43 +90,29 @@
 		63FD92CD241D1385001B7A48 /* UZBroadcast */ = {
 			isa = PBXGroup;
 			children = (
-				63FD92EF241F4495001B7A48 /* Components */,
-				63FD92D6241D16BC001B7A48 /* UZLiveStreamUIView.swift */,
-				63FD92D7241D16BC001B7A48 /* UZLiveStreamViewController.swift */,
+				63FD92D7241D16BC001B7A48 /* UZBroadcastViewController.swift */,
 				63FD92CE241D1385001B7A48 /* UZBroadcast.h */,
 			);
 			path = UZBroadcast;
 			sourceTree = "<group>";
 		};
-		63FD92DA241D16C4001B7A48 /* Controls */ = {
+		63FD93162420CE0F001B7A48 /* UZBroadcastExample */ = {
 			isa = PBXGroup;
 			children = (
-				63FD92DB241D16ED001B7A48 /* UZButton.swift */,
+				63FD93172420CE0F001B7A48 /* AppDelegate.swift */,
+				63FD931B2420CE0F001B7A48 /* ViewController.swift */,
+				63FD93202420CE11001B7A48 /* Assets.xcassets */,
+				63FD93222420CE11001B7A48 /* LaunchScreen.storyboard */,
+				63FD93252420CE11001B7A48 /* Info.plist */,
 			);
-			path = Controls;
-			sourceTree = "<group>";
-		};
-		63FD92DD241D1828001B7A48 /* Extensions */ = {
-			isa = PBXGroup;
-			children = (
-				63FD92DE241D1834001B7A48 /* Number+Extentions.swift */,
-			);
-			path = Extensions;
-			sourceTree = "<group>";
-		};
-		63FD92EF241F4495001B7A48 /* Components */ = {
-			isa = PBXGroup;
-			children = (
-				63FD92DD241D1828001B7A48 /* Extensions */,
-				63FD92DA241D16C4001B7A48 /* Controls */,
-			);
-			path = Components;
+			path = UZBroadcastExample;
 			sourceTree = "<group>";
 		};
 		A80ECAFE15E19A8C19674C07 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
 				EF8A4333A7FFB476D5F3B081 /* Pods_UZBroadcast.framework */,
+				736143D2C5B7F2AEE6CD67D5 /* Pods_UZBroadcastExample.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -143,18 +150,41 @@
 			productReference = 63FD92CB241D1385001B7A48 /* UZBroadcast.framework */;
 			productType = "com.apple.product-type.framework";
 		};
+		63FD93142420CE0F001B7A48 /* UZBroadcastExample */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 63FD93262420CE11001B7A48 /* Build configuration list for PBXNativeTarget "UZBroadcastExample" */;
+			buildPhases = (
+				69619EEB77492C4B19B8F28D /* [CP] Check Pods Manifest.lock */,
+				63FD93112420CE0F001B7A48 /* Sources */,
+				63FD93122420CE0F001B7A48 /* Frameworks */,
+				63FD93132420CE0F001B7A48 /* Resources */,
+				2CFFC3A16B41CF8783123811 /* [CP] Embed Pods Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = UZBroadcastExample;
+			productName = UZBroadcastExample;
+			productReference = 63FD93152420CE0F001B7A48 /* UZBroadcastExample.app */;
+			productType = "com.apple.product-type.application";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
 		63FD92C2241D1385001B7A48 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				LastSwiftUpdateCheck = 1130;
 				LastUpgradeCheck = 1130;
 				ORGANIZATIONNAME = Uiza;
 				TargetAttributes = {
 					63FD92CA241D1385001B7A48 = {
 						CreatedOnToolsVersion = 11.3.1;
 						LastSwiftMigration = 1130;
+					};
+					63FD93142420CE0F001B7A48 = {
+						CreatedOnToolsVersion = 11.3.1;
 					};
 				};
 			};
@@ -172,6 +202,7 @@
 			projectRoot = "";
 			targets = (
 				63FD92CA241D1385001B7A48 /* UZBroadcast */,
+				63FD93142420CE0F001B7A48 /* UZBroadcastExample */,
 			);
 		};
 /* End PBXProject section */
@@ -184,9 +215,57 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		63FD93132420CE0F001B7A48 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				63FD93242420CE11001B7A48 /* LaunchScreen.storyboard in Resources */,
+				63FD93212420CE11001B7A48 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		2CFFC3A16B41CF8783123811 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-UZBroadcastExample/Pods-UZBroadcastExample-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-UZBroadcastExample/Pods-UZBroadcastExample-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-UZBroadcastExample/Pods-UZBroadcastExample-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		69619EEB77492C4B19B8F28D /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-UZBroadcastExample-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
 		C0ED370643291F3FDE0A4653 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -216,14 +295,32 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				63FD92DC241D16ED001B7A48 /* UZButton.swift in Sources */,
-				63FD92D9241D16BC001B7A48 /* UZLiveStreamViewController.swift in Sources */,
-				63FD92D8241D16BC001B7A48 /* UZLiveStreamUIView.swift in Sources */,
-				63FD92DF241D1834001B7A48 /* Number+Extentions.swift in Sources */,
+				63FD92D9241D16BC001B7A48 /* UZBroadcastViewController.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		63FD93112420CE0F001B7A48 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				63FD931C2420CE0F001B7A48 /* ViewController.swift in Sources */,
+				63FD93182420CE0F001B7A48 /* AppDelegate.swift in Sources */,
+				63FD932C2420CE48001B7A48 /* UZBroadcastViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		63FD93222420CE11001B7A48 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				63FD93232420CE11001B7A48 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
 		63FD92D1241D1385001B7A48 /* Debug */ = {
@@ -401,6 +498,44 @@
 			};
 			name = Release;
 		};
+		63FD93272420CE11001B7A48 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 6B21D85E0865922D15523052 /* Pods-UZBroadcastExample.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 385YL4KG69;
+				INFOPLIST_FILE = UZBroadcastExample/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.uiza.UZBroadcastExample;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		63FD93282420CE11001B7A48 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = A0B6EF4FB63B81AB6C72FF8C /* Pods-UZBroadcastExample.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 385YL4KG69;
+				INFOPLIST_FILE = UZBroadcastExample/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.uiza.UZBroadcastExample;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -418,6 +553,15 @@
 			buildConfigurations = (
 				63FD92D4241D1385001B7A48 /* Debug */,
 				63FD92D5241D1385001B7A48 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		63FD93262420CE11001B7A48 /* Build configuration list for PBXNativeTarget "UZBroadcastExample" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				63FD93272420CE11001B7A48 /* Debug */,
+				63FD93282420CE11001B7A48 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
