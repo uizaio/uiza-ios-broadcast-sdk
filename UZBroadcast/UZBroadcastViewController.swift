@@ -97,6 +97,7 @@ public struct UZBroadcastConfig {
 	public var audioBitrate: UZAudioBitrate
 	public var audioSampleRate: UZAudioSampleRate
 	public var adaptiveBitrate: Bool
+	public var orientation: UIInterfaceOrientation? = .portrait
 }
 
 open class UZBroadcastViewController: UIViewController {
@@ -138,6 +139,7 @@ open class UZBroadcastViewController: UIViewController {
 		videoConfiguration.videoMaxKeyframeInterval = config.videoFPS.rawValue * 2
 		videoConfiguration.videoSize = config.videoResolution.videoSize
 		videoConfiguration.sessionPreset = config.videoResolution.sessionPreset
+		videoConfiguration.outputImageOrientation = config.orientation ?? .portrait
 		videoConfiguration.autorotate = false
 		
 		let result = LFLiveSession(audioConfiguration: audioConfiguration, videoConfiguration: videoConfiguration)!

@@ -16,6 +16,7 @@ class ViewController: UZBroadcastViewController {
 		
 		let config = UZBroadcastConfig(cameraPosition: .front, videoResolution: ._720, videoBitrate: ._3000, videoFPS: ._30, audioBitrate: ._128Kbps, audioSampleRate: ._44_1khz, adaptiveBitrate: true)
 		prepareForBroadcast(withConfig: config)
+		session.beautyFace = true
 		session.delegate = self
 		startBroadcast(broadcastURL: URL(string: "https://your_url_here.com")!)
 	}
