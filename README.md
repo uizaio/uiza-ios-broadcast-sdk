@@ -30,7 +30,7 @@ $ pod install
 
 ```swift
 let viewController = UZLiveStreamViewController()
-viewController.liveEventId = ENTITY_ID
+viewController.startLive(broadcastURL: BROADCAST_URL)
 self.present(viewController, animated: true, completion: nil)
 ```
 
