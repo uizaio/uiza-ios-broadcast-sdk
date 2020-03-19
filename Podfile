@@ -5,7 +5,7 @@ target 'UZBroadcast' do
   platform :ios, '9.0'
   use_frameworks!
 
-  pod 'LFLiveKit_'
+  pod 'LFLiveKit_', '~> 2.7.9'
 
 end
 
@@ -13,6 +13,6 @@ target 'UZBroadcastExample' do
 	platform :ios, '9.0'
 	use_frameworks!
 	
-	pod 'LFLiveKit_'
+	pod 'LFLiveKit_', '~> 2.7.9'
 	
 end

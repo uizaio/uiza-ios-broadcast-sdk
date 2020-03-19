@@ -9,7 +9,7 @@
 import UIKit
 import LFLiveKit_
 
-public enum UZVideoResolution {
+public enum UZVideoResolution: CaseIterable {
 	case _360
 	case _480
 	case _720
@@ -20,7 +20,7 @@ public enum UZVideoResolution {
 		case ._360:
 			return CGSize(width: 360, height: 640)
 		case ._480:
-			return CGSize(width: 480, height: 640)
+			return CGSize(width: 480, height: 854)
 		case ._720:
 			return CGSize(width: 720, height: 1280)
 		case ._1080:
@@ -40,9 +40,26 @@ public enum UZVideoResolution {
 			return .captureSessionPreset1920x1080
 		}
 	}
+	
+	func toString() -> String {
+		var result = ""
+		switch self {
+		case ._360:
+			result = "SD 360p"
+		case ._480:
+			result = "SD 480p"
+		case ._720:
+			result = "HD 720"
+		case ._1080:
+			result = "FullHD 1080"
+		}
+		
+		return result + " (\(Int(videoSize.width))x\(Int(videoSize.height)))"
+	}
+	
 }
 
-public enum UZVideoBitrate: UInt {
+public enum UZVideoBitrate: UInt, CaseIterable {
 	case _500 = 500
 	case _1000 = 1000
 	case _1500 = 1500
@@ -51,14 +68,22 @@ public enum UZVideoBitrate: UInt {
 	case _4000 = 4000
 	case _5000 = 5000
 	case _6000 = 6000
+	
+	func toString() -> String {
+		return "\(self.rawValue) Kbps"
+	}
 }
 
-public enum UZVideoFPS: UInt {
+public enum UZVideoFPS: UInt, CaseIterable {
 	case _30 = 30
 	case _60 = 60
+	
+	func toString() -> String {
+		return "\(self.rawValue) fps"
+	}
 }
 
-public enum UZAudioBitrate: UInt {
+public enum UZAudioBitrate: UInt, CaseIterable {
 	case _64Kbps = 64000
 	case _96Kbps = 96000
 	case _128Kbps = 128000
@@ -73,9 +98,13 @@ public enum UZAudioBitrate: UInt {
 			return ._128Kbps
 		}
 	}
+	
+	func toString() -> String {
+		return "\(self.rawValue/1000) Kbps"
+	}
 }
 
-public enum UZAudioSampleRate: UInt {
+public enum UZAudioSampleRate: UInt, CaseIterable {
 	case _44_1khz = 44100
 	case _48_0khz = 48000
 	
@@ -87,6 +116,10 @@ public enum UZAudioSampleRate: UInt {
 			return ._48000Hz
 		}
 	}
+	
+	func toString() -> String {
+		return "\(Double(self.rawValue)/1000) KHz"
+	}
 }
 
 public struct UZBroadcastConfig {
@@ -97,32 +130,26 @@ public struct UZBroadcastConfig {
 	public var audioBitrate: UZAudioBitrate
 	public var audioSampleRate: UZAudioSampleRate
 	public var adaptiveBitrate: Bool
-	public var orientation: UIInterfaceOrientation? = .portrait
+	public var orientation: UIInterfaceOrientation?
+	public var autoRotate: Bool?
+}
+
+extension UIApplication {
+	
+	var interfaceOrientation: UIInterfaceOrientation? {
+		if #available(iOS 13, *) {
+			return UIApplication.shared.windows.first(where: { $0.isKeyWindow })?.windowScene?.interfaceOrientation
+		}
+		else {
+			return UIApplication.shared.statusBarOrientation
+		}
+	}
+	
 }
 
 open class UZBroadcastViewController: UIViewController {
-	public var isEncoded = true
 	public fileprivate(set)var isBroadcasting = false
-	
-	public var saveLocalVideo: Bool {
-		get {
-			return session.saveLocalVideo
-		}
-		set {
-			session.saveLocalVideo = newValue
-		}
-	}
-	
-	public var localVideoURL: URL? {
-		get {
-			return session.saveLocalVideoPath
-		}
-		set {
-			session.saveLocalVideoPath = newValue
-		}
-	}
-	
-	public var config: UZBroadcastConfig!
+	public fileprivate(set) var config: UZBroadcastConfig!
 	
 	lazy open var session: LFLiveSession = {
 		let audioConfiguration = LFLiveAudioConfiguration()
@@ -139,7 +166,7 @@ open class UZBroadcastViewController: UIViewController {
 		videoConfiguration.videoMaxKeyframeInterval = config.videoFPS.rawValue * 2
 		videoConfiguration.videoSize = config.videoResolution.videoSize
 		videoConfiguration.sessionPreset = config.videoResolution.sessionPreset
-		videoConfiguration.outputImageOrientation = config.orientation ?? .portrait
+		videoConfiguration.outputImageOrientation = config.orientation ?? UIApplication.shared.interfaceOrientation ?? .portrait
 		videoConfiguration.autorotate = false
 		
 		let result = LFLiveSession(audioConfiguration: audioConfiguration, videoConfiguration: videoConfiguration)!
@@ -155,15 +182,15 @@ open class UZBroadcastViewController: UIViewController {
 	}
 	
 	open override var shouldAutorotate: Bool {
-		return UIDevice.current.userInterfaceIdiom == .pad
+		return config.autoRotate ?? (UIDevice.current.userInterfaceIdiom == .pad)
 	}
 	
 	open override var supportedInterfaceOrientations: UIInterfaceOrientationMask {
-		return UIDevice.current.userInterfaceIdiom == .phone ? .portrait : .all
+		return config.autoRotate == true ? .all : (UIDevice.current.userInterfaceIdiom == .phone ? .portrait : .all)
 	}
 	
 	open override var preferredInterfaceOrientationForPresentation: UIInterfaceOrientation {
-		return UIDevice.current.userInterfaceIdiom == .pad ? UIApplication.shared.statusBarOrientation : .portrait
+		return UIDevice.current.userInterfaceIdiom == .pad ? UIApplication.shared.interfaceOrientation ?? .portrait : .portrait
 	}
 	
 	// MARK: -
@@ -232,11 +259,16 @@ open class UZBroadcastViewController: UIViewController {
 	open override func viewDidLoad() {
 		super.viewDidLoad()
 		view.backgroundColor = .black
+		NotificationCenter.default.addObserver(self, selector: #selector(onDeviceRotated), name: UIApplication.didChangeStatusBarOrientationNotification, object: nil)
 	}
 	
 	open override func viewWillDisappear(_ animated: Bool) {
 		super.viewWillDisappear(animated)
 		UIApplication.shared.isIdleTimerDisabled = false
+	}
+	
+	@objc func onDeviceRotated() {
+//		session.videoCaptureSource
 	}
 	
 }
