@@ -24,7 +24,7 @@ class MyBroadcastViewController: UZBroadcastViewController {
 		
 		let viewSize = view.bounds.size
 		let buttonSize = CGSize(width: 33, height: 33)
-		closeButton.frame = CGRect(x: viewSize.width - buttonSize.width - 10, y: 20, width: buttonSize.width, height: buttonSize.height)
+		closeButton.frame = CGRect(x: viewSize.width - buttonSize.width - 15, y: 30, width: buttonSize.width, height: buttonSize.height)
 	}
 	
 	@objc func askForClose() {
