@@ -10,6 +10,7 @@ import UIKit
 import LFLiveKit_
 import ReplayKit
 
+@available(iOS 13.0, *)
 public class UZScreenBroadcast {
 	static public let shared = UZScreenBroadcast()
 	
