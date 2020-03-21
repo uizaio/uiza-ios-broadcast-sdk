@@ -115,7 +115,9 @@ class ViewController: UIViewController {
 	
 	func startScreenBroadcasting(url: URL) {
 		let config = UZBroadcastConfig(cameraPosition: .front, videoResolution: videoResolution, videoBitrate: videoBitrate, videoFPS: videoFPS, audioBitrate: audioBitrate, audioSampleRate: audioSampleRate, adaptiveBitrate: false, autoRotate: false)
-		UZScreenBroadcast.shared.startBroadcast(broadcastURL: url, config: config)
+		UZScreenBroadcast.shared.prepareForBroadcast(withConfig: config)
+		UZScreenBroadcast.shared.session.delegate = self
+		UZScreenBroadcast.shared.startBroadcast(broadcastURL: url)
 	}
 	
 	func switchValue(index: Int, for option: TableItem) {
@@ -208,5 +210,4 @@ extension ViewController: LFLiveSessionDelegate {
 		print("LFLiveState: \(String(describing: state.rawValue))")
 	}
 	
-
 }

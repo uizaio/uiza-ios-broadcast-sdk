@@ -81,9 +81,12 @@ public class UZScreenBroadcast {
 		
 	}
 	
-	public func startBroadcast(broadcastURL: URL, config: UZBroadcastConfig, completionHandler: ((Error?) -> Void)? = nil) {
-		isBroadcasting = true
+	public func prepareForBroadcast(withConfig config: UZBroadcastConfig) {
 		self.config = config
+	}
+	
+	public func startBroadcast(broadcastURL: URL, completionHandler: ((Error?) -> Void)? = nil) {
+		isBroadcasting = true
 		
 		let stream = LFLiveStreamInfo()
 		stream.url = broadcastURL.absoluteString
