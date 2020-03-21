@@ -17,6 +17,8 @@
 		63FD93242420CE11001B7A48 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 63FD93222420CE11001B7A48 /* LaunchScreen.storyboard */; };
 		63FD932C2420CE48001B7A48 /* UZBroadcastViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63FD92D7241D16BC001B7A48 /* UZBroadcastViewController.swift */; };
 		63FD9372242370DA001B7A48 /* MyBroadcastViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63FD9371242370DA001B7A48 /* MyBroadcastViewController.swift */; };
+		63FD93B82425D88E001B7A48 /* UZScreenBroadcast.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63FD93B72425D88E001B7A48 /* UZScreenBroadcast.swift */; };
+		63FD93B92425D88E001B7A48 /* UZScreenBroadcast.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63FD93B72425D88E001B7A48 /* UZScreenBroadcast.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -33,6 +35,7 @@
 		63FD93232420CE11001B7A48 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		63FD93252420CE11001B7A48 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		63FD9371242370DA001B7A48 /* MyBroadcastViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyBroadcastViewController.swift; sourceTree = "<group>"; };
+		63FD93B72425D88E001B7A48 /* UZScreenBroadcast.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UZScreenBroadcast.swift; sourceTree = "<group>"; };
 		7C77B166E613E2D9BF68EC08 /* Pods-UZBroadcast.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-UZBroadcast.debug.xcconfig"; path = "Target Support Files/Pods-UZBroadcast/Pods-UZBroadcast.debug.xcconfig"; sourceTree = "<group>"; };
 		BFF84C4886B255F52FA0D2D8 /* Pods-UZBroadcastExample.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-UZBroadcastExample.release.xcconfig"; path = "Target Support Files/Pods-UZBroadcastExample/Pods-UZBroadcastExample.release.xcconfig"; sourceTree = "<group>"; };
 		F86F6AF498A1938C1FE3DCA1 /* Pods_UZBroadcast.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_UZBroadcast.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -92,6 +95,7 @@
 		63FD92CD241D1385001B7A48 /* UZBroadcast */ = {
 			isa = PBXGroup;
 			children = (
+				63FD93B72425D88E001B7A48 /* UZScreenBroadcast.swift */,
 				63FD92D7241D16BC001B7A48 /* UZBroadcastViewController.swift */,
 				63FD92CE241D1385001B7A48 /* UZBroadcast.h */,
 			);
@@ -298,6 +302,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				63FD93B82425D88E001B7A48 /* UZScreenBroadcast.swift in Sources */,
 				63FD92D9241D16BC001B7A48 /* UZBroadcastViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -309,6 +314,7 @@
 				63FD931C2420CE0F001B7A48 /* ViewController.swift in Sources */,
 				63FD93182420CE0F001B7A48 /* AppDelegate.swift in Sources */,
 				63FD9372242370DA001B7A48 /* MyBroadcastViewController.swift in Sources */,
+				63FD93B92425D88E001B7A48 /* UZScreenBroadcast.swift in Sources */,
 				63FD932C2420CE48001B7A48 /* UZBroadcastViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

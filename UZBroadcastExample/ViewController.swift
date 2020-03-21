@@ -78,9 +78,14 @@ class ViewController: UIViewController {
 		alertController.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: { (action) in
 			alertController.dismiss(animated: true, completion: nil)
 		}))
-		alertController.addAction(UIAlertAction(title: "Start", style: .default, handler: { [weak self] (action) in
+		alertController.addAction(UIAlertAction(title: "Start Livestream", style: .default, handler: { [weak self] (action) in
 			guard let url = URL(string: alertController.textFields?.first?.text ?? "") else { return }
 			self?.startBroadcasting(url: url)
+			alertController.dismiss(animated: true, completion: nil)
+		}))
+		alertController.addAction(UIAlertAction(title: "Screen Broadcast", style: .default, handler: { [weak self] (action) in
+			guard let url = URL(string: alertController.textFields?.first?.text ?? "") else { return }
+			self?.startScreenBroadcasting(url: url)
 			alertController.dismiss(animated: true, completion: nil)
 		}))
 		present(alertController, animated: true, completion: nil)
@@ -106,6 +111,10 @@ class ViewController: UIViewController {
 		present(broadcastViewController, animated: false) {
 			broadcastViewController.startBroadcast(broadcastURL: url)
 		}
+	}
+	
+	func startScreenBroadcasting(url: URL) {
+		UZScreenBroadcast.shared.startBroadcast(broadcastURL: url)
 	}
 	
 	func switchValue(index: Int, for option: TableItem) {

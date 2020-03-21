@@ -8,6 +8,7 @@
 
 import UIKit
 import LFLiveKit_
+import ReplayKit
 
 public enum UZVideoResolution: CaseIterable {
 	case _360
