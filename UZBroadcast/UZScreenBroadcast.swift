@@ -15,6 +15,8 @@ public class UZScreenBroadcast {
 	static public let shared = UZScreenBroadcast()
 	
 	public fileprivate(set)var isBroadcasting = false
+	
+	@available(iOS 13.0, *)
 	public var isMicrophoneEnabled: Bool {
 		get {
 			return screenRecorder.isMicrophoneEnabled
@@ -24,6 +26,7 @@ public class UZScreenBroadcast {
 		}
 	}
 	
+	@available(iOS 13.0, *)
 	public var isCameraEnabled: Bool {
 		get {
 			return screenRecorder.isCameraEnabled
@@ -33,14 +36,17 @@ public class UZScreenBroadcast {
 		}
 	}
 	
+	@available(iOS 13.0, *)
 	public var cameraPreviewView: UIView? {
 		return screenRecorder.cameraPreviewView
 	}
 	
+	@available(iOS 13.0, *)
 	public var cameraPosition: RPCameraPosition {
 		return screenRecorder.cameraPosition
 	}
 	
+	@available(iOS 13.0, *)
 	public var isRecording: Bool {
 		return screenRecorder.isRecording
 	}
