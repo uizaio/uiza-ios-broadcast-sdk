@@ -51,14 +51,29 @@ public class UZScreenBroadcast {
 		return screenRecorder.isRecording
 	}
 	
+	public fileprivate(set) var config: UZBroadcastConfig!
 	let screenRecorder = RPScreenRecorder.shared()
 	
 	lazy open var session: LFLiveSession = {
 		let audioConfiguration = LFLiveAudioConfiguration()
+		audioConfiguration.audioBitrate = config.audioBitrate.toLFLiveAudioBitRate()
+		audioConfiguration.audioSampleRate = config.audioSampleRate.toLFLiveAudioSampleRate()
+		
 		let videoConfiguration = LFLiveVideoConfiguration()
+		videoConfiguration.videoBitRate = config.videoBitrate.rawValue
+		videoConfiguration.videoMaxBitRate = config.videoBitrate.rawValue
+		videoConfiguration.videoMinBitRate = config.videoBitrate.rawValue/2
+		videoConfiguration.videoFrameRate = config.videoFPS.rawValue
+		videoConfiguration.videoMaxFrameRate = config.videoFPS.rawValue
+		videoConfiguration.videoMinFrameRate = config.videoFPS.rawValue
+		videoConfiguration.videoMaxKeyframeInterval = config.videoFPS.rawValue * 2
+		videoConfiguration.videoSize = config.videoResolution.videoSize
+		videoConfiguration.sessionPreset = config.videoResolution.sessionPreset
+		videoConfiguration.outputImageOrientation = config.orientation ?? UIApplication.shared.interfaceOrientation ?? .portrait
 		videoConfiguration.autorotate = false
 		
 		let result = LFLiveSession(audioConfiguration: audioConfiguration, videoConfiguration: videoConfiguration, captureType: LFLiveCaptureTypeMask.inputMaskVideo)!
+		result.adaptiveBitrate = config.adaptiveBitrate
 		return result
 	}()
 	
@@ -66,7 +81,7 @@ public class UZScreenBroadcast {
 		
 	}
 	
-	public func startBroadcast(broadcastURL: URL, completionHandler: ((Error?) -> Void)? = nil) {
+	public func startBroadcast(broadcastURL: URL, config: UZBroadcastConfig, completionHandler: ((Error?) -> Void)? = nil) {
 		isBroadcasting = true
 		
 		let stream = LFLiveStreamInfo()

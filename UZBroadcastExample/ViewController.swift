@@ -101,7 +101,7 @@ class ViewController: UIViewController {
 	}
 	
 	func startBroadcasting(url: URL) {
-		let config = UZBroadcastConfig(cameraPosition: .front, videoResolution: ._720, videoBitrate: ._3000, videoFPS: ._30, audioBitrate: ._128Kbps, audioSampleRate: ._44_1khz, adaptiveBitrate: true, autoRotate: true)
+		let config = UZBroadcastConfig(cameraPosition: .front, videoResolution: videoResolution, videoBitrate: videoBitrate, videoFPS: videoFPS, audioBitrate: audioBitrate, audioSampleRate: audioSampleRate, adaptiveBitrate: false, autoRotate: false)
 		let broadcastViewController = MyBroadcastViewController()
 		broadcastViewController.prepareForBroadcast(withConfig: config)
 		broadcastViewController.session.beautyFace = true
@@ -114,7 +114,8 @@ class ViewController: UIViewController {
 	}
 	
 	func startScreenBroadcasting(url: URL) {
-		UZScreenBroadcast.shared.startBroadcast(broadcastURL: url)
+		let config = UZBroadcastConfig(cameraPosition: .front, videoResolution: videoResolution, videoBitrate: videoBitrate, videoFPS: videoFPS, audioBitrate: audioBitrate, audioSampleRate: audioSampleRate, adaptiveBitrate: false, autoRotate: false)
+		UZScreenBroadcast.shared.startBroadcast(broadcastURL: url, config: config)
 	}
 	
 	func switchValue(index: Int, for option: TableItem) {
