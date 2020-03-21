@@ -37,6 +37,15 @@ broadcaster.startBroadcast(broadcastURL: BROADCAST_URL)
 present(broadcaster, animated: true, completion: nil)
 ```
 
+## Screen broadcast
+
+```swift
+let broadcaster = UZScreenBroadcast.shared
+broadcaster.isMicrophoneEnabled = true
+//broadcaster.isCameraEnabled = true
+broadcaster.startBroadcast(broadcastURL: BROADCAST_URL)
+```
+
 Remember to add these usage description keys into `Info.plist` file:
 ```xml
 <key>NSCameraUsageDescription</key>
