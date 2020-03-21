@@ -72,7 +72,7 @@ public class UZScreenBroadcast {
 		videoConfiguration.outputImageOrientation = config.orientation ?? UIApplication.shared.interfaceOrientation ?? .portrait
 		videoConfiguration.autorotate = false
 		
-		let result = LFLiveSession(audioConfiguration: audioConfiguration, videoConfiguration: videoConfiguration, captureType: LFLiveCaptureTypeMask.inputMaskVideo)!
+		let result = LFLiveSession(audioConfiguration: audioConfiguration, videoConfiguration: videoConfiguration, captureType: LFLiveCaptureTypeMask.inputMaskAll)!
 		result.adaptiveBitrate = config.adaptiveBitrate
 		return result
 	}()
@@ -94,13 +94,19 @@ public class UZScreenBroadcast {
 		
 		screenRecorder.startCapture(handler: { [weak self] (sampleBuffer, bufferType, error) in
 			guard let `self` = self else { return }
-			self.session.pushVideo(sampleBuffer.imageBuffer)
+			if bufferType == .audioMic || bufferType == .audioApp {
+				self.session.pushAudio(try? sampleBuffer.dataBuffer?.dataBytes())
+			}
+			else {
+				self.session.pushVideo(sampleBuffer.imageBuffer)
+			}
 		}, completionHandler: completionHandler)
 	}
 	
 	public func stopBroadcast(handler: ((Error?) -> Void)? = nil) {
 		session.stopLive()
 		screenRecorder.stopCapture(handler: handler)
+		isBroadcasting = false
 	}
 	
 }

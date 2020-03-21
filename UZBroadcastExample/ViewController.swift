@@ -71,6 +71,7 @@ class ViewController: UIViewController {
 	@objc func onStart() {
 		if UZScreenBroadcast.shared.isBroadcasting || startButton.isSelected {
 			UZScreenBroadcast.shared.stopBroadcast()
+			startButton.isSelected = false
 			return
 		}
 		
@@ -122,9 +123,11 @@ class ViewController: UIViewController {
 	func startScreenBroadcasting(url: URL) {
 		startButton.isSelected = true
 		let config = UZBroadcastConfig(cameraPosition: .front, videoResolution: videoResolution, videoBitrate: videoBitrate, videoFPS: videoFPS, audioBitrate: audioBitrate, audioSampleRate: audioSampleRate, adaptiveBitrate: false, autoRotate: false)
-		UZScreenBroadcast.shared.prepareForBroadcast(withConfig: config)
-		UZScreenBroadcast.shared.session.delegate = self
-		UZScreenBroadcast.shared.startBroadcast(broadcastURL: url)
+		let broadcaster = UZScreenBroadcast.shared
+		broadcaster.prepareForBroadcast(withConfig: config)
+		broadcaster.session.delegate = self
+		broadcaster.isMicrophoneEnabled = true
+		broadcaster.startBroadcast(broadcastURL: url)
 	}
 	
 	func switchValue(index: Int, for option: TableItem) {
