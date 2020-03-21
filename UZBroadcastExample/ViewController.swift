@@ -49,6 +49,7 @@ class ViewController: UIViewController {
 		super.viewDidLoad()
 		
 		startButton.setTitle("Start Broadcast", for: .normal)
+		startButton.setTitle("Stop Broadcast", for: .selected)
 		startButton.addTarget(self, action: #selector(onStart), for: .touchUpInside)
 		
 		tableView.delegate = self
@@ -68,6 +69,11 @@ class ViewController: UIViewController {
 	}
 	
 	@objc func onStart() {
+		if UZScreenBroadcast.shared.isBroadcasting || startButton.isSelected {
+			UZScreenBroadcast.shared.stopBroadcast()
+			return
+		}
+		
 		let alertController = UIAlertController(title: "Start broadcast", message: "Please enter your broadcast URL", preferredStyle: .alert)
 		alertController.addTextField { (textField) in
 			textField.placeholder = "Broadcast URL"
@@ -114,6 +120,7 @@ class ViewController: UIViewController {
 	}
 	
 	func startScreenBroadcasting(url: URL) {
+		startButton.isSelected = true
 		let config = UZBroadcastConfig(cameraPosition: .front, videoResolution: videoResolution, videoBitrate: videoBitrate, videoFPS: videoFPS, audioBitrate: audioBitrate, audioSampleRate: audioSampleRate, adaptiveBitrate: false, autoRotate: false)
 		UZScreenBroadcast.shared.prepareForBroadcast(withConfig: config)
 		UZScreenBroadcast.shared.session.delegate = self
