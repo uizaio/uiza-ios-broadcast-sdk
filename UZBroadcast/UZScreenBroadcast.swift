@@ -83,6 +83,7 @@ public class UZScreenBroadcast {
 	
 	public func startBroadcast(broadcastURL: URL, config: UZBroadcastConfig, completionHandler: ((Error?) -> Void)? = nil) {
 		isBroadcasting = true
+		self.config = config
 		
 		let stream = LFLiveStreamInfo()
 		stream.url = broadcastURL.absoluteString
