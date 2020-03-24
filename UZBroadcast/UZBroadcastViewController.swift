@@ -234,10 +234,11 @@ open class UZBroadcastViewController: UIViewController {
 		requestAccessForAudio()
 	}
 	
-	public func startBroadcast(broadcastURL: URL) {
+	public func startBroadcast(broadcastURL: URL, streamId: String) {
 		isBroadcasting = true
 		
 		let stream = LFLiveStreamInfo()
+		stream.streamId = streamId
 		stream.url = broadcastURL.absoluteString
 		session.startLive(stream)
 		

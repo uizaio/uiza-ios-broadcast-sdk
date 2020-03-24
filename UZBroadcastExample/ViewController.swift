@@ -77,8 +77,14 @@ class ViewController: UIViewController {
 		
 		let alertController = UIAlertController(title: "Start broadcast", message: "Please enter your broadcast URL", preferredStyle: .alert)
 		alertController.addTextField { (textField) in
-			textField.placeholder = "Broadcast URL"
-			textField.text = "rtmp://"
+			textField.text = ""
+			textField.placeholder = "streamId"
+			textField.keyboardType = .default
+			textField.returnKeyType = .next
+		}
+		alertController.addTextField { (textField) in
+			textField.text = ""
+			textField.placeholder = "URL"
 			textField.keyboardType = .URL
 			textField.returnKeyType = .done
 		}
@@ -86,13 +92,15 @@ class ViewController: UIViewController {
 			alertController.dismiss(animated: true, completion: nil)
 		}))
 		alertController.addAction(UIAlertAction(title: "Start Livestream", style: .default, handler: { [weak self] (action) in
-			guard let url = URL(string: alertController.textFields?.first?.text ?? "") else { return }
-			self?.startBroadcasting(url: url)
+			guard let textFields = alertController.textFields else { return }
+			guard let streamId = textFields.first?.text, let url = URL(string: textFields.last?.text ?? "") else { return }
+			self?.startBroadcasting(url: url, streamId: streamId)
 			alertController.dismiss(animated: true, completion: nil)
 		}))
 		alertController.addAction(UIAlertAction(title: "Screen Broadcast", style: .default, handler: { [weak self] (action) in
-			guard let url = URL(string: alertController.textFields?.first?.text ?? "") else { return }
-			self?.startScreenBroadcasting(url: url)
+			guard let textFields = alertController.textFields else { return }
+			guard let streamId = textFields.first?.text, let url = URL(string: textFields.last?.text ?? "") else { return }
+			self?.startScreenBroadcasting(url: url, streamId: streamId)
 			alertController.dismiss(animated: true, completion: nil)
 		}))
 		present(alertController, animated: true, completion: nil)
@@ -107,7 +115,7 @@ class ViewController: UIViewController {
 														 TableItem(title: TableSectionType.audioSampleRate.rawValue, value: audioSampleRate.toString(), options: UZAudioSampleRate.allCases.compactMap({ return $0.toString() }))])]
 	}
 	
-	func startBroadcasting(url: URL) {
+	func startBroadcasting(url: URL, streamId: String) {
 		let config = UZBroadcastConfig(cameraPosition: .front, videoResolution: videoResolution, videoBitrate: videoBitrate, videoFPS: videoFPS, audioBitrate: audioBitrate, audioSampleRate: audioSampleRate, adaptiveBitrate: false, autoRotate: false)
 		let broadcastViewController = MyBroadcastViewController()
 		broadcastViewController.prepareForBroadcast(withConfig: config)
@@ -116,18 +124,18 @@ class ViewController: UIViewController {
 		broadcastViewController.modalPresentationStyle = .fullScreen
 		
 		present(broadcastViewController, animated: false) {
-			broadcastViewController.startBroadcast(broadcastURL: url)
+			broadcastViewController.startBroadcast(broadcastURL: url, streamId: streamId)
 		}
 	}
 	
-	func startScreenBroadcasting(url: URL) {
+	func startScreenBroadcasting(url: URL, streamId: String) {
 		startButton.isSelected = true
 		let config = UZBroadcastConfig(cameraPosition: .front, videoResolution: videoResolution, videoBitrate: videoBitrate, videoFPS: videoFPS, audioBitrate: audioBitrate, audioSampleRate: audioSampleRate, adaptiveBitrate: false, autoRotate: false)
 		let broadcaster = UZScreenBroadcast.shared
 		broadcaster.prepareForBroadcast(withConfig: config)
 		broadcaster.session.delegate = self
 		broadcaster.isMicrophoneEnabled = true
-		broadcaster.startBroadcast(broadcastURL: url)
+		broadcaster.startBroadcast(broadcastURL: url, streamId: streamId)
 	}
 	
 	func switchValue(index: Int, for option: TableItem) {
