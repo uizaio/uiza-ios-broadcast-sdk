@@ -223,7 +223,7 @@ open class UZBroadcastViewController: UIViewController {
 			
 		case AVAuthorizationStatus.authorized: break
 		case AVAuthorizationStatus.denied: break
-		case AVAuthorizationStatus.restricted:break
+		case AVAuthorizationStatus.restricted: break
 		@unknown default:break
 		}
 	}
