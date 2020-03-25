@@ -96,7 +96,9 @@ public class UZScreenBroadcast {
 		screenRecorder.startCapture(handler: { [weak self] (sampleBuffer, bufferType, error) in
 			guard let `self` = self else { return }
 			if bufferType == .audioMic || bufferType == .audioApp {
-				self.session.pushAudio(try? sampleBuffer.dataBuffer?.dataBytes())
+				if let data = try? sampleBuffer.dataBuffer?.dataBytes() {
+					self.session.pushAudio(data)
+				}
 			}
 			else {
 				self.session.pushVideo(sampleBuffer.imageBuffer)
