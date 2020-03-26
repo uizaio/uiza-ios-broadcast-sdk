@@ -56,6 +56,9 @@ Remember to add these usage description keys into `Info.plist` file:
 <string>App needs access to microphone for broadcasting</string>
 ```
 
+## Reference
+[API Reference](https://uizaio.github.io/uiza-ios-broadcast-sdk/)
+
 ## Support
 namnh@uiza.io
 
