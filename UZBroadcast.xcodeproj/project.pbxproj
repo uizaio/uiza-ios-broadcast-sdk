@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		2EA2870A396EAF9CEC60FDA3 /* Pods_UZBroadcast.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2B90979793F6CE1A79B51DF5 /* Pods_UZBroadcast.framework */; };
+		63402F45242C665A007CE911 /* UZBroadcastConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63402F44242C665A007CE911 /* UZBroadcastConfig.swift */; };
 		63FD92D0241D1385001B7A48 /* UZBroadcast.h in Headers */ = {isa = PBXBuildFile; fileRef = 63FD92CE241D1385001B7A48 /* UZBroadcast.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		63FD92D9241D16BC001B7A48 /* UZBroadcastViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63FD92D7241D16BC001B7A48 /* UZBroadcastViewController.swift */; };
 		63FD93182420CE0F001B7A48 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63FD93172420CE0F001B7A48 /* AppDelegate.swift */; };
@@ -22,6 +23,7 @@
 /* Begin PBXFileReference section */
 		2B90979793F6CE1A79B51DF5 /* Pods_UZBroadcast.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_UZBroadcast.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		48E7279FBA9B59EB85E1A18A /* Pods_UZBroadcastExample.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_UZBroadcastExample.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		63402F44242C665A007CE911 /* UZBroadcastConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UZBroadcastConfig.swift; sourceTree = "<group>"; };
 		63FD92CB241D1385001B7A48 /* UZBroadcast.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = UZBroadcast.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		63FD92CE241D1385001B7A48 /* UZBroadcast.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UZBroadcast.h; sourceTree = "<group>"; };
 		63FD92D7241D16BC001B7A48 /* UZBroadcastViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UZBroadcastViewController.swift; sourceTree = "<group>"; };
@@ -102,6 +104,7 @@
 		63FD92CD241D1385001B7A48 /* UZBroadcast */ = {
 			isa = PBXGroup;
 			children = (
+				63402F44242C665A007CE911 /* UZBroadcastConfig.swift */,
 				63FD93B72425D88E001B7A48 /* UZScreenBroadcast.swift */,
 				63FD92D7241D16BC001B7A48 /* UZBroadcastViewController.swift */,
 				63FD92CE241D1385001B7A48 /* UZBroadcast.h */,
@@ -300,6 +303,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				63402F45242C665A007CE911 /* UZBroadcastConfig.swift in Sources */,
 				63FD93B82425D88E001B7A48 /* UZScreenBroadcast.swift in Sources */,
 				63FD92D9241D16BC001B7A48 /* UZBroadcastViewController.swift in Sources */,
 			);

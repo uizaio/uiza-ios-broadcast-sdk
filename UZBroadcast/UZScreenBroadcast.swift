@@ -10,13 +10,19 @@ import UIKit
 import LFLiveKit_
 import ReplayKit
 
+/**
+This class helps you to initialize a screen broadcast session
+*/
 @available(iOS 13.0, *)
 public class UZScreenBroadcast {
+	/// Singleton instance
 	static public let shared = UZScreenBroadcast()
 	
+	/// `true` if broadcasting
 	public fileprivate(set)var isBroadcasting = false
 	
 	@available(iOS 13.0, *)
+	/// Turn on or off microphone
 	public var isMicrophoneEnabled: Bool {
 		get {
 			return screenRecorder.isMicrophoneEnabled
@@ -27,6 +33,7 @@ public class UZScreenBroadcast {
 	}
 	
 	@available(iOS 13.0, *)
+	/// Turn on or off camera
 	public var isCameraEnabled: Bool {
 		get {
 			return screenRecorder.isCameraEnabled
@@ -37,23 +44,28 @@ public class UZScreenBroadcast {
 	}
 	
 	@available(iOS 13.0, *)
+	/// Current camera preview view
 	public var cameraPreviewView: UIView? {
 		return screenRecorder.cameraPreviewView
 	}
 	
 	@available(iOS 13.0, *)
+	/// Current camera position
 	public var cameraPosition: RPCameraPosition {
 		return screenRecorder.cameraPosition
 	}
 	
 	@available(iOS 13.0, *)
+	/// `true` if the screen is recording
 	public var isRecording: Bool {
 		return screenRecorder.isRecording
 	}
 	
+	/// Current broadcast configuration
 	public fileprivate(set) var config: UZBroadcastConfig!
 	let screenRecorder = RPScreenRecorder.shared()
 	
+	/// Current live session
 	lazy open var session: LFLiveSession = {
 		let audioConfiguration = LFLiveAudioConfiguration()
 		audioConfiguration.audioBitrate = config.audioBitrate.toLFLiveAudioBitRate()
@@ -77,14 +89,22 @@ public class UZScreenBroadcast {
 		return result
 	}()
 	
-	private init() {
-		
-	}
+	private init() {}
 	
+	/**
+	Always call this first to prepare broadcasting with a configuration
+	- parameter config: Broadcast configuration
+	*/
 	public func prepareForBroadcast(withConfig config: UZBroadcastConfig) {
 		self.config = config
 	}
 	
+	/**
+	Start screen broadcasting
+	- parameter broadcastURL: `URL` of broadcast
+	- parameter streamId: `id` of broadcast
+	- parameter completionHandler: Block called when completed, returns `Error` if occured
+	*/
 	public func startBroadcast(broadcastURL: URL, streamId: String, completionHandler: ((Error?) -> Void)? = nil) {
 		isBroadcasting = true
 		
@@ -93,6 +113,7 @@ public class UZScreenBroadcast {
 		stream.url = broadcastURL.absoluteString
 		session.startLive(stream)
 		
+		screenRecorder.cameraPosition = config.cameraPosition == .front ? .front : .back
 		screenRecorder.startCapture(handler: { [weak self] (sampleBuffer, bufferType, error) in
 			guard let `self` = self else { return }
 			if bufferType == .audioMic || bufferType == .audioApp {
@@ -106,6 +127,10 @@ public class UZScreenBroadcast {
 		}, completionHandler: completionHandler)
 	}
 	
+	/**
+	Stop screen broadcasting
+	- parameter handler: Block called when completed, returns `Error` if occured
+	*/
 	public func stopBroadcast(handler: ((Error?) -> Void)? = nil) {
 		session.stopLive()
 		screenRecorder.stopCapture(handler: handler)
