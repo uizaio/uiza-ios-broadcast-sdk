@@ -1,16 +1,24 @@
 PODS:
   - LFLiveKit_ (2.7.9)
+  - UZBroadcast (1.1.0):
+    - LFLiveKit_
 
 DEPENDENCIES:
   - LFLiveKit_ (~> 2.7.9)
+  - UZBroadcast (from `../UZBroadcast`)
 
 SPEC REPOS:
   trunk:
     - LFLiveKit_
 
+EXTERNAL SOURCES:
+  UZBroadcast:
+    :path: "../UZBroadcast"
+
 SPEC CHECKSUMS:
   LFLiveKit_: d9603d2726380479522b762cda4713ad9a1c8ac2
+  UZBroadcast: b22b782f99b6a3cb98806e7323fc71dd83656163
 
-PODFILE CHECKSUM: 4f3e6b7efd2d9aeacabed866fa3fc1a425ae228b
+PODFILE CHECKSUM: c8b326b51fc3421edb13eb328fd48014de7339d2
 
 COCOAPODS: 1.9.1

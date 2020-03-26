@@ -10,9 +10,9 @@ target 'UZBroadcast' do
 end
 
 target 'UZBroadcastExample' do
-	platform :ios, '9.0'
+	platform :ios, '10.0'
 	use_frameworks!
 	
-	pod 'LFLiveKit_', '~> 2.7.9'
+	pod 'UZBroadcast', :path => '../UZBroadcast'
 	
 end

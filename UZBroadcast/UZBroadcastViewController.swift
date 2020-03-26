@@ -16,7 +16,7 @@ public enum UZVideoResolution: CaseIterable {
 	case _720
 	case _1080
 	
-	var videoSize: CGSize {
+	public var videoSize: CGSize {
 		switch self {
 		case ._360:
 			return CGSize(width: 360, height: 640)
@@ -29,7 +29,7 @@ public enum UZVideoResolution: CaseIterable {
 		}
 	}
 	
-	var sessionPreset: LFLiveVideoSessionPreset {
+	public var sessionPreset: LFLiveVideoSessionPreset {
 		switch self {
 		case ._360:
 			return .captureSessionPreset360x640
@@ -42,7 +42,7 @@ public enum UZVideoResolution: CaseIterable {
 		}
 	}
 	
-	func toString() -> String {
+	public func toString() -> String {
 		var result = ""
 		switch self {
 		case ._360:
@@ -70,7 +70,7 @@ public enum UZVideoBitrate: UInt, CaseIterable {
 	case _5000 = 5000
 	case _6000 = 6000
 	
-	func toString() -> String {
+	public func toString() -> String {
 		return "\(self.rawValue) Kbps"
 	}
 }
@@ -79,7 +79,7 @@ public enum UZVideoFPS: UInt, CaseIterable {
 	case _30 = 30
 	case _60 = 60
 	
-	func toString() -> String {
+	public func toString() -> String {
 		return "\(self.rawValue) fps"
 	}
 }
@@ -89,7 +89,7 @@ public enum UZAudioBitrate: UInt, CaseIterable {
 	case _96Kbps = 96000
 	case _128Kbps = 128000
 	
-	func toLFLiveAudioBitRate() -> LFLiveAudioBitRate {
+	public func toLFLiveAudioBitRate() -> LFLiveAudioBitRate {
 		switch self {
 		case ._64Kbps:
 			return ._64Kbps
@@ -100,7 +100,7 @@ public enum UZAudioBitrate: UInt, CaseIterable {
 		}
 	}
 	
-	func toString() -> String {
+	public func toString() -> String {
 		return "\(self.rawValue/1000) Kbps"
 	}
 }
@@ -109,7 +109,7 @@ public enum UZAudioSampleRate: UInt, CaseIterable {
 	case _44_1khz = 44100
 	case _48_0khz = 48000
 	
-	func toLFLiveAudioSampleRate() -> LFLiveAudioSampleRate {
+	public func toLFLiveAudioSampleRate() -> LFLiveAudioSampleRate {
 		switch self {
 		case ._44_1khz:
 			return ._44100Hz
@@ -118,7 +118,7 @@ public enum UZAudioSampleRate: UInt, CaseIterable {
 		}
 	}
 	
-	func toString() -> String {
+	public func toString() -> String {
 		return "\(Double(self.rawValue)/1000) KHz"
 	}
 }
@@ -133,6 +133,18 @@ public struct UZBroadcastConfig {
 	public var adaptiveBitrate: Bool
 	public var orientation: UIInterfaceOrientation?
 	public var autoRotate: Bool?
+	
+	public init(cameraPosition: AVCaptureDevice.Position, videoResolution: UZVideoResolution, videoBitrate: UZVideoBitrate, videoFPS: UZVideoFPS, audioBitrate: UZAudioBitrate, audioSampleRate: UZAudioSampleRate, adaptiveBitrate: Bool, orientation: UIInterfaceOrientation? = nil, autoRotate: Bool? = nil) {
+		self.cameraPosition = cameraPosition
+		self.videoResolution = videoResolution
+		self.videoBitrate = videoBitrate
+		self.videoFPS = videoFPS
+		self.audioBitrate = audioBitrate
+		self.audioSampleRate = audioSampleRate
+		self.adaptiveBitrate = adaptiveBitrate
+		self.orientation = orientation
+		self.autoRotate = autoRotate
+	}
 }
 
 extension UIApplication {
