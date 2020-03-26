@@ -1,9 +1,4 @@
 # UZBroadcast
-
-<!-- [![CI Status](http://img.shields.io/travis/uizaio/UZBroadcast.svg?style=flat)](https://travis-ci.org/uizaio/UZBroadcast) -->
-[![Version](https://img.shields.io/cocoapods/v/UZBroadcast.svg?style=flat)](http://cocoapods.org/pods/UZBroadcast)
-[![License](https://img.shields.io/cocoapods/l/UZBroadcast.svg?style=flat)](http://cocoapods.org/pods/UZBroadcast)
-[![Platform](https://img.shields.io/cocoapods/p/UZBroadcast.svg?style=flat)](http://cocoapods.org/pods/UZBroadcast)
 ![Swift](https://img.shields.io/badge/%20in-swift%205.0-orange.svg)
 
 UZBroadcast is a framework helps you to broadcast livestream
