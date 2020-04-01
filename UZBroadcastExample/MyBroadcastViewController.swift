@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import UZBroadcast
 
 class MyBroadcastViewController: UZBroadcastViewController {
 	let closeButton = UIButton()

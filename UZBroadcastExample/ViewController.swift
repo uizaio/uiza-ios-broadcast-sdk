@@ -8,7 +8,6 @@
 
 import UIKit
 import LFLiveKit_
-import UZBroadcast
 
 struct TableItem {
 	var title: String
@@ -32,6 +31,7 @@ enum TableSectionType: String {
 class ViewController: UIViewController {
 	let tableView = UITableView(frame: .zero, style: .grouped)
 	let startButton = UIButton(type: .system)
+	let squareView = UIView()
 	
 	var sections: [TableSection] = [] {
 		didSet {
@@ -55,8 +55,12 @@ class ViewController: UIViewController {
 		
 		tableView.delegate = self
 		tableView.dataSource = self
+		
+		squareView.backgroundColor = .purple
+		
 		view.addSubview(tableView)
 		view.addSubview(startButton)
+		view.addSubview(squareView)
 		
 		updateValues()
 	}
@@ -67,11 +71,29 @@ class ViewController: UIViewController {
 		let buttonSize = CGSize(width: 120, height: 50)
 		startButton.frame = CGRect(x: 10, y: viewSize.height - buttonSize.height - 20, width: viewSize.width - 20, height: buttonSize.height)
 		tableView.frame = view.bounds.inset(by: UIEdgeInsets(top: 0, left: 0, bottom: buttonSize.height + 20, right: 0))
+		
+		let squareSize = CGSize(width: 100, height: 100)
+		squareView.frame = CGRect(x: (viewSize.width - squareSize.width)/2, y: viewSize.height - squareSize.height - buttonSize.height - 50, width: squareSize.width, height: squareSize.height)
+	}
+	
+	func startRotating() {
+		squareView.layer.removeAllAnimations()
+		let rotate = CABasicAnimation(keyPath: "transform.rotation.z")
+		rotate.duration = 3.0
+		rotate.toValue = NSNumber(value: Double.pi * 2)
+		rotate.repeatCount = .infinity
+		rotate.isRemovedOnCompletion = false
+		squareView.layer.add(rotate, forKey: "")
+	}
+	
+	func stopRotating() {
+		squareView.layer.removeAllAnimations()
 	}
 	
 	@objc func onStart() {
 		if #available(iOS 13.0, *) {
 			if UZScreenBroadcast.shared.isBroadcasting || startButton.isSelected {
+				stopRotating()
 				UZScreenBroadcast.shared.stopBroadcast()
 				startButton.isSelected = false
 				return
@@ -129,7 +151,7 @@ class ViewController: UIViewController {
 		let config = UZBroadcastConfig(cameraPosition: .front, videoResolution: videoResolution, videoBitrate: videoBitrate, videoFPS: videoFPS, audioBitrate: audioBitrate, audioSampleRate: audioSampleRate, adaptiveBitrate: true, autoRotate: false)
 		let broadcastViewController = MyBroadcastViewController()
 		broadcastViewController.prepareForBroadcast(config: config).delegate = self
-		//		broadcastViewController.session.beautyFace = true
+//		broadcastViewController.session.beautyFace = true
 		broadcastViewController.modalPresentationStyle = .fullScreen
 		
 		present(broadcastViewController, animated: false) {
@@ -139,6 +161,8 @@ class ViewController: UIViewController {
 	
 	@available(iOS 13.0, *)
 	func startScreenBroadcasting(url: URL, streamKey: String) {
+		startRotating()
+		
 		UserDefaults.standard.set(url.absoluteString, forKey: "lastUrl")
 		UserDefaults.standard.set(streamKey, forKey: "laststreamKey")
 		
@@ -147,7 +171,7 @@ class ViewController: UIViewController {
 		let broadcaster = UZScreenBroadcast.shared
 		broadcaster.prepareForBroadcast(config: config).delegate = self
 		broadcaster.isCameraEnabled = false
-		broadcaster.isMicrophoneEnabled = false
+		broadcaster.isMicrophoneEnabled = true
 		broadcaster.startBroadcast(broadcastURL: url, streamKey: streamKey)
 	}
 	

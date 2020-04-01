@@ -1,16 +1,16 @@
 PODS:
-  - LFLiveKit_ (2.7.10)
+  - LFLiveKit_ (2.8)
 
 DEPENDENCIES:
-  - LFLiveKit_ (~> 2.7.10)
+  - LFLiveKit_ (~> 2.8)
 
 SPEC REPOS:
   trunk:
     - LFLiveKit_
 
 SPEC CHECKSUMS:
-  LFLiveKit_: fa9c3bbf9a273737a8ceefde14d2eba727aac8d9
+  LFLiveKit_: 951114067e503271a6ac6906ba2747dc310fd812
 
-PODFILE CHECKSUM: 4e9fe2c5fe9081d832a23d4d10871fcf718e7328
+PODFILE CHECKSUM: 3849c9ac59cab5fd19c30966d26da678069b3f8f
 
 COCOAPODS: 1.9.1
