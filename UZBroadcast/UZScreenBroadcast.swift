@@ -66,26 +66,29 @@ public class UZScreenBroadcast {
 	let screenRecorder = RPScreenRecorder.shared()
 	
 	/// Current live session
-	lazy open var session: LFLiveSession = {
-		let audioConfiguration = LFLiveAudioConfiguration()
+	lazy var session: LFLiveSession = {
+		let audioConfiguration = LFLiveAudioConfiguration.defaultConfiguration(for: .veryHigh)!
 		audioConfiguration.audioBitrate = config.audioBitrate.toLFLiveAudioBitRate()
 		audioConfiguration.audioSampleRate = config.audioSampleRate.toLFLiveAudioSampleRate()
+		audioConfiguration.numberOfChannels = 2
 		
-		let videoConfiguration = LFLiveVideoConfiguration()
-		videoConfiguration.videoBitRate = config.videoBitrate.rawValue
-		videoConfiguration.videoMaxBitRate = config.videoBitrate.rawValue
-		videoConfiguration.videoMinBitRate = config.videoBitrate.rawValue/2
+		let orientation = config.orientation ?? UIApplication.shared.interfaceOrientation ?? .portrait
+		let videoConfiguration = LFLiveVideoConfiguration.defaultConfiguration(for: config.videoResolution.videoQuality, outputImageOrientation: orientation, encode: false)!
+		videoConfiguration.outputImageOrientation = orientation
+		videoConfiguration.sessionPreset = config.videoResolution.sessionPreset
 		videoConfiguration.videoFrameRate = config.videoFPS.rawValue
 		videoConfiguration.videoMaxFrameRate = config.videoFPS.rawValue
 		videoConfiguration.videoMinFrameRate = config.videoFPS.rawValue
-		videoConfiguration.videoMaxKeyframeInterval = config.videoFPS.rawValue * 2
+		videoConfiguration.videoBitRate = config.videoBitrate.rawValue
+		videoConfiguration.videoMaxBitRate = config.videoBitrate.rawValue
+		videoConfiguration.videoMinBitRate = config.videoBitrate.rawValue/2
 		videoConfiguration.videoSize = config.videoResolution.videoSize
-		videoConfiguration.sessionPreset = config.videoResolution.sessionPreset
-		videoConfiguration.outputImageOrientation = config.orientation ?? UIApplication.shared.interfaceOrientation ?? .portrait
+		videoConfiguration.videoMaxKeyframeInterval = config.videoFPS.rawValue * 2
 		videoConfiguration.autorotate = false
 		
-		let result = LFLiveSession(audioConfiguration: audioConfiguration, videoConfiguration: videoConfiguration, captureType: .inputMaskVideo)!
-		result.adaptiveBitrate = config.adaptiveBitrate
+		let result = LFLiveSession(audioConfiguration: audioConfiguration, videoConfiguration: videoConfiguration, captureType: .inputMaskAll)!
+//		result.adaptiveBitrate = config.adaptiveBitrate
+		
 		return result
 	}()
 	
@@ -95,14 +98,16 @@ public class UZScreenBroadcast {
 	Always call this first to prepare broadcasting with a configuration
 	- parameter config: Broadcast configuration
 	*/
-	public func prepareForBroadcast(withConfig config: UZBroadcastConfig) {
+	@discardableResult
+	public func prepareForBroadcast(config: UZBroadcastConfig) -> LFLiveSession {
 		self.config = config
+		return session
 	}
 	
 	/**
 	Start screen broadcasting
 	- parameter broadcastURL: `URL` of broadcast
-	- parameter streamKey: `id` of broadcast
+	- parameter streamKey: Stream Key
 	- parameter completionHandler: Block called when completed, returns `Error` if occured
 	*/
 	public func startBroadcast(broadcastURL: URL, streamKey: String, completionHandler: ((Error?) -> Void)? = nil) {
@@ -110,20 +115,17 @@ public class UZScreenBroadcast {
 		
 		let stream = LFLiveStreamInfo()
 		stream.url = broadcastURL.appendingPathComponent(streamKey).absoluteString
-		session.running = true
+//		session.running = true
 		session.startLive(stream)
 		
-		screenRecorder.cameraPosition = config.cameraPosition == .front ? .front : .back
-		screenRecorder.startCapture(handler: { [weak self] (sampleBuffer, bufferType, error) in
-			guard let `self` = self else { return }
-			if bufferType == .audioMic || bufferType == .audioApp {
-				if let data = try? sampleBuffer.dataBuffer?.dataBytes() {
-					self.session.pushAudio(data)
-				}
+//		screenRecorder.cameraPosition = config.cameraPosition == .front ? .front : .back
+		screenRecorder.isCameraEnabled = false
+		screenRecorder.startCapture(handler: { (sampleBuffer, bufferType, error) in
+//			guard let `self` = self else { return }
+			if let data = try? sampleBuffer.dataBuffer?.dataBytes() {
+				self.session.pushAudio(data)
 			}
-			else {
-				self.session.pushVideo(sampleBuffer.imageBuffer)
-			}
+			self.session.pushVideo(sampleBuffer.imageBuffer)
 		}, completionHandler: completionHandler)
 	}
 	
@@ -133,7 +135,7 @@ public class UZScreenBroadcast {
 	*/
 	public func stopBroadcast(handler: ((Error?) -> Void)? = nil) {
 		session.stopLive()
-		session.running = false
+//		session.running = false
 		screenRecorder.stopCapture(handler: handler)
 		isBroadcasting = false
 	}

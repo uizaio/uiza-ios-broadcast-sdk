@@ -19,14 +19,14 @@ open class UZBroadcastViewController: UIViewController {
 	/// Current broadcast configuration
 	public fileprivate(set) var config: UZBroadcastConfig!
 	/// Current live session
-	lazy open var session: LFLiveSession = {
+	lazy var session: LFLiveSession = {
 		let audioConfiguration = LFLiveAudioConfiguration.defaultConfiguration(for: .veryHigh)!
 		audioConfiguration.audioBitrate = config.audioBitrate.toLFLiveAudioBitRate()
 		audioConfiguration.audioSampleRate = config.audioSampleRate.toLFLiveAudioSampleRate()
 		audioConfiguration.numberOfChannels = 2
 		
 		let orientation = config.orientation ?? UIApplication.shared.interfaceOrientation ?? .portrait
-		let videoConfiguration = LFLiveVideoConfiguration.defaultConfiguration(for: config.videoResolution.videoQuality, outputImageOrientation: orientation, encode: false)!
+		let videoConfiguration = LFLiveVideoConfiguration.defaultConfiguration(for: .HD_720, outputImageOrientation: orientation, encode: false)!
 		videoConfiguration.outputImageOrientation = orientation
 		videoConfiguration.sessionPreset = config.videoResolution.sessionPreset
 		videoConfiguration.videoFrameRate = config.videoFPS.rawValue
@@ -108,8 +108,10 @@ open class UZBroadcastViewController: UIViewController {
 	Always call this first to prepare broadcasting with a configuration
 	- parameter config: Broadcast configuration
 	*/
-	public func prepareForBroadcast(withConfig config: UZBroadcastConfig) {
+	@discardableResult
+	public func prepareForBroadcast(config: UZBroadcastConfig) -> LFLiveSession {
 		self.config = config
+		return session
 	}
 	
 	/**
