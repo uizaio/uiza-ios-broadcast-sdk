@@ -42,6 +42,19 @@ public enum UZVideoResolution: CaseIterable {
 		}
 	}
 	
+	internal var videoQuality: LFLiveVideoQuality {
+		switch self {
+		case ._360:
+			return .SD_360
+		case ._480:
+			return .SD_480
+		case ._720:
+			return .HD_720
+		case ._1080:
+			return .fullHD_1080
+		}
+	}
+	
 	/// Convert to readable string
 	public func toString() -> String {
 		var result = ""
