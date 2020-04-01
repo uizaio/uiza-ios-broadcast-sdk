@@ -121,7 +121,6 @@ public class UZScreenBroadcast {
 //		screenRecorder.cameraPosition = config.cameraPosition == .front ? .front : .back
 		screenRecorder.isCameraEnabled = false
 		screenRecorder.startCapture(handler: { (sampleBuffer, bufferType, error) in
-//			guard let `self` = self else { return }
 			if let data = try? sampleBuffer.dataBuffer?.dataBytes() {
 				self.session.pushAudio(data)
 			}

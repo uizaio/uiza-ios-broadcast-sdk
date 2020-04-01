@@ -76,34 +76,36 @@ class ViewController: UIViewController {
 				startButton.isSelected = false
 				return
 			}
+		} else {
+			// Fallback on earlier versions
 		}
 		
 		let alertController = UIAlertController(title: "Start broadcast", message: "Please enter your broadcast URL", preferredStyle: .alert)
 		alertController.addTextField { (textField) in
-			textField.text = ""
-			textField.placeholder = "streamKey"
-			textField.keyboardType = .default
-			textField.returnKeyType = .next
-		}
-		alertController.addTextField { (textField) in
-			textField.text = ""
+			textField.text = UserDefaults.standard.string(forKey: "lastUrl")
 			textField.placeholder = "URL"
 			textField.keyboardType = .URL
 			textField.returnKeyType = .done
+		}
+		alertController.addTextField { (textField) in
+			textField.text = UserDefaults.standard.string(forKey: "laststreamKey")
+			textField.placeholder = "streamKey"
+			textField.keyboardType = .default
+			textField.returnKeyType = .next
 		}
 		alertController.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: { (action) in
 			alertController.dismiss(animated: true, completion: nil)
 		}))
 		alertController.addAction(UIAlertAction(title: "Start Livestream", style: .default, handler: { [weak self] (action) in
 			guard let textFields = alertController.textFields else { return }
-			guard let streamKey = textFields.first?.text, let url = URL(string: textFields.last?.text ?? "") else { return }
+			guard let url = URL(string: textFields.first?.text ?? ""), let streamKey = textFields.last?.text else { return }
 			self?.startBroadcasting(url: url, streamKey: streamKey)
 			alertController.dismiss(animated: true, completion: nil)
 		}))
 		if #available(iOS 13.0, *) {
 			alertController.addAction(UIAlertAction(title: "Screen Broadcast", style: .default, handler: { [weak self] (action) in
 				guard let textFields = alertController.textFields else { return }
-				guard let streamKey = textFields.first?.text, let url = URL(string: textFields.last?.text ?? "") else { return }
+				guard let url = URL(string: textFields.first?.text ?? ""), let streamKey = textFields.last?.text else { return }
 				self?.startScreenBroadcasting(url: url, streamKey: streamKey)
 				alertController.dismiss(animated: true, completion: nil)
 			}))
@@ -121,11 +123,13 @@ class ViewController: UIViewController {
 	}
 	
 	func startBroadcasting(url: URL, streamKey: String) {
-		let config = UZBroadcastConfig(cameraPosition: .front, videoResolution: videoResolution, videoBitrate: videoBitrate, videoFPS: videoFPS, audioBitrate: audioBitrate, audioSampleRate: audioSampleRate, adaptiveBitrate: false, autoRotate: false)
+		UserDefaults.standard.set(url.absoluteString, forKey: "lastUrl")
+		UserDefaults.standard.set(streamKey, forKey: "laststreamKey")
+		
+		let config = UZBroadcastConfig(cameraPosition: .front, videoResolution: videoResolution, videoBitrate: videoBitrate, videoFPS: videoFPS, audioBitrate: audioBitrate, audioSampleRate: audioSampleRate, adaptiveBitrate: true, autoRotate: false)
 		let broadcastViewController = MyBroadcastViewController()
-		broadcastViewController.prepareForBroadcast(withConfig: config)
-		broadcastViewController.session.beautyFace = true
-		broadcastViewController.session.delegate = self
+		broadcastViewController.prepareForBroadcast(config: config).delegate = self
+		//		broadcastViewController.session.beautyFace = true
 		broadcastViewController.modalPresentationStyle = .fullScreen
 		
 		present(broadcastViewController, animated: false) {
@@ -135,12 +139,15 @@ class ViewController: UIViewController {
 	
 	@available(iOS 13.0, *)
 	func startScreenBroadcasting(url: URL, streamKey: String) {
+		UserDefaults.standard.set(url.absoluteString, forKey: "lastUrl")
+		UserDefaults.standard.set(streamKey, forKey: "laststreamKey")
+		
 		startButton.isSelected = true
-		let config = UZBroadcastConfig(cameraPosition: .front, videoResolution: videoResolution, videoBitrate: videoBitrate, videoFPS: videoFPS, audioBitrate: audioBitrate, audioSampleRate: audioSampleRate, adaptiveBitrate: false, autoRotate: false)
+		let config = UZBroadcastConfig(cameraPosition: .back, videoResolution: videoResolution, videoBitrate: videoBitrate, videoFPS: videoFPS, audioBitrate: audioBitrate, audioSampleRate: audioSampleRate, adaptiveBitrate: true, autoRotate: false)
 		let broadcaster = UZScreenBroadcast.shared
-		broadcaster.prepareForBroadcast(withConfig: config)
-		broadcaster.session.delegate = self
-//		broadcaster.isMicrophoneEnabled = true
+		broadcaster.prepareForBroadcast(config: config).delegate = self
+		broadcaster.isCameraEnabled = false
+		broadcaster.isMicrophoneEnabled = false
 		broadcaster.startBroadcast(broadcastURL: url, streamKey: streamKey)
 	}
 	
