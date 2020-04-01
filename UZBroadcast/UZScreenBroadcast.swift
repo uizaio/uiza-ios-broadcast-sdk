@@ -84,7 +84,7 @@ public class UZScreenBroadcast {
 		videoConfiguration.outputImageOrientation = config.orientation ?? UIApplication.shared.interfaceOrientation ?? .portrait
 		videoConfiguration.autorotate = false
 		
-		let result = LFLiveSession(audioConfiguration: audioConfiguration, videoConfiguration: videoConfiguration, captureType: LFLiveCaptureTypeMask.inputMaskAll)!
+		let result = LFLiveSession(audioConfiguration: audioConfiguration, videoConfiguration: videoConfiguration, captureType: .inputMaskVideo)!
 		result.adaptiveBitrate = config.adaptiveBitrate
 		return result
 	}()
@@ -102,15 +102,15 @@ public class UZScreenBroadcast {
 	/**
 	Start screen broadcasting
 	- parameter broadcastURL: `URL` of broadcast
-	- parameter streamId: `id` of broadcast
+	- parameter streamKey: `id` of broadcast
 	- parameter completionHandler: Block called when completed, returns `Error` if occured
 	*/
-	public func startBroadcast(broadcastURL: URL, streamId: String, completionHandler: ((Error?) -> Void)? = nil) {
+	public func startBroadcast(broadcastURL: URL, streamKey: String, completionHandler: ((Error?) -> Void)? = nil) {
 		isBroadcasting = true
 		
 		let stream = LFLiveStreamInfo()
-		stream.streamId = streamId
-		stream.url = broadcastURL.absoluteString
+		stream.url = broadcastURL.appendingPathComponent(streamKey).absoluteString
+		session.running = true
 		session.startLive(stream)
 		
 		screenRecorder.cameraPosition = config.cameraPosition == .front ? .front : .back
@@ -133,6 +133,7 @@ public class UZScreenBroadcast {
 	*/
 	public func stopBroadcast(handler: ((Error?) -> Void)? = nil) {
 		session.stopLive()
+		session.running = false
 		screenRecorder.stopCapture(handler: handler)
 		isBroadcasting = false
 	}

@@ -39,6 +39,7 @@ open class UZBroadcastViewController: UIViewController {
 		
 		let result = LFLiveSession(audioConfiguration: audioConfiguration, videoConfiguration: videoConfiguration)!
 		result.adaptiveBitrate = config.adaptiveBitrate
+		result.captureDevicePosition = config.cameraPosition
 		result.beautyFace = false
 		result.preView = self.view
 		
@@ -107,21 +108,18 @@ open class UZBroadcastViewController: UIViewController {
 	*/
 	public func prepareForBroadcast(withConfig config: UZBroadcastConfig) {
 		self.config = config
-		requestAccessForVideo()
-		requestAccessForAudio()
 	}
 	
 	/**
 	Start broadcasting
 	- parameter broadcastURL: `URL` of broadcast
-	- parameter streamId: `id` of broadcast
+	- parameter streamKey: Stream Key
 	*/
-	public func startBroadcast(broadcastURL: URL, streamId: String) {
+	public func startBroadcast(broadcastURL: URL, streamKey: String) {
 		isBroadcasting = true
 		
 		let stream = LFLiveStreamInfo()
-		stream.streamId = streamId
-		stream.url = broadcastURL.absoluteString
+		stream.url = broadcastURL.appendingPathComponent(streamKey).absoluteString
 		session.startLive(stream)
 		
 		UIApplication.shared.isIdleTimerDisabled = true
@@ -146,6 +144,13 @@ open class UZBroadcastViewController: UIViewController {
 	open override func viewDidLoad() {
 		super.viewDidLoad()
 		view.backgroundColor = .black
+	}
+	
+	open override func viewDidAppear(_ animated: Bool) {
+		super.viewDidAppear(animated)
+		
+		requestAccessForVideo()
+		requestAccessForAudio()
 	}
 	
 	open override func viewWillDisappear(_ animated: Bool) {
