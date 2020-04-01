@@ -10,11 +10,13 @@ import UIKit
 import UZBroadcast
 
 class MyBroadcastViewController: UZBroadcastViewController {
-	let closeButton = UIButton(type: .close)
+	let closeButton = UIButton()
 
 	override func viewDidLoad() {
 		super.viewDidLoad()
 		
+		closeButton.titleLabel?.font = .monospacedDigitSystemFont(ofSize: 18, weight: .medium)
+		closeButton.setTitle("X", for: .normal)
 		closeButton.addTarget(self, action: #selector(askForClose), for: .touchUpInside)
 		closeButton.showsTouchWhenHighlighted = true
 		view.addSubview(closeButton)

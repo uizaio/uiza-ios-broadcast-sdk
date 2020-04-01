@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		2EA2870A396EAF9CEC60FDA3 /* Pods_UZBroadcast.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2B90979793F6CE1A79B51DF5 /* Pods_UZBroadcast.framework */; };
 		63402F45242C665A007CE911 /* UZBroadcastConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63402F44242C665A007CE911 /* UZBroadcastConfig.swift */; };
 		63FD92D0241D1385001B7A48 /* UZBroadcast.h in Headers */ = {isa = PBXBuildFile; fileRef = 63FD92CE241D1385001B7A48 /* UZBroadcast.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		63FD92D9241D16BC001B7A48 /* UZBroadcastViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63FD92D7241D16BC001B7A48 /* UZBroadcastViewController.swift */; };
@@ -17,12 +16,13 @@
 		63FD93242420CE11001B7A48 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 63FD93222420CE11001B7A48 /* LaunchScreen.storyboard */; };
 		63FD9372242370DA001B7A48 /* MyBroadcastViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63FD9371242370DA001B7A48 /* MyBroadcastViewController.swift */; };
 		63FD93B82425D88E001B7A48 /* UZScreenBroadcast.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63FD93B72425D88E001B7A48 /* UZScreenBroadcast.swift */; };
-		77C88544FDAE1C15B5EBF55A /* Pods_UZBroadcastExample.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 48E7279FBA9B59EB85E1A18A /* Pods_UZBroadcastExample.framework */; };
+		6F410F4BDDF76C416744CF9C /* Pods_UZBroadcastExample.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7AACF0E2D1A23C4CAF61754E /* Pods_UZBroadcastExample.framework */; };
+		88650A111318E0EAFE2B03C4 /* Pods_UZBroadcast.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7F22045D15E0F4E20E421A59 /* Pods_UZBroadcast.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		2B90979793F6CE1A79B51DF5 /* Pods_UZBroadcast.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_UZBroadcast.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		48E7279FBA9B59EB85E1A18A /* Pods_UZBroadcastExample.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_UZBroadcastExample.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		153890FEF1590834973FCD5D /* Pods-UZBroadcastExample.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-UZBroadcastExample.debug.xcconfig"; path = "Target Support Files/Pods-UZBroadcastExample/Pods-UZBroadcastExample.debug.xcconfig"; sourceTree = "<group>"; };
+		5262A919F12C6B16B568ED1E /* Pods-UZBroadcast.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-UZBroadcast.release.xcconfig"; path = "Target Support Files/Pods-UZBroadcast/Pods-UZBroadcast.release.xcconfig"; sourceTree = "<group>"; };
 		63402F44242C665A007CE911 /* UZBroadcastConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UZBroadcastConfig.swift; sourceTree = "<group>"; };
 		63FD92CB241D1385001B7A48 /* UZBroadcast.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = UZBroadcast.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		63FD92CE241D1385001B7A48 /* UZBroadcast.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UZBroadcast.h; sourceTree = "<group>"; };
@@ -35,10 +35,10 @@
 		63FD93252420CE11001B7A48 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		63FD9371242370DA001B7A48 /* MyBroadcastViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyBroadcastViewController.swift; sourceTree = "<group>"; };
 		63FD93B72425D88E001B7A48 /* UZScreenBroadcast.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UZScreenBroadcast.swift; sourceTree = "<group>"; };
-		87E046416966BC86FCB398BE /* Pods-UZBroadcast.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-UZBroadcast.release.xcconfig"; path = "Target Support Files/Pods-UZBroadcast/Pods-UZBroadcast.release.xcconfig"; sourceTree = "<group>"; };
-		A7E0FA21E7088E35E7B64C9F /* Pods-UZBroadcastExample.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-UZBroadcastExample.release.xcconfig"; path = "Target Support Files/Pods-UZBroadcastExample/Pods-UZBroadcastExample.release.xcconfig"; sourceTree = "<group>"; };
-		CFC2124B0624F960EDB1218B /* Pods-UZBroadcastExample.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-UZBroadcastExample.debug.xcconfig"; path = "Target Support Files/Pods-UZBroadcastExample/Pods-UZBroadcastExample.debug.xcconfig"; sourceTree = "<group>"; };
-		F5600B6008AAF738505E7B71 /* Pods-UZBroadcast.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-UZBroadcast.debug.xcconfig"; path = "Target Support Files/Pods-UZBroadcast/Pods-UZBroadcast.debug.xcconfig"; sourceTree = "<group>"; };
+		7AACF0E2D1A23C4CAF61754E /* Pods_UZBroadcastExample.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_UZBroadcastExample.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		7F22045D15E0F4E20E421A59 /* Pods_UZBroadcast.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_UZBroadcast.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		D101BA43672DF05BA0F00448 /* Pods-UZBroadcast.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-UZBroadcast.debug.xcconfig"; path = "Target Support Files/Pods-UZBroadcast/Pods-UZBroadcast.debug.xcconfig"; sourceTree = "<group>"; };
+		D899639E3BCA44ED51099ED2 /* Pods-UZBroadcastExample.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-UZBroadcastExample.release.xcconfig"; path = "Target Support Files/Pods-UZBroadcastExample/Pods-UZBroadcastExample.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -46,7 +46,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2EA2870A396EAF9CEC60FDA3 /* Pods_UZBroadcast.framework in Frameworks */,
+				88650A111318E0EAFE2B03C4 /* Pods_UZBroadcast.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -54,29 +54,20 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				77C88544FDAE1C15B5EBF55A /* Pods_UZBroadcastExample.framework in Frameworks */,
+				6F410F4BDDF76C416744CF9C /* Pods_UZBroadcastExample.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		02DFB5939774D3B9099EF509 /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				2B90979793F6CE1A79B51DF5 /* Pods_UZBroadcast.framework */,
-				48E7279FBA9B59EB85E1A18A /* Pods_UZBroadcastExample.framework */,
-			);
-			name = Frameworks;
-			sourceTree = "<group>";
-		};
 		5B3EB2491822F118BD363CC5 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				F5600B6008AAF738505E7B71 /* Pods-UZBroadcast.debug.xcconfig */,
-				87E046416966BC86FCB398BE /* Pods-UZBroadcast.release.xcconfig */,
-				CFC2124B0624F960EDB1218B /* Pods-UZBroadcastExample.debug.xcconfig */,
-				A7E0FA21E7088E35E7B64C9F /* Pods-UZBroadcastExample.release.xcconfig */,
+				D101BA43672DF05BA0F00448 /* Pods-UZBroadcast.debug.xcconfig */,
+				5262A919F12C6B16B568ED1E /* Pods-UZBroadcast.release.xcconfig */,
+				153890FEF1590834973FCD5D /* Pods-UZBroadcastExample.debug.xcconfig */,
+				D899639E3BCA44ED51099ED2 /* Pods-UZBroadcastExample.release.xcconfig */,
 			);
 			path = Pods;
 			sourceTree = "<group>";
@@ -88,7 +79,7 @@
 				63FD93162420CE0F001B7A48 /* UZBroadcastExample */,
 				63FD92CC241D1385001B7A48 /* Products */,
 				5B3EB2491822F118BD363CC5 /* Pods */,
-				02DFB5939774D3B9099EF509 /* Frameworks */,
+				7EF3BF40EB186D2D74412CB1 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -125,6 +116,15 @@
 			path = UZBroadcastExample;
 			sourceTree = "<group>";
 		};
+		7EF3BF40EB186D2D74412CB1 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				7F22045D15E0F4E20E421A59 /* Pods_UZBroadcast.framework */,
+				7AACF0E2D1A23C4CAF61754E /* Pods_UZBroadcastExample.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
@@ -143,7 +143,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 63FD92D3241D1385001B7A48 /* Build configuration list for PBXNativeTarget "UZBroadcast" */;
 			buildPhases = (
-				CC99CFD77B85FD14D3A8808A /* [CP] Check Pods Manifest.lock */,
+				959373712341FD5F551E98E6 /* [CP] Check Pods Manifest.lock */,
 				63FD92C6241D1385001B7A48 /* Headers */,
 				63FD92C7241D1385001B7A48 /* Sources */,
 				63FD92C8241D1385001B7A48 /* Frameworks */,
@@ -162,11 +162,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 63FD93262420CE11001B7A48 /* Build configuration list for PBXNativeTarget "UZBroadcastExample" */;
 			buildPhases = (
-				6F94BCFB23330AB693627B5F /* [CP] Check Pods Manifest.lock */,
+				A651E06336944DFE011C413F /* [CP] Check Pods Manifest.lock */,
 				63FD93112420CE0F001B7A48 /* Sources */,
 				63FD93122420CE0F001B7A48 /* Frameworks */,
 				63FD93132420CE0F001B7A48 /* Resources */,
-				8A7D4C1AFE9A68A4491146D8 /* [CP] Embed Pods Frameworks */,
+				BECA6902B9C10EA3B9F7D589 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -235,7 +235,29 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		6F94BCFB23330AB693627B5F /* [CP] Check Pods Manifest.lock */ = {
+		959373712341FD5F551E98E6 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-UZBroadcast-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		A651E06336944DFE011C413F /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -257,7 +279,7 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		8A7D4C1AFE9A68A4491146D8 /* [CP] Embed Pods Frameworks */ = {
+		BECA6902B9C10EA3B9F7D589 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -272,28 +294,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-UZBroadcastExample/Pods-UZBroadcastExample-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		CC99CFD77B85FD14D3A8808A /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-UZBroadcast-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -455,7 +455,7 @@
 		};
 		63FD92D4241D1385001B7A48 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = F5600B6008AAF738505E7B71 /* Pods-UZBroadcast.debug.xcconfig */;
+			baseConfigurationReference = D101BA43672DF05BA0F00448 /* Pods-UZBroadcast.debug.xcconfig */;
 			buildSettings = {
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
@@ -466,6 +466,7 @@
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				INFOPLIST_FILE = "";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -483,7 +484,7 @@
 		};
 		63FD92D5241D1385001B7A48 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 87E046416966BC86FCB398BE /* Pods-UZBroadcast.release.xcconfig */;
+			baseConfigurationReference = 5262A919F12C6B16B568ED1E /* Pods-UZBroadcast.release.xcconfig */;
 			buildSettings = {
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
@@ -494,6 +495,7 @@
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				INFOPLIST_FILE = "";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -510,12 +512,13 @@
 		};
 		63FD93272420CE11001B7A48 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = CFC2124B0624F960EDB1218B /* Pods-UZBroadcastExample.debug.xcconfig */;
+			baseConfigurationReference = 153890FEF1590834973FCD5D /* Pods-UZBroadcastExample.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 385YL4KG69;
 				INFOPLIST_FILE = UZBroadcastExample/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -529,12 +532,13 @@
 		};
 		63FD93282420CE11001B7A48 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = A7E0FA21E7088E35E7B64C9F /* Pods-UZBroadcastExample.release.xcconfig */;
+			baseConfigurationReference = D899639E3BCA44ED51099ED2 /* Pods-UZBroadcastExample.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 385YL4KG69;
 				INFOPLIST_FILE = UZBroadcastExample/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

@@ -70,16 +70,18 @@ class ViewController: UIViewController {
 	}
 	
 	@objc func onStart() {
-		if UZScreenBroadcast.shared.isBroadcasting || startButton.isSelected {
-			UZScreenBroadcast.shared.stopBroadcast()
-			startButton.isSelected = false
-			return
+		if #available(iOS 13.0, *) {
+			if UZScreenBroadcast.shared.isBroadcasting || startButton.isSelected {
+				UZScreenBroadcast.shared.stopBroadcast()
+				startButton.isSelected = false
+				return
+			}
 		}
 		
 		let alertController = UIAlertController(title: "Start broadcast", message: "Please enter your broadcast URL", preferredStyle: .alert)
 		alertController.addTextField { (textField) in
 			textField.text = ""
-			textField.placeholder = "streamId"
+			textField.placeholder = "streamKey"
 			textField.keyboardType = .default
 			textField.returnKeyType = .next
 		}
@@ -94,16 +96,18 @@ class ViewController: UIViewController {
 		}))
 		alertController.addAction(UIAlertAction(title: "Start Livestream", style: .default, handler: { [weak self] (action) in
 			guard let textFields = alertController.textFields else { return }
-			guard let streamId = textFields.first?.text, let url = URL(string: textFields.last?.text ?? "") else { return }
-			self?.startBroadcasting(url: url, streamId: streamId)
+			guard let streamKey = textFields.first?.text, let url = URL(string: textFields.last?.text ?? "") else { return }
+			self?.startBroadcasting(url: url, streamKey: streamKey)
 			alertController.dismiss(animated: true, completion: nil)
 		}))
-		alertController.addAction(UIAlertAction(title: "Screen Broadcast", style: .default, handler: { [weak self] (action) in
-			guard let textFields = alertController.textFields else { return }
-			guard let streamId = textFields.first?.text, let url = URL(string: textFields.last?.text ?? "") else { return }
-			self?.startScreenBroadcasting(url: url, streamId: streamId)
-			alertController.dismiss(animated: true, completion: nil)
-		}))
+		if #available(iOS 13.0, *) {
+			alertController.addAction(UIAlertAction(title: "Screen Broadcast", style: .default, handler: { [weak self] (action) in
+				guard let textFields = alertController.textFields else { return }
+				guard let streamKey = textFields.first?.text, let url = URL(string: textFields.last?.text ?? "") else { return }
+				self?.startScreenBroadcasting(url: url, streamKey: streamKey)
+				alertController.dismiss(animated: true, completion: nil)
+			}))
+		}
 		present(alertController, animated: true, completion: nil)
 	}
 	
@@ -116,7 +120,7 @@ class ViewController: UIViewController {
 														 TableItem(title: TableSectionType.audioSampleRate.rawValue, value: audioSampleRate.toString(), options: UZAudioSampleRate.allCases.compactMap({ return $0.toString() }))])]
 	}
 	
-	func startBroadcasting(url: URL, streamId: String) {
+	func startBroadcasting(url: URL, streamKey: String) {
 		let config = UZBroadcastConfig(cameraPosition: .front, videoResolution: videoResolution, videoBitrate: videoBitrate, videoFPS: videoFPS, audioBitrate: audioBitrate, audioSampleRate: audioSampleRate, adaptiveBitrate: false, autoRotate: false)
 		let broadcastViewController = MyBroadcastViewController()
 		broadcastViewController.prepareForBroadcast(withConfig: config)
@@ -125,18 +129,19 @@ class ViewController: UIViewController {
 		broadcastViewController.modalPresentationStyle = .fullScreen
 		
 		present(broadcastViewController, animated: false) {
-			broadcastViewController.startBroadcast(broadcastURL: url, streamId: streamId)
+			broadcastViewController.startBroadcast(broadcastURL: url, streamKey: streamKey)
 		}
 	}
 	
-	func startScreenBroadcasting(url: URL, streamId: String) {
+	@available(iOS 13.0, *)
+	func startScreenBroadcasting(url: URL, streamKey: String) {
 		startButton.isSelected = true
 		let config = UZBroadcastConfig(cameraPosition: .front, videoResolution: videoResolution, videoBitrate: videoBitrate, videoFPS: videoFPS, audioBitrate: audioBitrate, audioSampleRate: audioSampleRate, adaptiveBitrate: false, autoRotate: false)
 		let broadcaster = UZScreenBroadcast.shared
 		broadcaster.prepareForBroadcast(withConfig: config)
 		broadcaster.session.delegate = self
-		broadcaster.isMicrophoneEnabled = true
-		broadcaster.startBroadcast(broadcastURL: url, streamId: streamId)
+//		broadcaster.isMicrophoneEnabled = true
+		broadcaster.startBroadcast(broadcastURL: url, streamKey: streamKey)
 	}
 	
 	func switchValue(index: Int, for option: TableItem) {
