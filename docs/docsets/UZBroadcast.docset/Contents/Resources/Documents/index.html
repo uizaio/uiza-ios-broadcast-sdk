@@ -13,7 +13,7 @@
     <a title="UZBroadcast  Reference"></a>
     <header>
       <div class="content-wrapper">
-        <p><a href="index.html">UZBroadcast Docs</a> (32% documented)</p>
+        <p><a href="index.html">UZBroadcast Docs</a> (30% documented)</p>
       </div>
     </header>
     <div class="content-wrapper">
@@ -81,12 +81,7 @@
             
             <h1 id='uzbroadcast' class='heading'>UZBroadcast</h1>
 
-<!-- [![CI Status](http://img.shields.io/travis/uizaio/UZBroadcast.svg?style=flat)](https://travis-ci.org/uizaio/UZBroadcast) -->
-
-<p><a href="http://cocoapods.org/pods/UZBroadcast"><img src="https://img.shields.io/cocoapods/v/UZBroadcast.svg?style=flat" alt="Version"></a>
-<a href="http://cocoapods.org/pods/UZBroadcast"><img src="https://img.shields.io/cocoapods/l/UZBroadcast.svg?style=flat" alt="License"></a>
-<a href="http://cocoapods.org/pods/UZBroadcast"><img src="https://img.shields.io/cocoapods/p/UZBroadcast.svg?style=flat" alt="Platform"></a>
-<img src="https://img.shields.io/badge/%20in-swift%205.0-orange.svg" alt="Swift"></p>
+<p><img src="https://img.shields.io/badge/%20in-swift%205.0-orange.svg" alt="Swift"></p>
 
 <p>UZBroadcast is a framework helps you to broadcast livestream</p>
 <h2 id='compatibility' class='heading'>Compatibility</h2>
@@ -105,18 +100,18 @@
 <h2 id='livestream' class='heading'>Livestream</h2>
 <pre class="highlight swift"><code><span class="k">let</span> <span class="nv">broadcaster</span> <span class="o">=</span> <span class="kt">UZBroadcastViewController</span><span class="p">()</span>
 <span class="k">let</span> <span class="nv">config</span> <span class="o">=</span> <span class="kt">UZBroadcastConfig</span><span class="p">(</span><span class="nv">cameraPosition</span><span class="p">:</span> <span class="o">.</span><span class="n">front</span><span class="p">,</span> <span class="nv">videoResolution</span><span class="p">:</span> <span class="o">.</span><span class="n">_720</span><span class="p">,</span> <span class="nv">videoBitrate</span><span class="p">:</span> <span class="o">.</span><span class="n">_3000</span><span class="p">,</span> <span class="nv">videoFPS</span><span class="p">:</span> <span class="o">.</span><span class="n">_30</span><span class="p">,</span> <span class="nv">audioBitrate</span><span class="p">:</span> <span class="o">.</span><span class="n">_128Kbps</span><span class="p">,</span> <span class="nv">audioSampleRate</span><span class="p">:</span> <span class="o">.</span><span class="n">_44_1khz</span><span class="p">,</span> <span class="nv">adaptiveBitrate</span><span class="p">:</span> <span class="kc">true</span><span class="p">)</span>
-<span class="n">broadcaster</span><span class="o">.</span><span class="nf">prepareForBroadcast</span><span class="p">(</span><span class="nv">withConfig</span><span class="p">:</span> <span class="n">config</span><span class="p">)</span>
+<span class="n">broadcaster</span><span class="o">.</span><span class="nf">prepareForBroadcast</span><span class="p">(</span><span class="nv">config</span><span class="p">:</span> <span class="n">config</span><span class="p">)</span>
 <span class="c1">//...</span>
-<span class="n">broadcaster</span><span class="o">.</span><span class="nf">startBroadcast</span><span class="p">(</span><span class="nv">broadcastURL</span><span class="p">:</span> <span class="kt">BROADCAST_URL</span><span class="p">)</span>
+<span class="n">broadcaster</span><span class="o">.</span><span class="nf">startBroadcast</span><span class="p">(</span><span class="nv">broadcastURL</span><span class="p">:</span> <span class="kt">BROADCAST_URL</span><span class="p">,</span> <span class="nv">streamKey</span><span class="p">:</span> <span class="kt">STREAM_KEY</span><span class="p">)</span>
 <span class="nf">present</span><span class="p">(</span><span class="n">broadcaster</span><span class="p">,</span> <span class="nv">animated</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span> <span class="nv">completion</span><span class="p">:</span> <span class="kc">nil</span><span class="p">)</span>
 </code></pre>
 <h2 id='screen-broadcast' class='heading'>Screen broadcast</h2>
 <pre class="highlight swift"><code><span class="k">let</span> <span class="nv">broadcaster</span> <span class="o">=</span> <span class="kt">UZScreenBroadcast</span><span class="o">.</span><span class="n">shared</span>
 <span class="k">let</span> <span class="nv">config</span> <span class="o">=</span> <span class="kt">UZBroadcastConfig</span><span class="p">(</span><span class="nv">cameraPosition</span><span class="p">:</span> <span class="o">.</span><span class="n">front</span><span class="p">,</span> <span class="nv">videoResolution</span><span class="p">:</span> <span class="o">.</span><span class="n">_720</span><span class="p">,</span> <span class="nv">videoBitrate</span><span class="p">:</span> <span class="o">.</span><span class="n">_3000</span><span class="p">,</span> <span class="nv">videoFPS</span><span class="p">:</span> <span class="o">.</span><span class="n">_30</span><span class="p">,</span> <span class="nv">audioBitrate</span><span class="p">:</span> <span class="o">.</span><span class="n">_128Kbps</span><span class="p">,</span> <span class="nv">audioSampleRate</span><span class="p">:</span> <span class="o">.</span><span class="n">_44_1khz</span><span class="p">,</span> <span class="nv">adaptiveBitrate</span><span class="p">:</span> <span class="kc">true</span><span class="p">)</span>
-<span class="n">broadcaster</span><span class="o">.</span><span class="nf">prepareForBroadcast</span><span class="p">(</span><span class="nv">withConfig</span><span class="p">:</span> <span class="n">config</span><span class="p">)</span><span class="n">s</span>
-<span class="n">broadcaster</span><span class="o">.</span><span class="n">isMicrophoneEnabled</span> <span class="o">=</span> <span class="kc">true</span>
+<span class="n">broadcaster</span><span class="o">.</span><span class="nf">prepareForBroadcast</span><span class="p">(</span><span class="nv">config</span><span class="p">:</span> <span class="n">config</span><span class="p">)</span>
+<span class="c1">//broadcaster.isMicrophoneEnabled = true</span>
 <span class="c1">//broadcaster.isCameraEnabled = true</span>
-<span class="n">broadcaster</span><span class="o">.</span><span class="nf">startBroadcast</span><span class="p">(</span><span class="nv">broadcastURL</span><span class="p">:</span> <span class="kt">BROADCAST_URL</span><span class="p">)</span>
+<span class="n">broadcaster</span><span class="o">.</span><span class="nf">startBroadcast</span><span class="p">(</span><span class="nv">broadcastURL</span><span class="p">:</span> <span class="kt">BROADCAST_URL</span><span class="p">,</span> <span class="nv">streamKey</span><span class="p">:</span> <span class="kt">STREAM_KEY</span><span class="p">)</span>
 </code></pre>
 
 <p>Remember to add these usage description keys into <code>Info.plist</code> file:</p>
@@ -125,6 +120,9 @@
 <span class="nt">&lt;key&gt;</span>NSMicrophoneUsageDescription<span class="nt">&lt;/key&gt;</span>
 <span class="nt">&lt;string&gt;</span>App needs access to microphone for broadcasting<span class="nt">&lt;/string&gt;</span>
 </code></pre>
+<h2 id='reference' class='heading'>Reference</h2>
+
+<p><a href="https://uizaio.github.io/uiza-ios-broadcast-sdk/">API Reference</a></p>
 <h2 id='support' class='heading'>Support</h2>
 
 <p><a href="mailto:namnh@uiza.io">namnh@uiza.io</a></p>
@@ -135,7 +133,7 @@
           </section>
         </section>
         <section id="footer">
-          <p>&copy; 2020 <a class="link" href="https://uiza.io/" target="_blank" rel="external">Uiza</a>. All rights reserved. (Last updated: 2020-03-26)</p>
+          <p>&copy; 2020 <a class="link" href="https://uiza.io/" target="_blank" rel="external">Uiza</a>. All rights reserved. (Last updated: 2020-04-01)</p>
           <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.13.1</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
         </section>
       </article>

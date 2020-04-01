@@ -67,11 +67,23 @@ public class UZScreenBroadcast {
 	
 	/// Current live session
 	lazy var session: LFLiveSession = {
-		let audioConfiguration = LFLiveAudioConfiguration.defaultConfiguration(for: .high)!
-		audioConfiguration.numberOfChannels = 1
+		let audioConfiguration = LFLiveAudioConfiguration.defaultConfiguration(for: .veryHigh)!
+		audioConfiguration.audioBitrate = config.audioBitrate.toLFLiveAudioBitRate()
+		audioConfiguration.audioSampleRate = config.audioSampleRate.toLFLiveAudioSampleRate()
+		audioConfiguration.numberOfChannels = 2
 		
 		let orientation = config.orientation ?? UIApplication.shared.interfaceOrientation ?? .portrait
-		let videoConfiguration = LFLiveVideoConfiguration.defaultConfiguration(for: .HD_720, outputImageOrientation: orientation, encode: false)!
+		let videoConfiguration = LFLiveVideoConfiguration.defaultConfiguration(for: config.videoResolution.videoQuality, outputImageOrientation: orientation, encode: false)!
+		videoConfiguration.outputImageOrientation = orientation
+		videoConfiguration.sessionPreset = config.videoResolution.sessionPreset
+		videoConfiguration.videoFrameRate = config.videoFPS.rawValue
+		videoConfiguration.videoMaxFrameRate = config.videoFPS.rawValue
+		videoConfiguration.videoMinFrameRate = config.videoFPS.rawValue
+		videoConfiguration.videoBitRate = config.videoBitrate.rawValue
+		videoConfiguration.videoMaxBitRate = config.videoBitrate.rawValue
+		videoConfiguration.videoMinBitRate = config.videoBitrate.rawValue/2
+		videoConfiguration.videoSize = config.videoResolution.videoSize
+		videoConfiguration.videoMaxKeyframeInterval = config.videoFPS.rawValue * 2
 		videoConfiguration.autorotate = true
 		
 		let result = LFLiveSession(audioConfiguration: audioConfiguration, videoConfiguration: videoConfiguration, captureType: .inputMaskAll)!

@@ -26,9 +26,9 @@ $ pod install
 ```swift
 let broadcaster = UZBroadcastViewController()
 let config = UZBroadcastConfig(cameraPosition: .front, videoResolution: ._720, videoBitrate: ._3000, videoFPS: ._30, audioBitrate: ._128Kbps, audioSampleRate: ._44_1khz, adaptiveBitrate: true)
-broadcaster.prepareForBroadcast(withConfig: config)
+broadcaster.prepareForBroadcast(config: config)
 //...
-broadcaster.startBroadcast(broadcastURL: BROADCAST_URL)
+broadcaster.startBroadcast(broadcastURL: BROADCAST_URL, streamKey: STREAM_KEY)
 present(broadcaster, animated: true, completion: nil)
 ```
 
@@ -37,10 +37,10 @@ present(broadcaster, animated: true, completion: nil)
 ```swift
 let broadcaster = UZScreenBroadcast.shared
 let config = UZBroadcastConfig(cameraPosition: .front, videoResolution: ._720, videoBitrate: ._3000, videoFPS: ._30, audioBitrate: ._128Kbps, audioSampleRate: ._44_1khz, adaptiveBitrate: true)
-broadcaster.prepareForBroadcast(withConfig: config)s
-broadcaster.isMicrophoneEnabled = true
+broadcaster.prepareForBroadcast(config: config)
+//broadcaster.isMicrophoneEnabled = true
 //broadcaster.isCameraEnabled = true
-broadcaster.startBroadcast(broadcastURL: BROADCAST_URL)
+broadcaster.startBroadcast(broadcastURL: BROADCAST_URL, streamKey: STREAM_KEY)
 ```
 
 Remember to add these usage description keys into `Info.plist` file:

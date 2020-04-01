@@ -171,7 +171,7 @@ class ViewController: UIViewController {
 		let broadcaster = UZScreenBroadcast.shared
 		broadcaster.prepareForBroadcast(config: config).delegate = self
 		broadcaster.isCameraEnabled = false
-		broadcaster.isMicrophoneEnabled = true
+		broadcaster.isMicrophoneEnabled = false
 		broadcaster.startBroadcast(broadcastURL: url, streamKey: streamKey)
 	}
 	

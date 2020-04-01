@@ -14,7 +14,7 @@
     <a title="UZBroadcastViewController Class Reference"></a>
     <header>
       <div class="content-wrapper">
-        <p><a href="../index.html">UZBroadcast Docs</a> (32% documented)</p>
+        <p><a href="../index.html">UZBroadcast Docs</a> (30% documented)</p>
       </div>
     </header>
     <div class="content-wrapper">
@@ -140,33 +140,6 @@
                         <div class="language">
                           <p class="aside-title">Swift</p>
                           <pre class="highlight swift"><code><span class="kd">public</span> <span class="nf">fileprivate</span><span class="p">(</span><span class="k">set</span><span class="p">)</span> <span class="k">var</span> <span class="nv">config</span><span class="p">:</span> <span class="kt"><a href="../Structs/UZBroadcastConfig.html">UZBroadcastConfig</a></span><span class="o">!</span> <span class="p">{</span> <span class="k">get</span> <span class="p">}</span></code></pre>
-
-                        </div>
-                      </div>
-                    </section>
-                  </div>
-                </li>
-                <li class="item">
-                  <div>
-                    <code>
-                    <a name="/s:11UZBroadcast0A14ViewControllerC7sessionXevp"></a>
-                    <a name="//apple_ref/swift/Property/session" class="dashAnchor"></a>
-                    <a class="token" href="#/s:11UZBroadcast0A14ViewControllerC7sessionXevp">session</a>
-                    </code>
-                  </div>
-                  <div class="height-container">
-                    <div class="pointer-container"></div>
-                    <section class="section">
-                      <div class="pointer"></div>
-                      <div class="abstract">
-                        <p>Current live session</p>
-
-                      </div>
-                      <div class="declaration">
-                        <h4>Declaration</h4>
-                        <div class="language">
-                          <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">lazy</span> <span class="kd">open</span> <span class="k">var</span> <span class="nv">session</span><span class="p">:</span> <span class="kt">LFLiveSession</span> <span class="p">{</span> <span class="k">get</span> <span class="k">set</span> <span class="p">}</span></code></pre>
 
                         </div>
                       </div>
@@ -338,9 +311,9 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:11UZBroadcast0A14ViewControllerC19prepareForBroadcast10withConfigyAA0aH0V_tF"></a>
-                    <a name="//apple_ref/swift/Method/prepareForBroadcast(withConfig:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:11UZBroadcast0A14ViewControllerC19prepareForBroadcast10withConfigyAA0aH0V_tF">prepareForBroadcast(withConfig:)</a>
+                    <a name="/s:11UZBroadcast0A14ViewControllerC19prepareForBroadcastyXeXeF"></a>
+                    <a name="//apple_ref/swift/Method/prepareForBroadcast(config:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:11UZBroadcast0A14ViewControllerC19prepareForBroadcastyXeXeF">prepareForBroadcast(config:)</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -355,7 +328,8 @@
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">prepareForBroadcast</span><span class="p">(</span><span class="n">withConfig</span> <span class="nv">config</span><span class="p">:</span> <span class="kt"><a href="../Structs/UZBroadcastConfig.html">UZBroadcastConfig</a></span><span class="p">)</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">@discardableResult</span>
+<span class="kd">public</span> <span class="kd">func</span> <span class="nf">prepareForBroadcast</span><span class="p">(</span><span class="nv">config</span><span class="p">:</span> <span class="kt"><a href="../Structs/UZBroadcastConfig.html">UZBroadcastConfig</a></span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">LFLiveSession</span></code></pre>
 
                         </div>
                       </div>
@@ -384,9 +358,9 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:11UZBroadcast0A14ViewControllerC14startBroadcast12broadcastURL8streamIdy10Foundation0G0V_SStF"></a>
-                    <a name="//apple_ref/swift/Method/startBroadcast(broadcastURL:streamId:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:11UZBroadcast0A14ViewControllerC14startBroadcast12broadcastURL8streamIdy10Foundation0G0V_SStF">startBroadcast(broadcastURL:streamId:)</a>
+                    <a name="/s:11UZBroadcast0A14ViewControllerC14startBroadcast12broadcastURL9streamKeyy10Foundation0G0V_SStF"></a>
+                    <a name="//apple_ref/swift/Method/startBroadcast(broadcastURL:streamKey:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:11UZBroadcast0A14ViewControllerC14startBroadcast12broadcastURL9streamKeyy10Foundation0G0V_SStF">startBroadcast(broadcastURL:streamKey:)</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -401,7 +375,7 @@
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">startBroadcast</span><span class="p">(</span><span class="nv">broadcastURL</span><span class="p">:</span> <span class="kt">URL</span><span class="p">,</span> <span class="nv">streamId</span><span class="p">:</span> <span class="kt">String</span><span class="p">)</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">startBroadcast</span><span class="p">(</span><span class="nv">broadcastURL</span><span class="p">:</span> <span class="kt">URL</span><span class="p">,</span> <span class="nv">streamKey</span><span class="p">:</span> <span class="kt">String</span><span class="p">)</span></code></pre>
 
                         </div>
                       </div>
@@ -424,12 +398,12 @@
                             <tr>
                               <td>
                                 <code>
-                                <em>streamId</em>
+                                <em>streamKey</em>
                                 </code>
                               </td>
                               <td>
                                 <div>
-                                  <p><code>id</code> of broadcast</p>
+                                  <p>Stream Key</p>
                                 </div>
                               </td>
                             </tr>
@@ -496,6 +470,33 @@
                 <li class="item">
                   <div>
                     <code>
+                    <a name="/c:@M@UZBroadcast@objc(cs)UZBroadcastViewController(im)viewDidAppear:"></a>
+                    <a name="//apple_ref/swift/Method/viewDidAppear(_:)" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@M@UZBroadcast@objc(cs)UZBroadcastViewController(im)viewDidAppear:">viewDidAppear(_:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">open</span> <span class="k">override</span> <span class="kd">func</span> <span class="nf">viewDidAppear</span><span class="p">(</span><span class="n">_</span> <span class="nv">animated</span><span class="p">:</span> <span class="kt">Bool</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
                     <a name="/c:@M@UZBroadcast@objc(cs)UZBroadcastViewController(im)viewWillDisappear:"></a>
                     <a name="//apple_ref/swift/Method/viewWillDisappear(_:)" class="dashAnchor"></a>
                     <a class="token" href="#/c:@M@UZBroadcast@objc(cs)UZBroadcastViewController(im)viewWillDisappear:">viewWillDisappear(_:)</a>
@@ -525,7 +526,7 @@
           </section>
         </section>
         <section id="footer">
-          <p>&copy; 2020 <a class="link" href="https://uiza.io/" target="_blank" rel="external">Uiza</a>. All rights reserved. (Last updated: 2020-03-26)</p>
+          <p>&copy; 2020 <a class="link" href="https://uiza.io/" target="_blank" rel="external">Uiza</a>. All rights reserved. (Last updated: 2020-04-01)</p>
           <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.13.1</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
         </section>
       </article>

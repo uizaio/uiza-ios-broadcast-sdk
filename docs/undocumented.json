@@ -37,259 +37,266 @@
     },
     {
       "file": "/Users/namkennic/Projects/UZBroadcast/UZBroadcast/UZBroadcastConfig.swift",
-      "line": 64,
+      "line": 77,
       "symbol": "UZVideoBitrate",
       "symbol_kind": "source.lang.swift.decl.enum",
       "warning": "undocumented"
     },
     {
       "file": "/Users/namkennic/Projects/UZBroadcast/UZBroadcast/UZBroadcastConfig.swift",
-      "line": 65,
+      "line": 78,
       "symbol": "UZVideoBitrate._500",
       "symbol_kind": "source.lang.swift.decl.enumelement",
       "warning": "undocumented"
     },
     {
       "file": "/Users/namkennic/Projects/UZBroadcast/UZBroadcast/UZBroadcastConfig.swift",
-      "line": 66,
+      "line": 79,
       "symbol": "UZVideoBitrate._1000",
       "symbol_kind": "source.lang.swift.decl.enumelement",
       "warning": "undocumented"
     },
     {
       "file": "/Users/namkennic/Projects/UZBroadcast/UZBroadcast/UZBroadcastConfig.swift",
-      "line": 67,
+      "line": 80,
       "symbol": "UZVideoBitrate._1500",
       "symbol_kind": "source.lang.swift.decl.enumelement",
       "warning": "undocumented"
     },
     {
       "file": "/Users/namkennic/Projects/UZBroadcast/UZBroadcast/UZBroadcastConfig.swift",
-      "line": 68,
+      "line": 81,
       "symbol": "UZVideoBitrate._2000",
       "symbol_kind": "source.lang.swift.decl.enumelement",
       "warning": "undocumented"
     },
     {
       "file": "/Users/namkennic/Projects/UZBroadcast/UZBroadcast/UZBroadcastConfig.swift",
-      "line": 69,
+      "line": 82,
       "symbol": "UZVideoBitrate._3000",
       "symbol_kind": "source.lang.swift.decl.enumelement",
       "warning": "undocumented"
     },
     {
       "file": "/Users/namkennic/Projects/UZBroadcast/UZBroadcast/UZBroadcastConfig.swift",
-      "line": 70,
+      "line": 83,
       "symbol": "UZVideoBitrate._4000",
       "symbol_kind": "source.lang.swift.decl.enumelement",
       "warning": "undocumented"
     },
     {
       "file": "/Users/namkennic/Projects/UZBroadcast/UZBroadcast/UZBroadcastConfig.swift",
-      "line": 71,
+      "line": 84,
       "symbol": "UZVideoBitrate._5000",
       "symbol_kind": "source.lang.swift.decl.enumelement",
       "warning": "undocumented"
     },
     {
       "file": "/Users/namkennic/Projects/UZBroadcast/UZBroadcast/UZBroadcastConfig.swift",
-      "line": 72,
+      "line": 85,
       "symbol": "UZVideoBitrate._6000",
       "symbol_kind": "source.lang.swift.decl.enumelement",
       "warning": "undocumented"
     },
     {
       "file": "/Users/namkennic/Projects/UZBroadcast/UZBroadcast/UZBroadcastConfig.swift",
-      "line": 80,
+      "line": 93,
       "symbol": "UZVideoFPS",
       "symbol_kind": "source.lang.swift.decl.enum",
       "warning": "undocumented"
     },
     {
       "file": "/Users/namkennic/Projects/UZBroadcast/UZBroadcast/UZBroadcastConfig.swift",
-      "line": 81,
+      "line": 94,
       "symbol": "UZVideoFPS._30",
       "symbol_kind": "source.lang.swift.decl.enumelement",
       "warning": "undocumented"
     },
     {
       "file": "/Users/namkennic/Projects/UZBroadcast/UZBroadcast/UZBroadcastConfig.swift",
-      "line": 82,
+      "line": 95,
       "symbol": "UZVideoFPS._60",
       "symbol_kind": "source.lang.swift.decl.enumelement",
       "warning": "undocumented"
     },
     {
       "file": "/Users/namkennic/Projects/UZBroadcast/UZBroadcast/UZBroadcastConfig.swift",
-      "line": 90,
+      "line": 103,
       "symbol": "UZAudioBitrate",
       "symbol_kind": "source.lang.swift.decl.enum",
       "warning": "undocumented"
     },
     {
       "file": "/Users/namkennic/Projects/UZBroadcast/UZBroadcast/UZBroadcastConfig.swift",
-      "line": 91,
+      "line": 104,
       "symbol": "UZAudioBitrate._64Kbps",
       "symbol_kind": "source.lang.swift.decl.enumelement",
       "warning": "undocumented"
     },
     {
       "file": "/Users/namkennic/Projects/UZBroadcast/UZBroadcast/UZBroadcastConfig.swift",
-      "line": 92,
+      "line": 105,
       "symbol": "UZAudioBitrate._96Kbps",
       "symbol_kind": "source.lang.swift.decl.enumelement",
       "warning": "undocumented"
     },
     {
       "file": "/Users/namkennic/Projects/UZBroadcast/UZBroadcast/UZBroadcastConfig.swift",
-      "line": 93,
+      "line": 106,
       "symbol": "UZAudioBitrate._128Kbps",
       "symbol_kind": "source.lang.swift.decl.enumelement",
       "warning": "undocumented"
     },
     {
       "file": "/Users/namkennic/Projects/UZBroadcast/UZBroadcast/UZBroadcastConfig.swift",
-      "line": 112,
+      "line": 125,
       "symbol": "UZAudioSampleRate",
       "symbol_kind": "source.lang.swift.decl.enum",
       "warning": "undocumented"
     },
     {
       "file": "/Users/namkennic/Projects/UZBroadcast/UZBroadcast/UZBroadcastConfig.swift",
-      "line": 113,
+      "line": 126,
       "symbol": "UZAudioSampleRate._44_1khz",
       "symbol_kind": "source.lang.swift.decl.enumelement",
       "warning": "undocumented"
     },
     {
       "file": "/Users/namkennic/Projects/UZBroadcast/UZBroadcast/UZBroadcastConfig.swift",
-      "line": 114,
+      "line": 127,
       "symbol": "UZAudioSampleRate._48_0khz",
       "symbol_kind": "source.lang.swift.decl.enumelement",
       "warning": "undocumented"
     },
     {
       "file": "/Users/namkennic/Projects/UZBroadcast/UZBroadcast/UZBroadcastConfig.swift",
-      "line": 131,
+      "line": 144,
       "symbol": "UZBroadcastConfig",
       "symbol_kind": "source.lang.swift.decl.struct",
       "warning": "undocumented"
     },
     {
       "file": "/Users/namkennic/Projects/UZBroadcast/UZBroadcast/UZBroadcastConfig.swift",
-      "line": 132,
+      "line": 145,
       "symbol": "UZBroadcastConfig.cameraPosition",
       "symbol_kind": "source.lang.swift.decl.var.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/namkennic/Projects/UZBroadcast/UZBroadcast/UZBroadcastConfig.swift",
-      "line": 133,
+      "line": 146,
       "symbol": "UZBroadcastConfig.videoResolution",
       "symbol_kind": "source.lang.swift.decl.var.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/namkennic/Projects/UZBroadcast/UZBroadcast/UZBroadcastConfig.swift",
-      "line": 134,
+      "line": 147,
       "symbol": "UZBroadcastConfig.videoBitrate",
       "symbol_kind": "source.lang.swift.decl.var.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/namkennic/Projects/UZBroadcast/UZBroadcast/UZBroadcastConfig.swift",
-      "line": 135,
+      "line": 148,
       "symbol": "UZBroadcastConfig.videoFPS",
       "symbol_kind": "source.lang.swift.decl.var.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/namkennic/Projects/UZBroadcast/UZBroadcast/UZBroadcastConfig.swift",
-      "line": 136,
+      "line": 149,
       "symbol": "UZBroadcastConfig.audioBitrate",
       "symbol_kind": "source.lang.swift.decl.var.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/namkennic/Projects/UZBroadcast/UZBroadcast/UZBroadcastConfig.swift",
-      "line": 137,
+      "line": 150,
       "symbol": "UZBroadcastConfig.audioSampleRate",
       "symbol_kind": "source.lang.swift.decl.var.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/namkennic/Projects/UZBroadcast/UZBroadcast/UZBroadcastConfig.swift",
-      "line": 138,
+      "line": 151,
       "symbol": "UZBroadcastConfig.adaptiveBitrate",
       "symbol_kind": "source.lang.swift.decl.var.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/namkennic/Projects/UZBroadcast/UZBroadcast/UZBroadcastConfig.swift",
-      "line": 139,
+      "line": 152,
       "symbol": "UZBroadcastConfig.orientation",
       "symbol_kind": "source.lang.swift.decl.var.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/namkennic/Projects/UZBroadcast/UZBroadcast/UZBroadcastConfig.swift",
-      "line": 140,
+      "line": 153,
       "symbol": "UZBroadcastConfig.autoRotate",
       "symbol_kind": "source.lang.swift.decl.var.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/namkennic/Projects/UZBroadcast/UZBroadcast/UZBroadcastConfig.swift",
-      "line": 142,
+      "line": 155,
       "symbol": "UZBroadcastConfig.init(cameraPosition:videoResolution:videoBitrate:videoFPS:audioBitrate:audioSampleRate:adaptiveBitrate:orientation:autoRotate:)",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/namkennic/Projects/UZBroadcast/UZBroadcast/UZBroadcastViewController.swift",
-      "line": 48,
+      "line": 51,
       "symbol": "UZBroadcastViewController.preferredStatusBarStyle",
       "symbol_kind": "source.lang.swift.decl.var.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/namkennic/Projects/UZBroadcast/UZBroadcast/UZBroadcastViewController.swift",
-      "line": 52,
+      "line": 55,
       "symbol": "UZBroadcastViewController.shouldAutorotate",
       "symbol_kind": "source.lang.swift.decl.var.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/namkennic/Projects/UZBroadcast/UZBroadcast/UZBroadcastViewController.swift",
-      "line": 56,
+      "line": 59,
       "symbol": "UZBroadcastViewController.supportedInterfaceOrientations",
       "symbol_kind": "source.lang.swift.decl.var.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/namkennic/Projects/UZBroadcast/UZBroadcast/UZBroadcastViewController.swift",
-      "line": 60,
+      "line": 63,
       "symbol": "UZBroadcastViewController.preferredInterfaceOrientationForPresentation",
       "symbol_kind": "source.lang.swift.decl.var.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/namkennic/Projects/UZBroadcast/UZBroadcast/UZBroadcastViewController.swift",
-      "line": 146,
+      "line": 148,
       "symbol": "UZBroadcastViewController.viewDidLoad()",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/namkennic/Projects/UZBroadcast/UZBroadcast/UZBroadcastViewController.swift",
-      "line": 151,
-      "symbol": "UZBroadcastViewController.viewWillDisappear(_:)",
+      "line": 153,
+      "symbol": "UZBroadcastViewController.viewDidAppear(_:)",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/namkennic/Projects/UZBroadcast/UZBroadcast/UZBroadcastViewController.swift",
       "line": 160,
+      "symbol": "UZBroadcastViewController.viewWillDisappear(_:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/namkennic/Projects/UZBroadcast/UZBroadcast/UZBroadcastViewController.swift",
+      "line": 169,
       "symbol": "UIApplication.interfaceOrientation",
       "symbol_kind": "source.lang.swift.decl.var.instance",
       "warning": "undocumented"
