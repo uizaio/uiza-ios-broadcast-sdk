@@ -124,6 +124,7 @@ class ViewController: UIViewController {
 			self?.startBroadcasting(url: url, streamKey: streamKey)
 			alertController.dismiss(animated: true, completion: nil)
 		}))
+		/*
 		if #available(iOS 13.0, *) {
 			alertController.addAction(UIAlertAction(title: "Screen Broadcast", style: .default, handler: { [weak self] (action) in
 				guard let textFields = alertController.textFields else { return }
@@ -132,6 +133,7 @@ class ViewController: UIViewController {
 				alertController.dismiss(animated: true, completion: nil)
 			}))
 		}
+		*/
 		present(alertController, animated: true, completion: nil)
 	}
 	

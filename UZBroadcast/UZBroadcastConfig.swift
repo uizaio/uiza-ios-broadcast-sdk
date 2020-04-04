@@ -75,14 +75,14 @@ public enum UZVideoResolution: CaseIterable {
 }
 
 public enum UZVideoBitrate: UInt, CaseIterable {
-	case _500 = 500
-	case _1000 = 1000
-	case _1500 = 1500
-	case _2000 = 2000
-	case _3000 = 3000
-	case _4000 = 4000
-	case _5000 = 5000
-	case _6000 = 6000
+	case _500 = 500_000
+	case _1000 = 1_000_000
+	case _1500 = 1_500_000
+	case _2000 = 2_000_000
+	case _3000 = 3_000_000
+	case _4000 = 4_000_000
+	case _5000 = 5_000_000
+	case _6000 = 6_000_000
 	
 	/// Convert to readable string
 	public func toString() -> String {
