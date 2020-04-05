@@ -35,7 +35,7 @@ present(broadcaster, animated: true, completion: nil)
 ## Screen broadcast
 
 ```swift
-let broadcaster = UZScreenBroadcast.shared
+let broadcaster = UZScreenBroadcast()
 let config = UZBroadcastConfig(cameraPosition: .front, videoResolution: ._720, videoBitrate: ._3000, videoFPS: ._30, audioBitrate: ._128Kbps, audioSampleRate: ._44_1khz, adaptiveBitrate: true)
 broadcaster.prepareForBroadcast(config: config)
 //broadcaster.isMicrophoneEnabled = true
