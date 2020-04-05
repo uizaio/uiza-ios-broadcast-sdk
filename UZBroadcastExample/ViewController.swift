@@ -31,7 +31,7 @@ enum TableSectionType: String {
 class ViewController: UIViewController {
 	let tableView = UITableView(frame: .zero, style: .grouped)
 	let startButton = UIButton(type: .system)
-	let squareView = UIView()
+//	let squareView = UIView()
 	
 	var sections: [TableSection] = [] {
 		didSet {
@@ -56,11 +56,11 @@ class ViewController: UIViewController {
 		tableView.delegate = self
 		tableView.dataSource = self
 		
-		squareView.backgroundColor = .purple
+//		squareView.backgroundColor = .purple
 		
 		view.addSubview(tableView)
 		view.addSubview(startButton)
-		view.addSubview(squareView)
+//		view.addSubview(squareView)
 		
 		updateValues()
 	}
@@ -72,10 +72,11 @@ class ViewController: UIViewController {
 		startButton.frame = CGRect(x: 10, y: viewSize.height - buttonSize.height - 20, width: viewSize.width - 20, height: buttonSize.height)
 		tableView.frame = view.bounds.inset(by: UIEdgeInsets(top: 0, left: 0, bottom: buttonSize.height + 20, right: 0))
 		
-		let squareSize = CGSize(width: 100, height: 100)
-		squareView.frame = CGRect(x: (viewSize.width - squareSize.width)/2, y: viewSize.height - squareSize.height - buttonSize.height - 50, width: squareSize.width, height: squareSize.height)
+//		let squareSize = CGSize(width: 100, height: 100)
+//		squareView.frame = CGRect(x: (viewSize.width - squareSize.width)/2, y: viewSize.height - squareSize.height - buttonSize.height - 50, width: squareSize.width, height: squareSize.height)
 	}
 	
+	/*
 	func startRotating() {
 		squareView.layer.removeAllAnimations()
 		let rotate = CABasicAnimation(keyPath: "transform.rotation.z")
@@ -89,18 +90,19 @@ class ViewController: UIViewController {
 	func stopRotating() {
 		squareView.layer.removeAllAnimations()
 	}
+	*/
 	
 	@objc func onStart() {
+		/*
 		if #available(iOS 13.0, *) {
-			if UZScreenBroadcast.shared.isBroadcasting || startButton.isSelected {
+			if screenBroadcaster.isBroadcasting || startButton.isSelected {
 				stopRotating()
-				UZScreenBroadcast.shared.stopBroadcast()
+				screenBroadcaster.stopBroadcast()
 				startButton.isSelected = false
 				return
 			}
-		} else {
-			// Fallback on earlier versions
 		}
+		*/
 		
 		let alertController = UIAlertController(title: "Start broadcast", message: "Please enter your broadcast URL", preferredStyle: .alert)
 		alertController.addTextField { (textField) in
@@ -163,14 +165,14 @@ class ViewController: UIViewController {
 	
 	@available(iOS 13.0, *)
 	func startScreenBroadcasting(url: URL, streamKey: String) {
-		startRotating()
+//		startRotating()
 		
 		UserDefaults.standard.set(url.absoluteString, forKey: "lastUrl")
 		UserDefaults.standard.set(streamKey, forKey: "laststreamKey")
 		
 		startButton.isSelected = true
 		let config = UZBroadcastConfig(cameraPosition: .back, videoResolution: videoResolution, videoBitrate: videoBitrate, videoFPS: videoFPS, audioBitrate: audioBitrate, audioSampleRate: audioSampleRate, adaptiveBitrate: true, autoRotate: false)
-		let broadcaster = UZScreenBroadcast.shared
+		let broadcaster = UZScreenBroadcast()
 		broadcaster.prepareForBroadcast(config: config).delegate = self
 		broadcaster.isCameraEnabled = false
 		broadcaster.isMicrophoneEnabled = false

@@ -86,7 +86,7 @@ public enum UZVideoBitrate: UInt, CaseIterable {
 	
 	/// Convert to readable string
 	public func toString() -> String {
-		return "\(self.rawValue) Kbps"
+		return "\(self.rawValue/1000) Kbps"
 	}
 }
 

@@ -15,9 +15,6 @@ This class helps you to initialize a screen broadcast session
 */
 @available(iOS 13.0, *)
 public class UZScreenBroadcast {
-	/// Singleton instance
-	static public let shared = UZScreenBroadcast()
-	
 	/// `true` if broadcasting
 	public fileprivate(set)var isBroadcasting = false
 	
@@ -68,9 +65,9 @@ public class UZScreenBroadcast {
 	/// Current live session
 	lazy var session: LFLiveSession = {
 		let audioConfiguration = LFLiveAudioConfiguration.defaultConfiguration(for: .veryHigh)!
+		audioConfiguration.numberOfChannels = 2
 		audioConfiguration.audioBitrate = config.audioBitrate.toLFLiveAudioBitRate()
 		audioConfiguration.audioSampleRate = config.audioSampleRate.toLFLiveAudioSampleRate()
-		audioConfiguration.numberOfChannels = 2
 		
 		let orientation = config.orientation ?? UIApplication.shared.interfaceOrientation ?? .portrait
 		let videoConfiguration = LFLiveVideoConfiguration.defaultConfiguration(for: config.videoResolution.videoQuality, outputImageOrientation: orientation, encode: false)!
@@ -89,8 +86,6 @@ public class UZScreenBroadcast {
 		let result = LFLiveSession(audioConfiguration: audioConfiguration, videoConfiguration: videoConfiguration, captureType: .inputMaskAll)!
 		return result
 	}()
-	
-	private init() {}
 	
 	/**
 	Always call this first to prepare broadcasting with a configuration

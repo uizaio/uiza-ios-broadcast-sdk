@@ -21,9 +21,9 @@ open class UZBroadcastViewController: UIViewController {
 	/// Current live session
 	lazy var session: LFLiveSession = {
 		let audioConfiguration = LFLiveAudioConfiguration.defaultConfiguration(for: .veryHigh)!
+		audioConfiguration.numberOfChannels = 2
 		audioConfiguration.audioBitrate = config.audioBitrate.toLFLiveAudioBitRate()
 		audioConfiguration.audioSampleRate = config.audioSampleRate.toLFLiveAudioSampleRate()
-		audioConfiguration.numberOfChannels = 2
 		
 		let orientation = config.orientation ?? UIApplication.shared.interfaceOrientation ?? .portrait
 		let videoConfiguration = LFLiveVideoConfiguration.defaultConfiguration(for: config.videoResolution.videoQuality, outputImageOrientation: orientation, encode: false)!
