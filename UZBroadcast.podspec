@@ -13,5 +13,5 @@ Pod::Spec.new do |s|
     s.swift_version = '4.2'
     
     s.ios.dependency "LFLiveKit_", '3.0'
-    
+    s.static_framework = true
 end
