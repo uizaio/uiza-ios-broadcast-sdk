@@ -12,8 +12,11 @@ UZBroadcast requires Swift 4.2+ and iOS 9+
 To integrate UZBroadcast into your Xcode project using [CocoaPods](http://cocoapods.org), specify it in your `Podfile`:
 
 ```ruby
+use_modular_headers!
 pod 'UZBroadcast'
 ```
+
+Since this framework includes static libraries then you may have to set `use_modular_headers!` globally in your Podfile, or specify `:modular_headers => true` for particular dependencies.
 
 Then run the following command:
 
