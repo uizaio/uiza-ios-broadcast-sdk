@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>UZAudioBitRate Enumeration Reference</title>
+    <title>UZLiveCaptureType Enumeration Reference</title>
     <link rel="stylesheet" type="text/css" href="../css/jazzy.css" />
     <link rel="stylesheet" type="text/css" href="../css/highlight.css" />
     <meta charset='utf-8'>
@@ -10,8 +10,8 @@
     
   </head>
   <body>
-    <a name="//apple_ref/objc/Enum/UZAudioBitRate" class="dashAnchor"></a>
-    <a title="UZAudioBitRate Enumeration Reference"></a>
+    <a name="//apple_ref/objc/Enum/UZLiveCaptureType" class="dashAnchor"></a>
+    <a title="UZLiveCaptureType Enumeration Reference"></a>
     <header>
       <div class="content-wrapper">
         <p><a href="../index.html">UZBroadcast 1.2.2 Docs</a> (79% documented)</p>
@@ -21,7 +21,7 @@
       <p id="breadcrumbs">
         <a href="../index.html">UZBroadcast Reference</a>
         <img id="carat" src="../img/carat.png" />
-        UZAudioBitRate Enumeration Reference
+        UZLiveCaptureType Enumeration Reference
       </p>
     </div>
     <div class="content-wrapper">
@@ -101,14 +101,19 @@
       <article class="main-content">
         <section>
           <section class="section">
-            <h1>UZAudioBitRate</h1>
+            <h1>UZLiveCaptureType</h1>
               <div class="declaration">
                 <div class="language">
-                  <pre class="highlight objective_c"><code><span class="k">enum</span> <span class="n">UZAudioBitRate</span> <span class="p">{}</span></code></pre>
+                  <pre class="highlight objective_c"><code><span class="n">NS_ENUM</span><span class="p">(</span><span class="n">NSInteger</span><span class="p">,</span><span class="n">UZLiveCaptureType</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n">UZLiveCaptureAudio</span><span class="p">,</span>         <span class="c1">///&lt; capture only audio
+</span>    <span class="n">UZLiveCaptureVideo</span><span class="p">,</span>         <span class="c1">///&lt; capture onlt video
+</span>    <span class="n">UZLiveInputAudio</span><span class="p">,</span>           <span class="c1">///&lt; only audio (External input audio)
+</span>    <span class="n">UZLiveInputVideo</span><span class="p">,</span>           <span class="c1">///&lt; only video (External input video)
+</span><span class="p">}</span></code></pre>
 
                 </div>
               </div>
-            <p>Audio bit rate (default 96Kbps)</p>
+            <p>Undocumented</p>
 
           </section>
           <section class="section task-group-section">
@@ -117,9 +122,9 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/c:@E@UZAudioBitRate@UZAudioBitRate_32Kbps"></a>
-                    <a name="//apple_ref/objc/Case/UZAudioBitRate_32Kbps" class="dashAnchor"></a>
-                    <a class="token" href="#/c:@E@UZAudioBitRate@UZAudioBitRate_32Kbps">UZAudioBitRate_32Kbps</a>
+                    <a name="/c:@E@UZLiveCaptureType@UZLiveCaptureAudio"></a>
+                    <a name="//apple_ref/objc/Case/UZLiveCaptureAudio" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@E@UZLiveCaptureType@UZLiveCaptureAudio">UZLiveCaptureAudio</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -127,14 +132,14 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>32Kbps Audio bitrate</p>
+                        <p>&lt; capture only audio</p>
 
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Objective-C</p>
-                          <pre class="highlight objective_c"><code><span class="n">UZAudioBitRate_32Kbps</span> <span class="o">=</span> <span class="mi">32000</span></code></pre>
+                          <pre class="highlight objective_c"><code><span class="n">UZLiveCaptureAudio</span></code></pre>
 
                         </div>
                       </div>
@@ -144,9 +149,9 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/c:@E@UZAudioBitRate@UZAudioBitRate_64Kbps"></a>
-                    <a name="//apple_ref/objc/Case/UZAudioBitRate_64Kbps" class="dashAnchor"></a>
-                    <a class="token" href="#/c:@E@UZAudioBitRate@UZAudioBitRate_64Kbps">UZAudioBitRate_64Kbps</a>
+                    <a name="/c:@E@UZLiveCaptureType@UZLiveCaptureVideo"></a>
+                    <a name="//apple_ref/objc/Case/UZLiveCaptureVideo" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@E@UZLiveCaptureType@UZLiveCaptureVideo">UZLiveCaptureVideo</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -154,14 +159,14 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>64Kbps Audio bitrate</p>
+                        <p>&lt; capture onlt video</p>
 
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Objective-C</p>
-                          <pre class="highlight objective_c"><code><span class="n">UZAudioBitRate_64Kbps</span> <span class="o">=</span> <span class="mi">64000</span></code></pre>
+                          <pre class="highlight objective_c"><code><span class="n">UZLiveCaptureVideo</span></code></pre>
 
                         </div>
                       </div>
@@ -171,9 +176,9 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/c:@E@UZAudioBitRate@UZAudioBitRate_96Kbps"></a>
-                    <a name="//apple_ref/objc/Case/UZAudioBitRate_96Kbps" class="dashAnchor"></a>
-                    <a class="token" href="#/c:@E@UZAudioBitRate@UZAudioBitRate_96Kbps">UZAudioBitRate_96Kbps</a>
+                    <a name="/c:@E@UZLiveCaptureType@UZLiveInputAudio"></a>
+                    <a name="//apple_ref/objc/Case/UZLiveInputAudio" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@E@UZLiveCaptureType@UZLiveInputAudio">UZLiveInputAudio</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -181,14 +186,14 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>96Kbps Audio bitrate</p>
+                        <p>&lt; only audio (External input audio)</p>
 
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Objective-C</p>
-                          <pre class="highlight objective_c"><code><span class="n">UZAudioBitRate_96Kbps</span> <span class="o">=</span> <span class="mi">96000</span></code></pre>
+                          <pre class="highlight objective_c"><code><span class="n">UZLiveInputAudio</span></code></pre>
 
                         </div>
                       </div>
@@ -198,9 +203,9 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/c:@E@UZAudioBitRate@UZAudioBitRate_128Kbps"></a>
-                    <a name="//apple_ref/objc/Case/UZAudioBitRate_128Kbps" class="dashAnchor"></a>
-                    <a class="token" href="#/c:@E@UZAudioBitRate@UZAudioBitRate_128Kbps">UZAudioBitRate_128Kbps</a>
+                    <a name="/c:@E@UZLiveCaptureType@UZLiveInputVideo"></a>
+                    <a name="//apple_ref/objc/Case/UZLiveInputVideo" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@E@UZLiveCaptureType@UZLiveInputVideo">UZLiveInputVideo</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -208,41 +213,14 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>128Kbps Audio bitrate</p>
+                        <p>&lt; only video (External input video)</p>
 
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Objective-C</p>
-                          <pre class="highlight objective_c"><code><span class="n">UZAudioBitRate_128Kbps</span> <span class="o">=</span> <span class="mi">128000</span></code></pre>
-
-                        </div>
-                      </div>
-                    </section>
-                  </div>
-                </li>
-                <li class="item">
-                  <div>
-                    <code>
-                    <a name="/c:@E@UZAudioBitRate@UZAudioBitRate_Default"></a>
-                    <a name="//apple_ref/objc/Case/UZAudioBitRate_Default" class="dashAnchor"></a>
-                    <a class="token" href="#/c:@E@UZAudioBitRate@UZAudioBitRate_Default">UZAudioBitRate_Default</a>
-                    </code>
-                  </div>
-                  <div class="height-container">
-                    <div class="pointer-container"></div>
-                    <section class="section">
-                      <div class="pointer"></div>
-                      <div class="abstract">
-                        <p>The default audio bitrate, the default is 96Kbps</p>
-
-                      </div>
-                      <div class="declaration">
-                        <h4>Declaration</h4>
-                        <div class="language">
-                          <p class="aside-title">Objective-C</p>
-                          <pre class="highlight objective_c"><code><span class="n">UZAudioBitRate_Default</span> <span class="o">=</span> <span class="n"><a href="../Enums/UZAudioBitRate.html#/c:@E@UZAudioBitRate@UZAudioBitRate_96Kbps">UZAudioBitRate_96Kbps</a></span></code></pre>
+                          <pre class="highlight objective_c"><code><span class="n">UZLiveInputVideo</span></code></pre>
 
                         </div>
                       </div>

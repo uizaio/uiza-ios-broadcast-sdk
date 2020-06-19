@@ -1,0 +1,584 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>UZLiveDebug Class Reference</title>
+    <link rel="stylesheet" type="text/css" href="../css/jazzy.css" />
+    <link rel="stylesheet" type="text/css" href="../css/highlight.css" />
+    <meta charset='utf-8'>
+    <script src="../js/jquery.min.js" defer></script>
+    <script src="../js/jazzy.js" defer></script>
+    
+  </head>
+  <body>
+    <a name="//apple_ref/objc/Class/UZLiveDebug" class="dashAnchor"></a>
+    <a title="UZLiveDebug Class Reference"></a>
+    <header>
+      <div class="content-wrapper">
+        <p><a href="../index.html">UZBroadcast 1.2.2 Docs</a> (79% documented)</p>
+      </div>
+    </header>
+    <div class="content-wrapper">
+      <p id="breadcrumbs">
+        <a href="../index.html">UZBroadcast Reference</a>
+        <img id="carat" src="../img/carat.png" />
+        UZLiveDebug Class Reference
+      </p>
+    </div>
+    <div class="content-wrapper">
+      <nav class="sidebar">
+        <ul class="nav-groups">
+          <li class="nav-group-name">
+            <a href="../Classes.html">Classes</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Classes/UZAudioConfiguration.html">UZAudioConfiguration</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/UZAudioFrame.html">UZAudioFrame</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/UZFrame.html">UZFrame</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/UZLiveDebug.html">UZLiveDebug</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/UZLiveSession.html">UZLiveSession</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/UZStreamInfo.html">UZStreamInfo</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/UZVideoConfiguration.html">UZVideoConfiguration</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/UZVideoFrame.html">UZVideoFrame</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../Enums.html">Enumerations</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Enums/UZAudioBitRate.html">UZAudioBitRate</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/UZAudioQuality.html">UZAudioQuality</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/UZAudioSampleRate.html">UZAudioSampleRate</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/UZLiveCaptureType.html">UZLiveCaptureType</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/UZLiveCaptureTypeMask.html">UZLiveCaptureTypeMask</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/UZLiveState.html">UZLiveState</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/UZSocketErrorCode.html">UZSocketErrorCode</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/UZVideoQuality.html">UZVideoQuality</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/UZVideoSessionPreset.html">UZVideoSessionPreset</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../Protocols.html">Protocols</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Protocols/UZLiveSessionDelegate.html">UZLiveSessionDelegate</a>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </nav>
+      <article class="main-content">
+        <section>
+          <section class="section">
+            <h1>UZLiveDebug</h1>
+              <div class="declaration">
+                <div class="language">
+                  <pre class="highlight objective_c"><code><span class="k">@interface</span> <span class="nc">UZLiveDebug</span> <span class="p">:</span> <span class="nc">NSObject</span>
+
+<span class="k">@property</span> <span class="p">(</span><span class="n">nonatomic</span><span class="p">,</span> <span class="n">copy</span><span class="p">)</span> <span class="n">NSString</span> <span class="o">*</span><span class="n">streamId</span><span class="p">;</span>                     <span class="c1">/// Stream Id
+</span><span class="k">@property</span> <span class="p">(</span><span class="n">nonatomic</span><span class="p">,</span> <span class="n">copy</span><span class="p">)</span> <span class="n">NSString</span> <span class="o">*</span><span class="n">uploadUrl</span><span class="p">;</span>                    <span class="c1">/// Stream URL
+</span><span class="k">@property</span> <span class="p">(</span><span class="n">nonatomic</span><span class="p">,</span> <span class="n">assign</span><span class="p">)</span> <span class="n">CGSize</span> <span class="n">videoSize</span><span class="p">;</span>                     <span class="c1">/// Video Resolution
+</span><span class="k">@property</span> <span class="p">(</span><span class="n">nonatomic</span><span class="p">,</span> <span class="n">assign</span><span class="p">)</span> <span class="n">BOOL</span> <span class="n">isRtmp</span><span class="p">;</span>                           <span class="c1">/// Upload method（TCP or RTMP）
+</span>
+<span class="k">@property</span> <span class="p">(</span><span class="n">nonatomic</span><span class="p">,</span> <span class="n">assign</span><span class="p">)</span> <span class="n">CGFloat</span> <span class="n">elapsedMilli</span><span class="p">;</span>                <span class="c1">/// Time since last count in ms
+</span><span class="k">@property</span> <span class="p">(</span><span class="n">nonatomic</span><span class="p">,</span> <span class="n">assign</span><span class="p">)</span> <span class="n">CGFloat</span> <span class="n">timeStamp</span><span class="p">;</span>                   <span class="c1">/// Current timestamp to calculate data within 1s
+</span><span class="k">@property</span> <span class="p">(</span><span class="n">nonatomic</span><span class="p">,</span> <span class="n">assign</span><span class="p">)</span> <span class="n">CGFloat</span> <span class="n">dataFlow</span><span class="p">;</span>                    <span class="c1">/// Total flow
+</span><span class="k">@property</span> <span class="p">(</span><span class="n">nonatomic</span><span class="p">,</span> <span class="n">assign</span><span class="p">)</span> <span class="n">CGFloat</span> <span class="n">bandwidth</span><span class="p">;</span>                   <span class="c1">/// Total bandwidth within 1s
+</span><span class="k">@property</span> <span class="p">(</span><span class="n">nonatomic</span><span class="p">,</span> <span class="n">assign</span><span class="p">)</span> <span class="n">CGFloat</span> <span class="n">currentBandwidth</span><span class="p">;</span>          <span class="c1">/// Last bandwidth
+</span>
+<span class="k">@property</span> <span class="p">(</span><span class="n">nonatomic</span><span class="p">,</span> <span class="n">assign</span><span class="p">)</span> <span class="n">NSInteger</span> <span class="n">dropFrame</span><span class="p">;</span>                <span class="c1">///&lt; Frames dropped
+</span><span class="k">@property</span> <span class="p">(</span><span class="n">nonatomic</span><span class="p">,</span> <span class="n">assign</span><span class="p">)</span> <span class="n">NSInteger</span> <span class="n">totalFrame</span><span class="p">;</span>               <span class="c1">/// Total frames
+</span>
+<span class="k">@property</span> <span class="p">(</span><span class="n">nonatomic</span><span class="p">,</span> <span class="n">assign</span><span class="p">)</span> <span class="n">NSInteger</span> <span class="n">capturedAudioCount</span><span class="p">;</span>             <span class="c1">/// Number of audio captures in 1s
+</span><span class="k">@property</span> <span class="p">(</span><span class="n">nonatomic</span><span class="p">,</span> <span class="n">assign</span><span class="p">)</span> <span class="n">NSInteger</span> <span class="n">capturedVideoCount</span><span class="p">;</span>             <span class="c1">/// Number of video captures in 1s
+</span><span class="k">@property</span> <span class="p">(</span><span class="n">nonatomic</span><span class="p">,</span> <span class="n">assign</span><span class="p">)</span> <span class="n">NSInteger</span> <span class="n">currentCapturedAudioCount</span><span class="p">;</span>    <span class="c1">/// Number of audio captures last time
+</span><span class="k">@property</span> <span class="p">(</span><span class="n">nonatomic</span><span class="p">,</span> <span class="n">assign</span><span class="p">)</span> <span class="n">NSInteger</span> <span class="n">currentCapturedVideoCount</span><span class="p">;</span>    <span class="c1">/// Number of last video captures
+</span>
+<span class="k">@property</span> <span class="p">(</span><span class="n">nonatomic</span><span class="p">,</span> <span class="n">assign</span><span class="p">)</span> <span class="n">NSInteger</span> <span class="n">unSendCount</span><span class="p">;</span>  <span class="c1">/// Unsent number (representing the current buffer waiting to be sent)
+</span>
+<span class="k">@end</span></code></pre>
+
+                </div>
+              </div>
+            <p>Undocumented</p>
+
+          </section>
+          <section class="section task-group-section">
+            <div class="task-group">
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)UZLiveDebug(py)streamId"></a>
+                    <a name="//apple_ref/objc/Property/streamId" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)UZLiveDebug(py)streamId">streamId</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">@property</span> <span class="p">(</span><span class="n">nonatomic</span><span class="p">,</span> <span class="n">copy</span><span class="p">)</span> <span class="n">NSString</span> <span class="o">*</span><span class="n">streamId</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)UZLiveDebug(py)uploadUrl"></a>
+                    <a name="//apple_ref/objc/Property/uploadUrl" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)UZLiveDebug(py)uploadUrl">uploadUrl</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Stream Id</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">@property</span> <span class="p">(</span><span class="n">nonatomic</span><span class="p">,</span> <span class="n">copy</span><span class="p">)</span> <span class="n">NSString</span> <span class="o">*</span><span class="n">uploadUrl</span><span class="p">;</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)UZLiveDebug(py)videoSize"></a>
+                    <a name="//apple_ref/objc/Property/videoSize" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)UZLiveDebug(py)videoSize">videoSize</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Stream URL</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">@property</span> <span class="p">(</span><span class="n">nonatomic</span><span class="p">)</span> <span class="n">CGSize</span> <span class="n">videoSize</span><span class="p">;</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)UZLiveDebug(py)isRtmp"></a>
+                    <a name="//apple_ref/objc/Property/isRtmp" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)UZLiveDebug(py)isRtmp">isRtmp</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Video Resolution</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">@property</span> <span class="p">(</span><span class="n">nonatomic</span><span class="p">)</span> <span class="n">BOOL</span> <span class="n">isRtmp</span><span class="p">;</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)UZLiveDebug(py)elapsedMilli"></a>
+                    <a name="//apple_ref/objc/Property/elapsedMilli" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)UZLiveDebug(py)elapsedMilli">elapsedMilli</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Upload method（TCP or RTMP）</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">@property</span> <span class="p">(</span><span class="n">nonatomic</span><span class="p">)</span> <span class="n">CGFloat</span> <span class="n">elapsedMilli</span><span class="p">;</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)UZLiveDebug(py)timeStamp"></a>
+                    <a name="//apple_ref/objc/Property/timeStamp" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)UZLiveDebug(py)timeStamp">timeStamp</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Time since last count in ms</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">@property</span> <span class="p">(</span><span class="n">nonatomic</span><span class="p">)</span> <span class="n">CGFloat</span> <span class="n">timeStamp</span><span class="p">;</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)UZLiveDebug(py)dataFlow"></a>
+                    <a name="//apple_ref/objc/Property/dataFlow" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)UZLiveDebug(py)dataFlow">dataFlow</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Current timestamp to calculate data within 1s</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">@property</span> <span class="p">(</span><span class="n">nonatomic</span><span class="p">)</span> <span class="n">CGFloat</span> <span class="n">dataFlow</span><span class="p">;</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)UZLiveDebug(py)bandwidth"></a>
+                    <a name="//apple_ref/objc/Property/bandwidth" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)UZLiveDebug(py)bandwidth">bandwidth</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Total flow</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">@property</span> <span class="p">(</span><span class="n">nonatomic</span><span class="p">)</span> <span class="n">CGFloat</span> <span class="n">bandwidth</span><span class="p">;</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)UZLiveDebug(py)currentBandwidth"></a>
+                    <a name="//apple_ref/objc/Property/currentBandwidth" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)UZLiveDebug(py)currentBandwidth">currentBandwidth</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Total bandwidth within 1s</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">@property</span> <span class="p">(</span><span class="n">nonatomic</span><span class="p">)</span> <span class="n">CGFloat</span> <span class="n">currentBandwidth</span><span class="p">;</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)UZLiveDebug(py)dropFrame"></a>
+                    <a name="//apple_ref/objc/Property/dropFrame" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)UZLiveDebug(py)dropFrame">dropFrame</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>&lt; Frames dropped</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">@property</span> <span class="p">(</span><span class="n">nonatomic</span><span class="p">)</span> <span class="n">NSInteger</span> <span class="n">dropFrame</span><span class="p">;</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)UZLiveDebug(py)totalFrame"></a>
+                    <a name="//apple_ref/objc/Property/totalFrame" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)UZLiveDebug(py)totalFrame">totalFrame</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">@property</span> <span class="p">(</span><span class="n">nonatomic</span><span class="p">)</span> <span class="n">NSInteger</span> <span class="n">totalFrame</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)UZLiveDebug(py)capturedAudioCount"></a>
+                    <a name="//apple_ref/objc/Property/capturedAudioCount" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)UZLiveDebug(py)capturedAudioCount">capturedAudioCount</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Total frames</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">@property</span> <span class="p">(</span><span class="n">nonatomic</span><span class="p">)</span> <span class="n">NSInteger</span> <span class="n">capturedAudioCount</span><span class="p">;</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)UZLiveDebug(py)capturedVideoCount"></a>
+                    <a name="//apple_ref/objc/Property/capturedVideoCount" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)UZLiveDebug(py)capturedVideoCount">capturedVideoCount</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Number of audio captures in 1s</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">@property</span> <span class="p">(</span><span class="n">nonatomic</span><span class="p">)</span> <span class="n">NSInteger</span> <span class="n">capturedVideoCount</span><span class="p">;</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)UZLiveDebug(py)currentCapturedAudioCount"></a>
+                    <a name="//apple_ref/objc/Property/currentCapturedAudioCount" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)UZLiveDebug(py)currentCapturedAudioCount">currentCapturedAudioCount</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Number of video captures in 1s</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">@property</span> <span class="p">(</span><span class="n">nonatomic</span><span class="p">)</span> <span class="n">NSInteger</span> <span class="n">currentCapturedAudioCount</span><span class="p">;</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)UZLiveDebug(py)currentCapturedVideoCount"></a>
+                    <a name="//apple_ref/objc/Property/currentCapturedVideoCount" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)UZLiveDebug(py)currentCapturedVideoCount">currentCapturedVideoCount</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Number of audio captures last time</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">@property</span> <span class="p">(</span><span class="n">nonatomic</span><span class="p">)</span> <span class="n">NSInteger</span> <span class="n">currentCapturedVideoCount</span><span class="p">;</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)UZLiveDebug(py)unSendCount"></a>
+                    <a name="//apple_ref/objc/Property/unSendCount" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)UZLiveDebug(py)unSendCount">unSendCount</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Number of last video captures</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">@property</span> <span class="p">(</span><span class="n">nonatomic</span><span class="p">)</span> <span class="n">NSInteger</span> <span class="n">unSendCount</span><span class="p">;</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </section>
+        </section>
+        <section id="footer">
+          <p>&copy; 2020 <a class="link" href="https://uiza.io/" target="_blank" rel="external">Nam Nguyen</a>. All rights reserved. (Last updated: 2020-06-19)</p>
+          <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.13.4</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
+        </section>
+      </article>
+    </div>
+  </body>
+</div>
+</html>

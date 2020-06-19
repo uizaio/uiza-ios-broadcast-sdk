@@ -13,7 +13,7 @@
     <a title="UZBroadcast  Reference"></a>
     <header>
       <div class="content-wrapper">
-        <p><a href="index.html">UZBroadcast Docs</a> (30% documented)</p>
+        <p><a href="index.html">UZBroadcast 1.2.2 Docs</a> (79% documented)</p>
       </div>
     </header>
     <div class="content-wrapper">
@@ -30,10 +30,28 @@
             <a href="Classes.html">Classes</a>
             <ul class="nav-group-tasks">
               <li class="nav-group-task">
-                <a href="Classes/UZBroadcastViewController.html">UZBroadcastViewController</a>
+                <a href="Classes/UZAudioConfiguration.html">UZAudioConfiguration</a>
               </li>
               <li class="nav-group-task">
-                <a href="Classes/UZScreenBroadcast.html">UZScreenBroadcast</a>
+                <a href="Classes/UZAudioFrame.html">UZAudioFrame</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Classes/UZFrame.html">UZFrame</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Classes/UZLiveDebug.html">UZLiveDebug</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Classes/UZLiveSession.html">UZLiveSession</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Classes/UZStreamInfo.html">UZStreamInfo</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Classes/UZVideoConfiguration.html">UZVideoConfiguration</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Classes/UZVideoFrame.html">UZVideoFrame</a>
               </li>
             </ul>
           </li>
@@ -41,35 +59,39 @@
             <a href="Enums.html">Enumerations</a>
             <ul class="nav-group-tasks">
               <li class="nav-group-task">
-                <a href="Enums/UZAudioBitrate.html">UZAudioBitrate</a>
+                <a href="Enums/UZAudioBitRate.html">UZAudioBitRate</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Enums/UZAudioQuality.html">UZAudioQuality</a>
               </li>
               <li class="nav-group-task">
                 <a href="Enums/UZAudioSampleRate.html">UZAudioSampleRate</a>
               </li>
               <li class="nav-group-task">
-                <a href="Enums/UZVideoBitrate.html">UZVideoBitrate</a>
+                <a href="Enums/UZLiveCaptureType.html">UZLiveCaptureType</a>
               </li>
               <li class="nav-group-task">
-                <a href="Enums/UZVideoFPS.html">UZVideoFPS</a>
+                <a href="Enums/UZLiveCaptureTypeMask.html">UZLiveCaptureTypeMask</a>
               </li>
               <li class="nav-group-task">
-                <a href="Enums/UZVideoResolution.html">UZVideoResolution</a>
+                <a href="Enums/UZLiveState.html">UZLiveState</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Enums/UZSocketErrorCode.html">UZSocketErrorCode</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Enums/UZVideoQuality.html">UZVideoQuality</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Enums/UZVideoSessionPreset.html">UZVideoSessionPreset</a>
               </li>
             </ul>
           </li>
           <li class="nav-group-name">
-            <a href="Extensions.html">Extensions</a>
+            <a href="Protocols.html">Protocols</a>
             <ul class="nav-group-tasks">
               <li class="nav-group-task">
-                <a href="Extensions/UIApplication.html">UIApplication</a>
-              </li>
-            </ul>
-          </li>
-          <li class="nav-group-name">
-            <a href="Structs.html">Structures</a>
-            <ul class="nav-group-tasks">
-              <li class="nav-group-task">
-                <a href="Structs/UZBroadcastConfig.html">UZBroadcastConfig</a>
+                <a href="Protocols/UZLiveSessionDelegate.html">UZLiveSessionDelegate</a>
               </li>
             </ul>
           </li>
@@ -81,37 +103,117 @@
             
             <h1 id='uzbroadcast' class='heading'>UZBroadcast</h1>
 
-<p><img src="https://img.shields.io/badge/%20in-swift%205.0-orange.svg" alt="Swift"></p>
+<p><a href="https://raw.githubusercontent.com/uizaio/uiza-ios-broadcast-sdk/master/LICENSE"><img src="https://img.shields.io/badge/license-BSD-green.svg?style=flat" alt="License MIT"></a>&nbsp;
+<a href="http://cocoapods.org/?q=UZBroadcast"><img src="http://img.shields.io/cocoapods/v/UZBroadcast.svg?style=flat" alt="CocoaPods"></a>&nbsp;
+<a href="https://www.apple.com/nl/ios/"><img src="https://img.shields.io/badge/ios-9-orange.svg" alt="Support"></a>&nbsp;
+<img src="https://img.shields.io/badge/platform-ios-ff69b4.svg" alt="platform">&nbsp;</p>
 
-<p>UZBroadcast is a framework helps you to broadcast livestream</p>
-<h2 id='compatibility' class='heading'>Compatibility</h2>
+<p><strong>UZBroadcast is a opensource RTMP streaming SDK for iOS.</strong>  </p>
+<h2 id='features' class='heading'>Features</h2>
 
-<p>UZBroadcast requires Swift 4.2+ and iOS 9+</p>
+<ul>
+<li>[x]   Background recording</li>
+<li>[x]   Support horizontal vertical recording</li>
+<li>[x]   Support Beauty Face With GPUImage</li>
+<li>[x]   Support H264+AAC Hardware Encoding</li>
+<li>[x]   Drop frames on bad network</li>
+<li>[x]   Dynamic switching rate</li>
+<li>[x]   Audio configuration</li>
+<li>[x]   Video configuration</li>
+<li>[x]   RTMP and RTMPS Transport</li>
+<li>[x]   Switch camera position</li>
+<li>[x]   Audio Mute</li>
+<li>[x]   Support Send Buffer</li>
+<li>[x]   Support WaterMark</li>
+<li>[x]   Swift Support</li>
+<li>[x]   Support Single Video or Audio</li>
+<li>[x]   Support External input video or audio(Screen recording or Peripheral)</li>
+<li>[ ]   <del>FLV package and send</del></li>
+</ul>
+<h2 id='requirements' class='heading'>Requirements</h2>
+<pre class="highlight plaintext"><code>- iOS 9.0+
+- Xcode 11
+</code></pre>
 <h2 id='installation' class='heading'>Installation</h2>
-<h3 id='cocoapods' class='heading'>CocoaPods</h3>
+<h4 id='cocoapods' class='heading'>CocoaPods</h4>
+<pre class="highlight plaintext"><code># To integrate UZLiveKit into your Xcode project using CocoaPods, specify it in your Podfile:
 
-<p>To integrate UZBroadcast into your Xcode project using <a href="http://cocoapods.org">CocoaPods</a>, specify it in your <code>Podfile</code>:</p>
-<pre class="highlight ruby"><code><span class="n">pod</span> <span class="s1">'UZBroadcast'</span>
-</code></pre>
+source 'https://github.com/CocoaPods/Specs.git'
+platform :ios, '9.0'
+pod 'UZBroadcast'
 
-<p>Then run the following command:</p>
-<pre class="highlight shell"><code><span class="nv">$ </span>pod <span class="nb">install</span>
+# Then, run the following command:
+$ pod install
 </code></pre>
-<h2 id='livestream' class='heading'>Livestream</h2>
-<pre class="highlight swift"><code><span class="k">let</span> <span class="nv">broadcaster</span> <span class="o">=</span> <span class="kt">UZBroadcastViewController</span><span class="p">()</span>
-<span class="k">let</span> <span class="nv">config</span> <span class="o">=</span> <span class="kt">UZBroadcastConfig</span><span class="p">(</span><span class="nv">cameraPosition</span><span class="p">:</span> <span class="o">.</span><span class="n">front</span><span class="p">,</span> <span class="nv">videoResolution</span><span class="p">:</span> <span class="o">.</span><span class="n">_720</span><span class="p">,</span> <span class="nv">videoBitrate</span><span class="p">:</span> <span class="o">.</span><span class="n">_3000</span><span class="p">,</span> <span class="nv">videoFPS</span><span class="p">:</span> <span class="o">.</span><span class="n">_30</span><span class="p">,</span> <span class="nv">audioBitrate</span><span class="p">:</span> <span class="o">.</span><span class="n">_128Kbps</span><span class="p">,</span> <span class="nv">audioSampleRate</span><span class="p">:</span> <span class="o">.</span><span class="n">_44_1khz</span><span class="p">,</span> <span class="nv">adaptiveBitrate</span><span class="p">:</span> <span class="kc">true</span><span class="p">)</span>
-<span class="n">broadcaster</span><span class="o">.</span><span class="nf">prepareForBroadcast</span><span class="p">(</span><span class="nv">config</span><span class="p">:</span> <span class="n">config</span><span class="p">)</span>
-<span class="c1">//...</span>
-<span class="n">broadcaster</span><span class="o">.</span><span class="nf">startBroadcast</span><span class="p">(</span><span class="nv">broadcastURL</span><span class="p">:</span> <span class="kt">BROADCAST_URL</span><span class="p">,</span> <span class="nv">streamKey</span><span class="p">:</span> <span class="kt">STREAM_KEY</span><span class="p">)</span>
-<span class="nf">present</span><span class="p">(</span><span class="n">broadcaster</span><span class="p">,</span> <span class="nv">animated</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span> <span class="nv">completion</span><span class="p">:</span> <span class="kc">nil</span><span class="p">)</span>
+<h4 id='manually' class='heading'>Manually</h4>
+<pre class="highlight plaintext"><code>1. Download all the files in the `UZBroadcast` subdirectory.
+2. Add the source files to your Xcode project.
+3. Link with required frameworks:
+    * UIKit
+    * Foundation
+    * AVFoundation
+    * VideoToolbox
+    * AudioToolbox
+    * libz
+    * libstdc++
+    * [OpenSSL-Universal](https://github.com/krzyzanowskim/OpenSSL)
 </code></pre>
-<h2 id='screen-broadcast' class='heading'>Screen broadcast</h2>
-<pre class="highlight swift"><code><span class="k">let</span> <span class="nv">broadcaster</span> <span class="o">=</span> <span class="kt">UZScreenBroadcast</span><span class="o">.</span><span class="n">shared</span>
-<span class="k">let</span> <span class="nv">config</span> <span class="o">=</span> <span class="kt">UZBroadcastConfig</span><span class="p">(</span><span class="nv">cameraPosition</span><span class="p">:</span> <span class="o">.</span><span class="n">front</span><span class="p">,</span> <span class="nv">videoResolution</span><span class="p">:</span> <span class="o">.</span><span class="n">_720</span><span class="p">,</span> <span class="nv">videoBitrate</span><span class="p">:</span> <span class="o">.</span><span class="n">_3000</span><span class="p">,</span> <span class="nv">videoFPS</span><span class="p">:</span> <span class="o">.</span><span class="n">_30</span><span class="p">,</span> <span class="nv">audioBitrate</span><span class="p">:</span> <span class="o">.</span><span class="n">_128Kbps</span><span class="p">,</span> <span class="nv">audioSampleRate</span><span class="p">:</span> <span class="o">.</span><span class="n">_44_1khz</span><span class="p">,</span> <span class="nv">adaptiveBitrate</span><span class="p">:</span> <span class="kc">true</span><span class="p">)</span>
-<span class="n">broadcaster</span><span class="o">.</span><span class="nf">prepareForBroadcast</span><span class="p">(</span><span class="nv">config</span><span class="p">:</span> <span class="n">config</span><span class="p">)</span>
-<span class="c1">//broadcaster.isMicrophoneEnabled = true</span>
-<span class="c1">//broadcaster.isCameraEnabled = true</span>
-<span class="n">broadcaster</span><span class="o">.</span><span class="nf">startBroadcast</span><span class="p">(</span><span class="nv">broadcastURL</span><span class="p">:</span> <span class="kt">BROADCAST_URL</span><span class="p">,</span> <span class="nv">streamKey</span><span class="p">:</span> <span class="kt">STREAM_KEY</span><span class="p">)</span>
+<h2 id='usage-example' class='heading'>Usage example</h2>
+<h4 id='objective-c' class='heading'>Objective-C</h4>
+<pre class="highlight objective_c"><code><span class="k">-</span> <span class="p">(</span><span class="n">UZLiveSession</span><span class="o">*</span><span class="p">)</span><span class="n">session</span> <span class="p">{</span>
+    <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="n">_session</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">_session</span> <span class="o">=</span> <span class="p">[[</span><span class="n">UZLiveSession</span> <span class="nf">alloc</span><span class="p">]</span> <span class="nf">initWithAudioConfiguration</span><span class="p">:[</span><span class="n">UZAudioConfiguration</span> <span class="nf">defaultConfiguration</span><span class="p">]</span> <span class="nf">videoConfiguration</span><span class="p">:[</span><span class="n">UZLiveVideoConfiguration</span> <span class="nf">defaultConfiguration</span><span class="p">]];</span>
+        <span class="n">_session</span><span class="p">.</span><span class="n">preView</span> <span class="o">=</span> <span class="n">self</span><span class="p">;</span>
+        <span class="n">_session</span><span class="p">.</span><span class="n">delegate</span> <span class="o">=</span> <span class="n">self</span><span class="p">;</span>
+    <span class="p">}</span>
+    <span class="k">return</span> <span class="n">_session</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="o">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="n">startLive</span> <span class="p">{</span> 
+    <span class="n">UZStreamInfo</span> <span class="o">*</span><span class="n">streamInfo</span> <span class="o">=</span> <span class="p">[</span><span class="n">UZStreamInfo</span> <span class="nf">new</span><span class="p">];</span>
+    <span class="n">streamInfo</span><span class="p">.</span><span class="n">url</span> <span class="o">=</span> <span class="s">@"your server rtmp url"</span><span class="p">;</span>
+    <span class="p">[</span><span class="n">self</span><span class="p">.</span><span class="n">session</span> <span class="nf">startLive</span><span class="p">:</span><span class="n">streamInfo</span><span class="p">];</span>
+<span class="p">}</span>
+
+<span class="o">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="n">stopLive</span> <span class="p">{</span>
+    <span class="p">[</span><span class="n">self</span><span class="p">.</span><span class="n">session</span> <span class="nf">stopLive</span><span class="p">];</span>
+<span class="p">}</span>
+
+<span class="c1">//MARK: - CallBack:
+</span><span class="o">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="n">liveSession</span><span class="o">:</span><span class="p">(</span><span class="n">nullable</span> <span class="n">UZLiveSession</span> <span class="o">*</span><span class="p">)</span><span class="n">session</span> <span class="n">liveStateDidChange</span><span class="o">:</span> <span class="p">(</span><span class="n">UZLiveState</span><span class="p">)</span><span class="n">state</span><span class="p">;</span>
+<span class="k">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">liveSession</span><span class="p">:(</span><span class="n">nullable</span> <span class="n">UZLiveSession</span> <span class="o">*</span><span class="p">)</span><span class="nv">session</span> <span class="nf">debugInfo</span><span class="p">:(</span><span class="n">nullable</span> <span class="n">UZLiveDebug</span><span class="o">*</span><span class="p">)</span><span class="nv">debugInfo</span><span class="p">;</span>
+<span class="k">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">liveSession</span><span class="p">:(</span><span class="n">nullable</span> <span class="n">UZLiveSession</span><span class="o">*</span><span class="p">)</span><span class="nv">session</span> <span class="nf">errorCode</span><span class="p">:(</span><span class="n">UZSocketErrorCode</span><span class="p">)</span><span class="nv">errorCode</span><span class="p">;</span>
+</code></pre>
+<h4 id='swift' class='heading'>Swift</h4>
+<pre class="highlight swift"><code><span class="c1">// import UZLiveKit in [ProjectName]-Bridging-Header.h</span>
+<span class="cp">#import &lt;UZLiveKit.h&gt; </span>
+
+<span class="c1">//MARK: - Getters and Setters</span>
+<span class="kd">lazy</span> <span class="k">var</span> <span class="nv">session</span><span class="p">:</span> <span class="kt">UZLiveSession</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="k">let</span> <span class="nv">audioConfiguration</span> <span class="o">=</span> <span class="kt">UZAudioConfiguration</span><span class="o">.</span><span class="nf">defaultConfiguration</span><span class="p">()</span>
+    <span class="k">let</span> <span class="nv">videoConfiguration</span> <span class="o">=</span> <span class="kt">UZVideoConfiguration</span><span class="o">.</span><span class="nf">defaultConfigurationForQuality</span><span class="p">(</span><span class="kt">UZVideoQuality</span><span class="o">.</span><span class="kt">SD_360</span><span class="p">,</span> <span class="nv">landscape</span><span class="p">:</span> <span class="kc">false</span><span class="p">)</span>
+    <span class="k">let</span> <span class="nv">session</span> <span class="o">=</span> <span class="kt">UZLiveSession</span><span class="p">(</span><span class="nv">audioConfiguration</span><span class="p">:</span> <span class="n">audioConfiguration</span><span class="p">,</span> <span class="nv">videoConfiguration</span><span class="p">:</span> <span class="n">videoConfiguration</span><span class="p">)</span>
+
+    <span class="n">session</span><span class="p">?</span><span class="o">.</span><span class="n">delegate</span> <span class="o">=</span> <span class="k">self</span>
+    <span class="n">session</span><span class="p">?</span><span class="o">.</span><span class="n">preView</span> <span class="o">=</span> <span class="k">self</span><span class="o">.</span><span class="n">view</span>
+    <span class="k">return</span> <span class="n">session</span><span class="o">!</span>
+<span class="p">}()</span>
+
+<span class="c1">//MARK: - Event</span>
+<span class="kd">func</span> <span class="nf">startLive</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="kt">Void</span> <span class="p">{</span> 
+    <span class="k">let</span> <span class="nv">stream</span> <span class="o">=</span> <span class="kt">UZLiveStreamInfo</span><span class="p">()</span>
+    <span class="n">stream</span><span class="o">.</span><span class="n">url</span> <span class="o">=</span> <span class="s">"your server rtmp url"</span><span class="p">;</span>
+    <span class="n">session</span><span class="o">.</span><span class="nf">startLive</span><span class="p">(</span><span class="n">stream</span><span class="p">)</span>
+<span class="p">}</span>
+
+<span class="kd">func</span> <span class="nf">stopLive</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="kt">Void</span> <span class="p">{</span>
+    <span class="n">session</span><span class="o">.</span><span class="nf">stopLive</span><span class="p">()</span>
+<span class="p">}</span>
+
+<span class="c1">//MARK: - Callback</span>
+<span class="kd">func</span> <span class="nf">liveSession</span><span class="p">(</span><span class="nv">session</span><span class="p">:</span> <span class="kt">UZLiveSession</span><span class="p">?,</span> <span class="nv">debugInfo</span><span class="p">:</span> <span class="kt">UZLiveDebug</span><span class="p">?)</span> 
+<span class="kd">func</span> <span class="nf">liveSession</span><span class="p">(</span><span class="nv">session</span><span class="p">:</span> <span class="kt">UZLiveSession</span><span class="p">?,</span> <span class="nv">errorCode</span><span class="p">:</span> <span class="kt">UZSocketErrorCode</span><span class="p">)</span>
+<span class="kd">func</span> <span class="nf">liveSession</span><span class="p">(</span><span class="nv">session</span><span class="p">:</span> <span class="kt">UZLiveSession</span><span class="p">?,</span> <span class="n">liveStateDidChange</span> <span class="nv">state</span><span class="p">:</span> <span class="kt">UZLiveState</span><span class="p">)</span>
 </code></pre>
 
 <p>Remember to add these usage description keys into <code>Info.plist</code> file:</p>
@@ -125,7 +227,7 @@
 <p><a href="https://uizaio.github.io/uiza-ios-broadcast-sdk/">API Reference</a></p>
 <h2 id='support' class='heading'>Support</h2>
 
-<p><a href="mailto:namnh@uiza.io">namnh@uiza.io</a></p>
+<p><a href="mailto:developer@uiza.io">developer@uiza.io</a></p>
 <h2 id='license' class='heading'>License</h2>
 
 <p>UZBroadcast is released under the BSD license. See <a href="https://github.com/uizaio/uiza-sdk-broadcast-ios/blob/master/LICENSE">LICENSE</a> for details.</p>
@@ -133,8 +235,8 @@
           </section>
         </section>
         <section id="footer">
-          <p>&copy; 2020 <a class="link" href="https://uiza.io/" target="_blank" rel="external">Uiza</a>. All rights reserved. (Last updated: 2020-04-01)</p>
-          <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.13.1</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
+          <p>&copy; 2020 <a class="link" href="https://uiza.io/" target="_blank" rel="external">Nam Nguyen</a>. All rights reserved. (Last updated: 2020-06-19)</p>
+          <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.13.4</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
         </section>
       </article>
     </div>

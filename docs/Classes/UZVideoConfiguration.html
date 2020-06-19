@@ -1,0 +1,689 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>UZVideoConfiguration Class Reference</title>
+    <link rel="stylesheet" type="text/css" href="../css/jazzy.css" />
+    <link rel="stylesheet" type="text/css" href="../css/highlight.css" />
+    <meta charset='utf-8'>
+    <script src="../js/jquery.min.js" defer></script>
+    <script src="../js/jazzy.js" defer></script>
+    
+  </head>
+  <body>
+    <a name="//apple_ref/objc/Class/UZVideoConfiguration" class="dashAnchor"></a>
+    <a title="UZVideoConfiguration Class Reference"></a>
+    <header>
+      <div class="content-wrapper">
+        <p><a href="../index.html">UZBroadcast 1.2.2 Docs</a> (79% documented)</p>
+      </div>
+    </header>
+    <div class="content-wrapper">
+      <p id="breadcrumbs">
+        <a href="../index.html">UZBroadcast Reference</a>
+        <img id="carat" src="../img/carat.png" />
+        UZVideoConfiguration Class Reference
+      </p>
+    </div>
+    <div class="content-wrapper">
+      <nav class="sidebar">
+        <ul class="nav-groups">
+          <li class="nav-group-name">
+            <a href="../Classes.html">Classes</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Classes/UZAudioConfiguration.html">UZAudioConfiguration</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/UZAudioFrame.html">UZAudioFrame</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/UZFrame.html">UZFrame</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/UZLiveDebug.html">UZLiveDebug</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/UZLiveSession.html">UZLiveSession</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/UZStreamInfo.html">UZStreamInfo</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/UZVideoConfiguration.html">UZVideoConfiguration</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/UZVideoFrame.html">UZVideoFrame</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../Enums.html">Enumerations</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Enums/UZAudioBitRate.html">UZAudioBitRate</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/UZAudioQuality.html">UZAudioQuality</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/UZAudioSampleRate.html">UZAudioSampleRate</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/UZLiveCaptureType.html">UZLiveCaptureType</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/UZLiveCaptureTypeMask.html">UZLiveCaptureTypeMask</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/UZLiveState.html">UZLiveState</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/UZSocketErrorCode.html">UZSocketErrorCode</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/UZVideoQuality.html">UZVideoQuality</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/UZVideoSessionPreset.html">UZVideoSessionPreset</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../Protocols.html">Protocols</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Protocols/UZLiveSessionDelegate.html">UZLiveSessionDelegate</a>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </nav>
+      <article class="main-content">
+        <section>
+          <section class="section">
+            <h1>UZVideoConfiguration</h1>
+              <div class="declaration">
+                <div class="language">
+                  <pre class="highlight objective_c"><code><span class="k">@interface</span> <span class="nc">UZVideoConfiguration</span> <span class="p">:</span> <span class="nc">NSObject</span><span class="o">&lt;</span><span class="n">NSCoding</span><span class="p">,</span> <span class="n">NSCopying</span><span class="o">&gt;</span>
+
+<span class="c1">/// Default video configuration
+</span><span class="o">+</span> <span class="p">(</span><span class="n">instancetype</span><span class="p">)</span><span class="n">defaultConfiguration</span><span class="p">;</span>
+<span class="c1">/// Video configuration (quality)
+</span><span class="k">+</span> <span class="p">(</span><span class="n">instancetype</span><span class="p">)</span><span class="nf">defaultConfigurationForQuality</span><span class="p">:(</span><span class="n"><a href="../Enums/UZVideoQuality.html">UZVideoQuality</a></span><span class="p">)</span><span class="nv">videoQuality</span><span class="p">;</span>
+
+<span class="c1">/// Video configuration (quality &amp; whether it is landscape)
+</span><span class="k">+</span> <span class="p">(</span><span class="n">instancetype</span><span class="p">)</span><span class="nf">defaultConfigurationForQuality</span><span class="p">:(</span><span class="n"><a href="../Enums/UZVideoQuality.html">UZVideoQuality</a></span><span class="p">)</span><span class="nv">videoQuality</span> <span class="nf">outputImageOrientation</span><span class="p">:(</span><span class="n">UIInterfaceOrientation</span><span class="p">)</span><span class="nv">outputImageOrientation</span><span class="p">;</span>
+<span class="k">+</span> <span class="p">(</span><span class="n">instancetype</span><span class="p">)</span><span class="nf">defaultConfigurationForQuality</span><span class="p">:(</span><span class="n"><a href="../Enums/UZVideoQuality.html">UZVideoQuality</a></span><span class="p">)</span><span class="nv">videoQuality</span> <span class="nf">outputImageOrientation</span><span class="p">:(</span><span class="n">UIInterfaceOrientation</span><span class="p">)</span><span class="nv">outputImageOrientation</span> <span class="nf">encode</span><span class="p">:(</span><span class="n">BOOL</span><span class="p">)</span><span class="nv">encode</span><span class="p">;</span>
+
+<span class="cp">#pragma mark - Attribute
+</span><span class="c1">///=============================================================================
+/// @name Attribute
+///=============================================================================
+/// Video resolution，The width and height must be set to a multiple of 2，Otherwise, green edges may appear during decoding and playback(this one videoSizeRespectingAspectRatio Set to YES may change)
+</span><span class="k">@property</span> <span class="p">(</span><span class="n">nonatomic</span><span class="p">,</span> <span class="n">assign</span><span class="p">)</span> <span class="n">CGSize</span> <span class="n">videoSize</span><span class="p">;</span>
+
+<span class="c1">/// Whether the output image is proportional, the default is NO
+</span><span class="k">@property</span> <span class="p">(</span><span class="n">nonatomic</span><span class="p">,</span> <span class="n">assign</span><span class="p">)</span> <span class="n">BOOL</span> <span class="n">videoSizeRespectingAspectRatio</span><span class="p">;</span>
+
+<span class="c1">/// Video output direction
+</span><span class="k">@property</span> <span class="p">(</span><span class="n">nonatomic</span><span class="p">,</span> <span class="n">assign</span><span class="p">)</span> <span class="n">UIInterfaceOrientation</span> <span class="n">outputImageOrientation</span><span class="p">;</span>
+
+<span class="c1">/// Automatic rotation (only left to right portrait to portraitUpsideDown is supported here)
+</span><span class="k">@property</span> <span class="p">(</span><span class="n">nonatomic</span><span class="p">,</span> <span class="n">assign</span><span class="p">)</span> <span class="n">BOOL</span> <span class="n">autorotate</span><span class="p">;</span>
+
+<span class="c1">/// The frame rate of the video, which is fps
+</span><span class="k">@property</span> <span class="p">(</span><span class="n">nonatomic</span><span class="p">,</span> <span class="n">assign</span><span class="p">)</span> <span class="n">NSUInteger</span> <span class="n">videoFrameRate</span><span class="p">;</span>
+
+<span class="c1">/// The maximum frame rate of the video，which is fps
+</span><span class="k">@property</span> <span class="p">(</span><span class="n">nonatomic</span><span class="p">,</span> <span class="n">assign</span><span class="p">)</span> <span class="n">NSUInteger</span> <span class="n">videoMaxFrameRate</span><span class="p">;</span>
+
+<span class="c1">///Video minimum frame rate，which is fps
+</span><span class="k">@property</span> <span class="p">(</span><span class="n">nonatomic</span><span class="p">,</span> <span class="n">assign</span><span class="p">)</span> <span class="n">NSUInteger</span> <span class="n">videoMinFrameRate</span><span class="p">;</span>
+
+<span class="c1">/// The maximum key frame interval can be set to twice the fps, affecting the gop size
+</span><span class="k">@property</span> <span class="p">(</span><span class="n">nonatomic</span><span class="p">,</span> <span class="n">assign</span><span class="p">)</span> <span class="n">NSUInteger</span> <span class="n">videoMaxKeyframeInterval</span><span class="p">;</span>
+
+<span class="c1">/// The bit rate of the video, the unit is bps
+</span><span class="k">@property</span> <span class="p">(</span><span class="n">nonatomic</span><span class="p">,</span> <span class="n">assign</span><span class="p">)</span> <span class="n">NSUInteger</span> <span class="n">videoBitRate</span><span class="p">;</span>
+
+<span class="c1">///The maximum bit rate of the video, the unit is bps
+</span><span class="k">@property</span> <span class="p">(</span><span class="n">nonatomic</span><span class="p">,</span> <span class="n">assign</span><span class="p">)</span> <span class="n">NSUInteger</span> <span class="n">videoMaxBitRate</span><span class="p">;</span>
+
+<span class="c1">/// The minimum bit rate of the video, the unit is bps
+</span><span class="k">@property</span> <span class="p">(</span><span class="n">nonatomic</span><span class="p">,</span> <span class="n">assign</span><span class="p">)</span> <span class="n">NSUInteger</span> <span class="n">videoMinBitRate</span><span class="p">;</span>
+
+<span class="c1">/// Resolution
+</span><span class="k">@property</span> <span class="p">(</span><span class="n">nonatomic</span><span class="p">,</span> <span class="n">assign</span><span class="p">)</span> <span class="n"><a href="../Enums/UZVideoSessionPreset.html">UZVideoSessionPreset</a></span> <span class="n">sessionPreset</span><span class="p">;</span>
+
+<span class="c1">/// ≈sde3 resolution
+</span><span class="k">@property</span> <span class="p">(</span><span class="n">nonatomic</span><span class="p">,</span> <span class="n">assign</span><span class="p">,</span> <span class="n">readonly</span><span class="p">)</span> <span class="n">NSString</span> <span class="o">*</span><span class="n">avSessionPreset</span><span class="p">;</span>
+
+<span class="c1">/// Is it horizontal
+</span><span class="k">@property</span> <span class="p">(</span><span class="n">nonatomic</span><span class="p">,</span> <span class="n">assign</span><span class="p">,</span> <span class="n">readonly</span><span class="p">)</span> <span class="n">BOOL</span> <span class="n">landscape</span><span class="p">;</span>
+
+<span class="k">@end</span></code></pre>
+
+                </div>
+              </div>
+            <p>Undocumented</p>
+
+          </section>
+          <section class="section task-group-section">
+            <div class="task-group">
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)UZVideoConfiguration(cm)defaultConfiguration"></a>
+                    <a name="//apple_ref/objc/Method/+defaultConfiguration" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)UZVideoConfiguration(cm)defaultConfiguration">+defaultConfiguration</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Default video configuration</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">+</span> <span class="p">(</span><span class="n">instancetype</span><span class="p">)</span><span class="n">defaultConfiguration</span><span class="p">;</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)UZVideoConfiguration(cm)defaultConfigurationForQuality:"></a>
+                    <a name="//apple_ref/objc/Method/+defaultConfigurationForQuality:" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)UZVideoConfiguration(cm)defaultConfigurationForQuality:">+defaultConfigurationForQuality:<wbr></a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Video configuration (quality)</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">+</span> <span class="p">(</span><span class="n">instancetype</span><span class="p">)</span><span class="nf">defaultConfigurationForQuality</span><span class="p">:(</span><span class="n"><a href="../Enums/UZVideoQuality.html">UZVideoQuality</a></span><span class="p">)</span><span class="nv">videoQuality</span><span class="p">;</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)UZVideoConfiguration(cm)defaultConfigurationForQuality:outputImageOrientation:"></a>
+                    <a name="//apple_ref/objc/Method/+defaultConfigurationForQuality:outputImageOrientation:" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)UZVideoConfiguration(cm)defaultConfigurationForQuality:outputImageOrientation:">+defaultConfigurationForQuality:<wbr>outputImageOrientation:<wbr></a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Video configuration (quality &amp; whether it is landscape)</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">+</span> <span class="p">(</span><span class="n">instancetype</span><span class="p">)</span><span class="nf">defaultConfigurationForQuality</span><span class="p">:(</span><span class="n"><a href="../Enums/UZVideoQuality.html">UZVideoQuality</a></span><span class="p">)</span><span class="nv">videoQuality</span>
+                        <span class="nf">outputImageOrientation</span><span class="p">:(</span><span class="n">id</span><span class="p">)</span><span class="nv">outputImageOrientation</span><span class="p">;</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)UZVideoConfiguration(cm)defaultConfigurationForQuality:outputImageOrientation:encode:"></a>
+                    <a name="//apple_ref/objc/Method/+defaultConfigurationForQuality:outputImageOrientation:encode:" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)UZVideoConfiguration(cm)defaultConfigurationForQuality:outputImageOrientation:encode:">+defaultConfigurationForQuality:<wbr>outputImageOrientation:<wbr>encode:<wbr></a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">+</span> <span class="p">(</span><span class="n">instancetype</span><span class="p">)</span><span class="nf">defaultConfigurationForQuality</span><span class="p">:(</span><span class="n"><a href="../Enums/UZVideoQuality.html">UZVideoQuality</a></span><span class="p">)</span><span class="nv">videoQuality</span> <span class="nf">outputImageOrientation</span><span class="p">:(</span><span class="n">UIInterfaceOrientation</span><span class="p">)</span><span class="nv">outputImageOrientation</span> <span class="nf">encode</span><span class="p">:(</span><span class="n">BOOL</span><span class="p">)</span><span class="nv">encode</span><span class="p">;</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <div class="task-name-container">
+                <a name="/Attribute"></a>
+                <a name="//apple_ref/objc/Section/Attribute" class="dashAnchor"></a>
+                <div class="section-name-container">
+                  <a class="section-name-link" href="#/Attribute"></a>
+                  <h3 class="section-name"><p>Attribute</p>
+</h3>
+                </div>
+              </div>
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)UZVideoConfiguration(py)videoSize"></a>
+                    <a name="//apple_ref/objc/Property/videoSize" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)UZVideoConfiguration(py)videoSize">videoSize</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>=============================================================================</p>
+
+<p>=============================================================================
+ Video resolution，The width and height must be set to a multiple of 2，Otherwise, green edges may appear during decoding and playback(this one videoSizeRespectingAspectRatio Set to YES may change)</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">@property</span> <span class="p">(</span><span class="n">nonatomic</span><span class="p">)</span> <span class="n">CGSize</span> <span class="n">videoSize</span><span class="p">;</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)UZVideoConfiguration(py)videoSizeRespectingAspectRatio"></a>
+                    <a name="//apple_ref/objc/Property/videoSizeRespectingAspectRatio" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)UZVideoConfiguration(py)videoSizeRespectingAspectRatio">videoSizeRespectingAspectRatio</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Whether the output image is proportional, the default is NO</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">@property</span> <span class="p">(</span><span class="n">nonatomic</span><span class="p">)</span> <span class="n">BOOL</span> <span class="n">videoSizeRespectingAspectRatio</span><span class="p">;</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)UZVideoConfiguration(py)outputImageOrientation"></a>
+                    <a name="//apple_ref/objc/Property/outputImageOrientation" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)UZVideoConfiguration(py)outputImageOrientation">outputImageOrientation</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Video output direction</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">@property</span> <span class="p">(</span><span class="n">nonatomic</span><span class="p">)</span> <span class="kt">int</span> <span class="n">outputImageOrientation</span><span class="p">;</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)UZVideoConfiguration(py)autorotate"></a>
+                    <a name="//apple_ref/objc/Property/autorotate" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)UZVideoConfiguration(py)autorotate">autorotate</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Automatic rotation (only left to right portrait to portraitUpsideDown is supported here)</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">@property</span> <span class="p">(</span><span class="n">nonatomic</span><span class="p">)</span> <span class="n">BOOL</span> <span class="n">autorotate</span><span class="p">;</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)UZVideoConfiguration(py)videoFrameRate"></a>
+                    <a name="//apple_ref/objc/Property/videoFrameRate" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)UZVideoConfiguration(py)videoFrameRate">videoFrameRate</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>The frame rate of the video, which is fps</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">@property</span> <span class="p">(</span><span class="n">nonatomic</span><span class="p">)</span> <span class="n">NSUInteger</span> <span class="n">videoFrameRate</span><span class="p">;</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)UZVideoConfiguration(py)videoMaxFrameRate"></a>
+                    <a name="//apple_ref/objc/Property/videoMaxFrameRate" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)UZVideoConfiguration(py)videoMaxFrameRate">videoMaxFrameRate</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>The maximum frame rate of the video，which is fps</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">@property</span> <span class="p">(</span><span class="n">nonatomic</span><span class="p">)</span> <span class="n">NSUInteger</span> <span class="n">videoMaxFrameRate</span><span class="p">;</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)UZVideoConfiguration(py)videoMinFrameRate"></a>
+                    <a name="//apple_ref/objc/Property/videoMinFrameRate" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)UZVideoConfiguration(py)videoMinFrameRate">videoMinFrameRate</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Video minimum frame rate，which is fps</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">@property</span> <span class="p">(</span><span class="n">nonatomic</span><span class="p">)</span> <span class="n">NSUInteger</span> <span class="n">videoMinFrameRate</span><span class="p">;</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)UZVideoConfiguration(py)videoMaxKeyframeInterval"></a>
+                    <a name="//apple_ref/objc/Property/videoMaxKeyframeInterval" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)UZVideoConfiguration(py)videoMaxKeyframeInterval">videoMaxKeyframeInterval</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>The maximum key frame interval can be set to twice the fps, affecting the gop size</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">@property</span> <span class="p">(</span><span class="n">nonatomic</span><span class="p">)</span> <span class="n">NSUInteger</span> <span class="n">videoMaxKeyframeInterval</span><span class="p">;</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)UZVideoConfiguration(py)videoBitRate"></a>
+                    <a name="//apple_ref/objc/Property/videoBitRate" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)UZVideoConfiguration(py)videoBitRate">videoBitRate</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>The bit rate of the video, the unit is bps</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">@property</span> <span class="p">(</span><span class="n">nonatomic</span><span class="p">)</span> <span class="n">NSUInteger</span> <span class="n">videoBitRate</span><span class="p">;</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)UZVideoConfiguration(py)videoMaxBitRate"></a>
+                    <a name="//apple_ref/objc/Property/videoMaxBitRate" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)UZVideoConfiguration(py)videoMaxBitRate">videoMaxBitRate</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>The maximum bit rate of the video, the unit is bps</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">@property</span> <span class="p">(</span><span class="n">nonatomic</span><span class="p">)</span> <span class="n">NSUInteger</span> <span class="n">videoMaxBitRate</span><span class="p">;</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)UZVideoConfiguration(py)videoMinBitRate"></a>
+                    <a name="//apple_ref/objc/Property/videoMinBitRate" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)UZVideoConfiguration(py)videoMinBitRate">videoMinBitRate</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>The minimum bit rate of the video, the unit is bps</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">@property</span> <span class="p">(</span><span class="n">nonatomic</span><span class="p">)</span> <span class="n">NSUInteger</span> <span class="n">videoMinBitRate</span><span class="p">;</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)UZVideoConfiguration(py)sessionPreset"></a>
+                    <a name="//apple_ref/objc/Property/sessionPreset" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)UZVideoConfiguration(py)sessionPreset">sessionPreset</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Resolution</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">@property</span> <span class="p">(</span><span class="n">nonatomic</span><span class="p">)</span> <span class="n"><a href="../Enums/UZVideoSessionPreset.html">UZVideoSessionPreset</a></span> <span class="n">sessionPreset</span><span class="p">;</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)UZVideoConfiguration(py)avSessionPreset"></a>
+                    <a name="//apple_ref/objc/Property/avSessionPreset" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)UZVideoConfiguration(py)avSessionPreset">avSessionPreset</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>≈sde3 resolution</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">@property</span> <span class="p">(</span><span class="n">nonatomic</span><span class="p">,</span> <span class="n">readonly</span><span class="p">)</span> <span class="n">NSString</span> <span class="o">*</span><span class="n">avSessionPreset</span><span class="p">;</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)UZVideoConfiguration(py)landscape"></a>
+                    <a name="//apple_ref/objc/Property/landscape" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)UZVideoConfiguration(py)landscape">landscape</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Is it horizontal</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">@property</span> <span class="p">(</span><span class="n">nonatomic</span><span class="p">,</span> <span class="n">readonly</span><span class="p">)</span> <span class="n">BOOL</span> <span class="n">landscape</span><span class="p">;</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </section>
+        </section>
+        <section id="footer">
+          <p>&copy; 2020 <a class="link" href="https://uiza.io/" target="_blank" rel="external">Nam Nguyen</a>. All rights reserved. (Last updated: 2020-06-19)</p>
+          <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.13.4</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
+        </section>
+      </article>
+    </div>
+  </body>
+</div>
+</html>
