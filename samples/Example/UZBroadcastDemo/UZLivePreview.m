@@ -208,7 +208,7 @@ inline static NSString *formatedSpeed(float bytes, float elapsed_milli) {
         /**    Customize high-quality audio with 128K resolution set to 720*1280 vertical screen */
 
         /*
-           UZLiveAudioConfiguration *audioConfiguration = [UZLiveAudioConfiguration new];
+           UZAudioConfiguration *audioConfiguration = [UZAudioConfiguration new];
            audioConfiguration.numberOfChannels = 2;
            audioConfiguration.audioBitrate = UZLiveAudioBitRate_128Kbps;
            audioConfiguration.audioSampleRate = UzLiveAudioSampleRate_44100Hz;
