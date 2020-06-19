@@ -167,31 +167,31 @@ inline static NSString *formatedSpeed(float bytes, float elapsed_milli) {
 
         /**    Customize your own mono  */
         /*
-           UZLiveAudioConfiguration *audioConfiguration = [UZLiveAudioConfiguration new];
+           UZAudioConfiguration *audioConfiguration = [UZAudioConfiguration new];
            audioConfiguration.numberOfChannels = 1;
-           audioConfiguration.audioBitrate = UZLiveAudioBitRate_64Kbps;
-           audioConfiguration.audioSampleRate = UZLiveAudioSampleRate_44100Hz;
-           _session = [[UZLiveSession alloc] initWithAudioConfiguration:audioConfiguration videoConfiguration:[UZLiveVideoConfiguration defaultConfiguration]];
+           audioConfiguration.audioBitrate = UZAudioBitRate_64Kbps;
+           audioConfiguration.audioSampleRate = UZAudioSampleRate_44100Hz;
+           _session = [[UZLiveSession alloc] initWithAudioConfiguration:audioConfiguration videoConfiguration:[UZVideoConfiguration defaultConfiguration]];
          */
 
         /**    Customize high-quality audio 96K */
         /*
-           UZLiveAudioConfiguration *audioConfiguration = [UZLiveAudioConfiguration new];
+           UZAudioConfiguration *audioConfiguration = [UZAudioConfiguration new];
            audioConfiguration.numberOfChannels = 2;
-           audioConfiguration.audioBitrate = UZLiveAudioBitRate_96Kbps;
-           audioConfiguration.audioSampleRate = UZLiveAudioSampleRate_44100Hz;
-           _session = [[UZLiveSession alloc] initWithAudioConfiguration:audioConfiguration videoConfiguration:[UZLiveVideoConfiguration defaultConfiguration]];
+           audioConfiguration.audioBitrate = UZAudioBitRate_96Kbps;
+           audioConfiguration.audioSampleRate = UZAudioSampleRate_44100Hz;
+           _session = [[UZLiveSession alloc] initWithAudioConfiguration:audioConfiguration videoConfiguration:[UZVideoConfiguration defaultConfiguration]];
          */
 
         /**    Customize your own high-quality audio 96K resolution set to 540*960 vertical screen */
 
         /*
-           UZLiveAudioConfiguration *audioConfiguration = [UZLiveAudioConfiguration new];
+           UZAudioConfiguration *audioConfiguration = [UZAudioConfiguration new];
            audioConfiguration.numberOfChannels = 2;
-           audioConfiguration.audioBitrate = UZLiveAudioBitRate_96Kbps;
-           audioConfiguration.audioSampleRate = UZLiveAudioSampleRate_44100Hz;
+           audioConfiguration.audioBitrate = UZAudioBitRate_96Kbps;
+           audioConfiguration.audioSampleRate = UZAudioSampleRate_44100Hz;
 
-           UZLiveVideoConfiguration *videoConfiguration = [UZLiveVideoConfiguration new];
+           UZVideoConfiguration *videoConfiguration = [UZVideoConfiguration new];
            videoConfiguration.videoSize = CGSizeMake(540, 960);
            videoConfiguration.videoBitRate = 800*1024;
            videoConfiguration.videoMaxBitRate = 1000*1024;
@@ -199,7 +199,7 @@ inline static NSString *formatedSpeed(float bytes, float elapsed_milli) {
            videoConfiguration.videoFrameRate = 24;
            videoConfiguration.videoMaxKeyframeInterval = 48;
            videoConfiguration.orientation = UIInterfaceOrientationPortrait;
-           videoConfiguration.sessionPreset = UZCaptureSessionPreset540x960;
+           videoConfiguration.sessionPreset = UZVideoSessionPreset540x960;
 
            _session = [[UZLiveSession alloc] initWithAudioConfiguration:audioConfiguration videoConfiguration:videoConfiguration];
          */
@@ -210,10 +210,10 @@ inline static NSString *formatedSpeed(float bytes, float elapsed_milli) {
         /*
            UZAudioConfiguration *audioConfiguration = [UZAudioConfiguration new];
            audioConfiguration.numberOfChannels = 2;
-           audioConfiguration.audioBitrate = UZLiveAudioBitRate_128Kbps;
-           audioConfiguration.audioSampleRate = UzLiveAudioSampleRate_44100Hz;
+           audioConfiguration.audioBitrate = UZAudioBitRate_128Kbps;
+           audioConfiguration.audioSampleRate = UZLiveAudioSampleRate_44100Hz;
 
-           UZLiveVideoConfiguration *videoConfiguration = [UZLiveVideoConfiguration new];
+           UZVideoConfiguration *videoConfiguration = [UZVideoConfiguration new];
            videoConfiguration.videoSize = CGSizeMake(720, 1280);
            videoConfiguration.videoBitRate = 800*1024;
            videoConfiguration.videoMaxBitRate = 1000*1024;
@@ -221,7 +221,7 @@ inline static NSString *formatedSpeed(float bytes, float elapsed_milli) {
            videoConfiguration.videoFrameRate = 15;
            videoConfiguration.videoMaxKeyframeInterval = 30;
            videoConfiguration.landscape = NO;
-           videoConfiguration.sessionPreset = UZCaptureSessionPreset360x640;
+           videoConfiguration.sessionPreset = UZVideoSessionPreset360x640;
 
            _session = [[UZLiveSession alloc] initWithAudioConfiguration:audioConfiguration videoConfiguration:videoConfiguration];
          */
@@ -230,12 +230,12 @@ inline static NSString *formatedSpeed(float bytes, float elapsed_milli) {
         /**    Customize high-quality audio 128K resolution setting to 720*1280 horizontal landscape  */
 
         /*
-           UZLiveAudioConfiguration *audioConfiguration = [UZLiveAudioConfiguration new];
+           UZAudioConfiguration *audioConfiguration = [UZAudioConfiguration new];
            audioConfiguration.numberOfChannels = 2;
-           audioConfiguration.audioBitrate = UZLiveAudioBitRate_128Kbps;
-           audioConfiguration.audioSampleRate = UZLiveAudioSampleRate_44100Hz;
+           audioConfiguration.audioBitrate = UZAudioBitRate_128Kbps;
+           audioConfiguration.audioSampleRate = UZAudioSampleRate_44100Hz;
 
-           UZLiveVideoConfiguration *videoConfiguration = [UZLiveVideoConfiguration new];
+           UZVideoConfiguration *videoConfiguration = [UZVideoConfiguration new];
            videoConfiguration.videoSize = CGSizeMake(1280, 720);
            videoConfiguration.videoBitRate = 800*1024;
            videoConfiguration.videoMaxBitRate = 1000*1024;
@@ -243,7 +243,7 @@ inline static NSString *formatedSpeed(float bytes, float elapsed_milli) {
            videoConfiguration.videoFrameRate = 15;
            videoConfiguration.videoMaxKeyframeInterval = 30;
            videoConfiguration.landscape = YES;
-           videoConfiguration.sessionPreset = UZCaptureSessionPreset720x1280;
+           videoConfiguration.sessionPreset = UZVideoSessionPreset720x1280;
 
            _session = [[UZLiveSession alloc] initWithAudioConfiguration:audioConfiguration videoConfiguration:videoConfiguration];
         */
