@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>UZAudioBitRate Enumeration Reference</title>
+    <title>UZVideoSessionPreset Enumeration Reference</title>
     <link rel="stylesheet" type="text/css" href="../css/jazzy.css" />
     <link rel="stylesheet" type="text/css" href="../css/highlight.css" />
     <meta charset='utf-8'>
@@ -10,8 +10,8 @@
     
   </head>
   <body>
-    <a name="//apple_ref/objc/Enum/UZAudioBitRate" class="dashAnchor"></a>
-    <a title="UZAudioBitRate Enumeration Reference"></a>
+    <a name="//apple_ref/objc/Enum/UZVideoSessionPreset" class="dashAnchor"></a>
+    <a title="UZVideoSessionPreset Enumeration Reference"></a>
     <header>
       <div class="content-wrapper">
         <p><a href="../index.html">UZBroadcast 1.2.2 Docs</a> (79% documented)</p>
@@ -21,7 +21,7 @@
       <p id="breadcrumbs">
         <a href="../index.html">UZBroadcast Reference</a>
         <img id="carat" src="../img/carat.png" />
-        UZAudioBitRate Enumeration Reference
+        UZVideoSessionPreset Enumeration Reference
       </p>
     </div>
     <div class="content-wrapper">
@@ -101,14 +101,14 @@
       <article class="main-content">
         <section>
           <section class="section">
-            <h1>UZAudioBitRate</h1>
+            <h1>UZVideoSessionPreset</h1>
               <div class="declaration">
                 <div class="language">
-                  <pre class="highlight objective_c"><code><span class="k">enum</span> <span class="n">UZAudioBitRate</span> <span class="p">{}</span></code></pre>
+                  <pre class="highlight objective_c"><code><span class="k">enum</span> <span class="n">UZVideoSessionPreset</span> <span class="p">{}</span></code></pre>
 
                 </div>
               </div>
-            <p>Audio bit rate (default 96Kbps)</p>
+            <p>Video resolution (both 16:9 when the device does not support the current resolution, it will automatically decrease by one level)</p>
 
           </section>
           <section class="section task-group-section">
@@ -117,9 +117,9 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/c:@E@UZAudioBitRate@UZAudioBitRate_32Kbps"></a>
-                    <a name="//apple_ref/objc/Case/UZAudioBitRate_32Kbps" class="dashAnchor"></a>
-                    <a class="token" href="#/c:@E@UZAudioBitRate@UZAudioBitRate_32Kbps">UZAudioBitRate_32Kbps</a>
+                    <a name="/c:@E@UZVideoSessionPreset@UZVideoSessionPreset360x640"></a>
+                    <a name="//apple_ref/objc/Case/UZVideoSessionPreset360x640" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@E@UZVideoSessionPreset@UZVideoSessionPreset360x640">UZVideoSessionPreset360x640</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -127,14 +127,14 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>32Kbps Audio bitrate</p>
+                        <p>Low resolution</p>
 
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Objective-C</p>
-                          <pre class="highlight objective_c"><code><span class="n">UZAudioBitRate_32Kbps</span> <span class="o">=</span> <span class="mi">32000</span></code></pre>
+                          <pre class="highlight objective_c"><code><span class="n">UZVideoSessionPreset360x640</span> <span class="o">=</span> <span class="mi">0</span></code></pre>
 
                         </div>
                       </div>
@@ -144,9 +144,9 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/c:@E@UZAudioBitRate@UZAudioBitRate_64Kbps"></a>
-                    <a name="//apple_ref/objc/Case/UZAudioBitRate_64Kbps" class="dashAnchor"></a>
-                    <a class="token" href="#/c:@E@UZAudioBitRate@UZAudioBitRate_64Kbps">UZAudioBitRate_64Kbps</a>
+                    <a name="/c:@E@UZVideoSessionPreset@UZVideoSessionPreset480x854"></a>
+                    <a name="//apple_ref/objc/Case/UZVideoSessionPreset480x854" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@E@UZVideoSessionPreset@UZVideoSessionPreset480x854">UZVideoSessionPreset480x854</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -154,14 +154,14 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>64Kbps Audio bitrate</p>
+                        <p>Medium resolution</p>
 
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Objective-C</p>
-                          <pre class="highlight objective_c"><code><span class="n">UZAudioBitRate_64Kbps</span> <span class="o">=</span> <span class="mi">64000</span></code></pre>
+                          <pre class="highlight objective_c"><code><span class="n">UZVideoSessionPreset480x854</span> <span class="o">=</span> <span class="mi">1</span></code></pre>
 
                         </div>
                       </div>
@@ -171,9 +171,9 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/c:@E@UZAudioBitRate@UZAudioBitRate_96Kbps"></a>
-                    <a name="//apple_ref/objc/Case/UZAudioBitRate_96Kbps" class="dashAnchor"></a>
-                    <a class="token" href="#/c:@E@UZAudioBitRate@UZAudioBitRate_96Kbps">UZAudioBitRate_96Kbps</a>
+                    <a name="/c:@E@UZVideoSessionPreset@UZVideoSessionPreset540x960"></a>
+                    <a name="//apple_ref/objc/Case/UZVideoSessionPreset540x960" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@E@UZVideoSessionPreset@UZVideoSessionPreset540x960">UZVideoSessionPreset540x960</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -181,14 +181,13 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>96Kbps Audio bitrate</p>
-
+                        
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Objective-C</p>
-                          <pre class="highlight objective_c"><code><span class="n">UZAudioBitRate_96Kbps</span> <span class="o">=</span> <span class="mi">96000</span></code></pre>
+                          <pre class="highlight objective_c"><code><span class="n">UZVideoSessionPreset540x960</span> <span class="o">=</span> <span class="mi">2</span></code></pre>
 
                         </div>
                       </div>
@@ -198,9 +197,9 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/c:@E@UZAudioBitRate@UZAudioBitRate_128Kbps"></a>
-                    <a name="//apple_ref/objc/Case/UZAudioBitRate_128Kbps" class="dashAnchor"></a>
-                    <a class="token" href="#/c:@E@UZAudioBitRate@UZAudioBitRate_128Kbps">UZAudioBitRate_128Kbps</a>
+                    <a name="/c:@E@UZVideoSessionPreset@UZVideoSessionPreset720x1280"></a>
+                    <a name="//apple_ref/objc/Case/UZVideoSessionPreset720x1280" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@E@UZVideoSessionPreset@UZVideoSessionPreset720x1280">UZVideoSessionPreset720x1280</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -208,14 +207,14 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>128Kbps Audio bitrate</p>
+                        <p>HD resolution</p>
 
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Objective-C</p>
-                          <pre class="highlight objective_c"><code><span class="n">UZAudioBitRate_128Kbps</span> <span class="o">=</span> <span class="mi">128000</span></code></pre>
+                          <pre class="highlight objective_c"><code><span class="n">UZVideoSessionPreset720x1280</span> <span class="o">=</span> <span class="mi">3</span></code></pre>
 
                         </div>
                       </div>
@@ -225,9 +224,9 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/c:@E@UZAudioBitRate@UZAudioBitRate_Default"></a>
-                    <a name="//apple_ref/objc/Case/UZAudioBitRate_Default" class="dashAnchor"></a>
-                    <a class="token" href="#/c:@E@UZAudioBitRate@UZAudioBitRate_Default">UZAudioBitRate_Default</a>
+                    <a name="/c:@E@UZVideoSessionPreset@UZVideoSessionPreset1920x1080"></a>
+                    <a name="//apple_ref/objc/Case/UZVideoSessionPreset1920x1080" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@E@UZVideoSessionPreset@UZVideoSessionPreset1920x1080">UZVideoSessionPreset1920x1080</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -235,14 +234,41 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>The default audio bitrate, the default is 96Kbps</p>
+                        <p>FullHD resolution</p>
 
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Objective-C</p>
-                          <pre class="highlight objective_c"><code><span class="n">UZAudioBitRate_Default</span> <span class="o">=</span> <span class="n"><a href="../Enums/UZAudioBitRate.html#/c:@E@UZAudioBitRate@UZAudioBitRate_96Kbps">UZAudioBitRate_96Kbps</a></span></code></pre>
+                          <pre class="highlight objective_c"><code><span class="n">UZVideoSessionPreset1920x1080</span> <span class="o">=</span> <span class="mi">4</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:@E@UZVideoSessionPreset@UZVideoSessionPreset3840x2160"></a>
+                    <a name="//apple_ref/objc/Case/UZVideoSessionPreset3840x2160" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@E@UZVideoSessionPreset@UZVideoSessionPreset3840x2160">UZVideoSessionPreset3840x2160</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>4K Resolution</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="n">UZVideoSessionPreset3840x2160</span> <span class="o">=</span> <span class="mi">5</span></code></pre>
 
                         </div>
                       </div>

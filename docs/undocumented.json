@@ -1,341 +1,243 @@
 {
   "warnings": [
     {
-      "file": "/Users/namkennic/Projects/UZBroadcast/UZBroadcast/UZBroadcastConfig.swift",
-      "line": 12,
-      "symbol": "UZVideoResolution",
-      "symbol_kind": "source.lang.swift.decl.enum",
+      "file": "/Users/namnd/UIZA/ios/uiza-ios-broadcast-sdk/UZBroadcast/UZLiveSession.h",
+      "line": 21,
+      "symbol": "UZLiveCaptureType",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/namkennic/Projects/UZBroadcast/UZBroadcast/UZBroadcastConfig.swift",
-      "line": 13,
-      "symbol": "UZVideoResolution._360",
-      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "file": "/Users/namnd/UIZA/ios/uiza-ios-broadcast-sdk/UZBroadcast/UZLiveSession.h",
+      "line": 21,
+      "symbol": "UZLiveCaptureType",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/namkennic/Projects/UZBroadcast/UZBroadcast/UZBroadcastConfig.swift",
-      "line": 14,
-      "symbol": "UZVideoResolution._480",
-      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "file": "/Users/namnd/UIZA/ios/uiza-ios-broadcast-sdk/UZBroadcast/UZLiveSession.h",
+      "line": 30,
+      "symbol": "UZLiveCaptureTypeMask",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/namkennic/Projects/UZBroadcast/UZBroadcast/UZBroadcastConfig.swift",
-      "line": 15,
-      "symbol": "UZVideoResolution._720",
-      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "file": "/Users/namnd/UIZA/ios/uiza-ios-broadcast-sdk/UZBroadcast/UZLiveSession.h",
+      "line": 30,
+      "symbol": "UZLiveCaptureTypeMask",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/namkennic/Projects/UZBroadcast/UZBroadcast/UZBroadcastConfig.swift",
-      "line": 16,
-      "symbol": "UZVideoResolution._1080",
-      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "file": "/Users/namnd/UIZA/ios/uiza-ios-broadcast-sdk/UZBroadcast/UZLiveSession.h",
+      "line": 43,
+      "symbol": "UZLiveSessionDelegate",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.protocol",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/namkennic/Projects/UZBroadcast/UZBroadcast/UZBroadcastConfig.swift",
-      "line": 77,
-      "symbol": "UZVideoBitrate",
-      "symbol_kind": "source.lang.swift.decl.enum",
+      "file": "/Users/namnd/UIZA/ios/uiza-ios-broadcast-sdk/UZBroadcast/UZLiveSession.h",
+      "line": 56,
+      "symbol": "UZLiveSession",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.class",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/namkennic/Projects/UZBroadcast/UZBroadcast/UZBroadcastConfig.swift",
-      "line": 78,
-      "symbol": "UZVideoBitrate._500",
-      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "file": "/Users/namnd/UIZA/ios/uiza-ios-broadcast-sdk/UZBroadcast/UZLiveSession.h",
+      "line": 102,
+      "symbol": "UZLiveSession.adaptiveBitrate",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.property",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/namkennic/Projects/UZBroadcast/UZBroadcast/UZBroadcastConfig.swift",
-      "line": 79,
-      "symbol": "UZVideoBitrate._1000",
-      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "file": "/Users/namnd/UIZA/ios/uiza-ios-broadcast-sdk/UZBroadcast/UZLiveSession.h",
+      "line": 128,
+      "symbol": "UZLiveSession.currentImage",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.property",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/namkennic/Projects/UZBroadcast/UZBroadcast/UZBroadcastConfig.swift",
-      "line": 80,
-      "symbol": "UZVideoBitrate._1500",
-      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "file": "/Users/namnd/UIZA/ios/uiza-ios-broadcast-sdk/UZBroadcast/UZLiveSession.h",
+      "line": 131,
+      "symbol": "UZLiveSession.saveLocalVideo",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.property",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/namkennic/Projects/UZBroadcast/UZBroadcast/UZBroadcastConfig.swift",
-      "line": 81,
-      "symbol": "UZVideoBitrate._2000",
-      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "file": "/Users/namnd/UIZA/ios/uiza-ios-broadcast-sdk/UZBroadcast/UZLiveSession.h",
+      "line": 134,
+      "symbol": "UZLiveSession.saveLocalVideoPath",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.property",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/namkennic/Projects/UZBroadcast/UZBroadcast/UZBroadcastConfig.swift",
-      "line": 82,
-      "symbol": "UZVideoBitrate._3000",
-      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "file": "/Users/namnd/UIZA/ios/uiza-ios-broadcast-sdk/UZBroadcast/UZLiveSession.h",
+      "line": 141,
+      "symbol": "UZLiveSession.+new",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.method.class",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/namkennic/Projects/UZBroadcast/UZBroadcast/UZBroadcastConfig.swift",
-      "line": 83,
-      "symbol": "UZVideoBitrate._4000",
-      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "file": "/Users/namnd/UIZA/ios/uiza-ios-broadcast-sdk/UZBroadcast/UZLiveSession.h",
+      "line": 167,
+      "symbol": "UZLiveSession.-pushAudioBuffer:",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.method.instance",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/namkennic/Projects/UZBroadcast/UZBroadcast/UZBroadcastConfig.swift",
-      "line": 84,
-      "symbol": "UZVideoBitrate._5000",
-      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "file": "/Users/namnd/UIZA/ios/uiza-ios-broadcast-sdk/UZBroadcast/UZLiveSession.h",
+      "line": 168,
+      "symbol": "UZLiveSession.-pushVideoBuffer:",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.method.instance",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/namkennic/Projects/UZBroadcast/UZBroadcast/UZBroadcastConfig.swift",
-      "line": 85,
-      "symbol": "UZVideoBitrate._6000",
-      "symbol_kind": "source.lang.swift.decl.enumelement",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/namkennic/Projects/UZBroadcast/UZBroadcast/UZBroadcastConfig.swift",
-      "line": 93,
-      "symbol": "UZVideoFPS",
-      "symbol_kind": "source.lang.swift.decl.enum",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/namkennic/Projects/UZBroadcast/UZBroadcast/UZBroadcastConfig.swift",
-      "line": 94,
-      "symbol": "UZVideoFPS._30",
-      "symbol_kind": "source.lang.swift.decl.enumelement",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/namkennic/Projects/UZBroadcast/UZBroadcast/UZBroadcastConfig.swift",
-      "line": 95,
-      "symbol": "UZVideoFPS._60",
-      "symbol_kind": "source.lang.swift.decl.enumelement",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/namkennic/Projects/UZBroadcast/UZBroadcast/UZBroadcastConfig.swift",
-      "line": 103,
-      "symbol": "UZAudioBitrate",
-      "symbol_kind": "source.lang.swift.decl.enum",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/namkennic/Projects/UZBroadcast/UZBroadcast/UZBroadcastConfig.swift",
-      "line": 104,
-      "symbol": "UZAudioBitrate._64Kbps",
-      "symbol_kind": "source.lang.swift.decl.enumelement",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/namkennic/Projects/UZBroadcast/UZBroadcast/UZBroadcastConfig.swift",
-      "line": 105,
-      "symbol": "UZAudioBitrate._96Kbps",
-      "symbol_kind": "source.lang.swift.decl.enumelement",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/namkennic/Projects/UZBroadcast/UZBroadcast/UZBroadcastConfig.swift",
-      "line": 106,
-      "symbol": "UZAudioBitrate._128Kbps",
-      "symbol_kind": "source.lang.swift.decl.enumelement",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/namkennic/Projects/UZBroadcast/UZBroadcast/UZBroadcastConfig.swift",
-      "line": 125,
-      "symbol": "UZAudioSampleRate",
-      "symbol_kind": "source.lang.swift.decl.enum",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/namkennic/Projects/UZBroadcast/UZBroadcast/UZBroadcastConfig.swift",
-      "line": 126,
-      "symbol": "UZAudioSampleRate._44_1khz",
-      "symbol_kind": "source.lang.swift.decl.enumelement",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/namkennic/Projects/UZBroadcast/UZBroadcast/UZBroadcastConfig.swift",
-      "line": 127,
-      "symbol": "UZAudioSampleRate._48_0khz",
-      "symbol_kind": "source.lang.swift.decl.enumelement",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/namkennic/Projects/UZBroadcast/UZBroadcast/UZBroadcastConfig.swift",
-      "line": 144,
-      "symbol": "UZBroadcastConfig",
-      "symbol_kind": "source.lang.swift.decl.struct",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/namkennic/Projects/UZBroadcast/UZBroadcast/UZBroadcastConfig.swift",
-      "line": 145,
-      "symbol": "UZBroadcastConfig.cameraPosition",
-      "symbol_kind": "source.lang.swift.decl.var.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/namkennic/Projects/UZBroadcast/UZBroadcast/UZBroadcastConfig.swift",
-      "line": 146,
-      "symbol": "UZBroadcastConfig.videoResolution",
-      "symbol_kind": "source.lang.swift.decl.var.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/namkennic/Projects/UZBroadcast/UZBroadcast/UZBroadcastConfig.swift",
-      "line": 147,
-      "symbol": "UZBroadcastConfig.videoBitrate",
-      "symbol_kind": "source.lang.swift.decl.var.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/namkennic/Projects/UZBroadcast/UZBroadcast/UZBroadcastConfig.swift",
-      "line": 148,
-      "symbol": "UZBroadcastConfig.videoFPS",
-      "symbol_kind": "source.lang.swift.decl.var.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/namkennic/Projects/UZBroadcast/UZBroadcast/UZBroadcastConfig.swift",
-      "line": 149,
-      "symbol": "UZBroadcastConfig.audioBitrate",
-      "symbol_kind": "source.lang.swift.decl.var.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/namkennic/Projects/UZBroadcast/UZBroadcast/UZBroadcastConfig.swift",
-      "line": 150,
-      "symbol": "UZBroadcastConfig.audioSampleRate",
-      "symbol_kind": "source.lang.swift.decl.var.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/namkennic/Projects/UZBroadcast/UZBroadcast/UZBroadcastConfig.swift",
-      "line": 151,
-      "symbol": "UZBroadcastConfig.adaptiveBitrate",
-      "symbol_kind": "source.lang.swift.decl.var.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/namkennic/Projects/UZBroadcast/UZBroadcast/UZBroadcastConfig.swift",
-      "line": 152,
-      "symbol": "UZBroadcastConfig.orientation",
-      "symbol_kind": "source.lang.swift.decl.var.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/namkennic/Projects/UZBroadcast/UZBroadcast/UZBroadcastConfig.swift",
-      "line": 153,
-      "symbol": "UZBroadcastConfig.autoRotate",
-      "symbol_kind": "source.lang.swift.decl.var.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/namkennic/Projects/UZBroadcast/UZBroadcast/UZBroadcastConfig.swift",
-      "line": 155,
-      "symbol": "UZBroadcastConfig.init(cameraPosition:videoResolution:videoBitrate:videoFPS:audioBitrate:audioSampleRate:adaptiveBitrate:orientation:autoRotate:)",
-      "symbol_kind": "source.lang.swift.decl.function.method.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/namkennic/Projects/UZBroadcast/UZBroadcast/UZBroadcastViewController.swift",
+      "file": "/Users/namnd/UIZA/ios/uiza-ios-broadcast-sdk/UZBroadcast/configuration/UZAudioConfiguration.h",
       "line": 51,
-      "symbol": "UZBroadcastViewController.preferredStatusBarStyle",
-      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "symbol": "UZAudioConfiguration",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.class",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/namkennic/Projects/UZBroadcast/UZBroadcast/UZBroadcastViewController.swift",
+      "file": "/Users/namnd/UIZA/ios/uiza-ios-broadcast-sdk/UZBroadcast/configuration/UZVideoConfiguration.h",
+      "line": 46,
+      "symbol": "UZVideoConfiguration",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.class",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/namnd/UIZA/ios/uiza-ios-broadcast-sdk/UZBroadcast/configuration/UZVideoConfiguration.h",
       "line": 55,
-      "symbol": "UZBroadcastViewController.shouldAutorotate",
-      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "symbol": "UZVideoConfiguration.+defaultConfigurationForQuality:outputImageOrientation:encode:",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.method.class",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/namkennic/Projects/UZBroadcast/UZBroadcast/UZBroadcastViewController.swift",
-      "line": 59,
-      "symbol": "UZBroadcastViewController.supportedInterfaceOrientations",
-      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "file": "/Users/namnd/UIZA/ios/uiza-ios-broadcast-sdk/UZBroadcast/objects/UZAudioFrame.h",
+      "line": 11,
+      "symbol": "UZAudioFrame",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.class",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/namkennic/Projects/UZBroadcast/UZBroadcast/UZBroadcastViewController.swift",
-      "line": 63,
-      "symbol": "UZBroadcastViewController.preferredInterfaceOrientationForPresentation",
-      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "file": "/Users/namnd/UIZA/ios/uiza-ios-broadcast-sdk/UZBroadcast/objects/UZFrame.h",
+      "line": 11,
+      "symbol": "UZFrame",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.class",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/namkennic/Projects/UZBroadcast/UZBroadcast/UZBroadcastViewController.swift",
-      "line": 148,
-      "symbol": "UZBroadcastViewController.viewDidLoad()",
-      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "file": "/Users/namnd/UIZA/ios/uiza-ios-broadcast-sdk/UZBroadcast/objects/UZFrame.h",
+      "line": 13,
+      "symbol": "UZFrame.timestamp",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.property",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/namkennic/Projects/UZBroadcast/UZBroadcast/UZBroadcastViewController.swift",
-      "line": 153,
-      "symbol": "UZBroadcastViewController.viewDidAppear(_:)",
-      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "file": "/Users/namnd/UIZA/ios/uiza-ios-broadcast-sdk/UZBroadcast/objects/UZFrame.h",
+      "line": 14,
+      "symbol": "UZFrame.data",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.property",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/namkennic/Projects/UZBroadcast/UZBroadcast/UZBroadcastViewController.swift",
-      "line": 160,
-      "symbol": "UZBroadcastViewController.viewWillDisappear(_:)",
-      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "file": "/Users/namnd/UIZA/ios/uiza-ios-broadcast-sdk/UZBroadcast/objects/UZLiveDebug.h",
+      "line": 12,
+      "symbol": "UZLiveDebug",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.class",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/namkennic/Projects/UZBroadcast/UZBroadcast/UZBroadcastViewController.swift",
-      "line": 169,
-      "symbol": "UIApplication.interfaceOrientation",
-      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "file": "/Users/namnd/UIZA/ios/uiza-ios-broadcast-sdk/UZBroadcast/objects/UZLiveDebug.h",
+      "line": 14,
+      "symbol": "UZLiveDebug.streamId",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.property",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/namkennic/Projects/UZBroadcast/UZBroadcast/UZScreenBroadcast.swift",
+      "file": "/Users/namnd/UIZA/ios/uiza-ios-broadcast-sdk/UZBroadcast/objects/UZLiveDebug.h",
       "line": 26,
-      "symbol": "UZScreenBroadcast.isMicrophoneEnabled",
-      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "symbol": "UZLiveDebug.totalFrame",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.property",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/namkennic/Projects/UZBroadcast/UZBroadcast/UZScreenBroadcast.swift",
-      "line": 37,
-      "symbol": "UZScreenBroadcast.isCameraEnabled",
-      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "file": "/Users/namnd/UIZA/ios/uiza-ios-broadcast-sdk/UZBroadcast/objects/UZStreamInfo.h",
+      "line": 31,
+      "symbol": "UZSocketErrorCode",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/namkennic/Projects/UZBroadcast/UZBroadcast/UZScreenBroadcast.swift",
-      "line": 48,
-      "symbol": "UZScreenBroadcast.cameraPreviewView",
-      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "file": "/Users/namnd/UIZA/ios/uiza-ios-broadcast-sdk/UZBroadcast/objects/UZStreamInfo.h",
+      "line": 31,
+      "symbol": "UZSocketErrorCode",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/namkennic/Projects/UZBroadcast/UZBroadcast/UZScreenBroadcast.swift",
-      "line": 54,
-      "symbol": "UZScreenBroadcast.cameraPosition",
-      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "file": "/Users/namnd/UIZA/ios/uiza-ios-broadcast-sdk/UZBroadcast/objects/UZStreamInfo.h",
+      "line": 32,
+      "symbol": "UZSocketErrorCode.UZSocketErrorCode_PreView",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/namkennic/Projects/UZBroadcast/UZBroadcast/UZScreenBroadcast.swift",
-      "line": 60,
-      "symbol": "UZScreenBroadcast.isRecording",
-      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "file": "/Users/namnd/UIZA/ios/uiza-ios-broadcast-sdk/UZBroadcast/objects/UZStreamInfo.h",
+      "line": 39,
+      "symbol": "UZStreamInfo",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.class",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/namnd/UIZA/ios/uiza-ios-broadcast-sdk/UZBroadcast/objects/UZStreamInfo.h",
+      "line": 41,
+      "symbol": "UZStreamInfo.streamId",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.property",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/namnd/UIZA/ios/uiza-ios-broadcast-sdk/UZBroadcast/objects/UZStreamInfo.h",
+      "line": 44,
+      "symbol": "UZStreamInfo.host",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.property",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/namnd/UIZA/ios/uiza-ios-broadcast-sdk/UZBroadcast/objects/UZStreamInfo.h",
+      "line": 45,
+      "symbol": "UZStreamInfo.port",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.property",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/namnd/UIZA/ios/uiza-ios-broadcast-sdk/UZBroadcast/objects/UZVideoFrame.h",
+      "line": 12,
+      "symbol": "UZVideoFrame",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.class",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/namnd/UIZA/ios/uiza-ios-broadcast-sdk/UZBroadcast/objects/UZVideoFrame.h",
+      "line": 14,
+      "symbol": "UZVideoFrame.isKeyFrame",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.property",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/namnd/UIZA/ios/uiza-ios-broadcast-sdk/UZBroadcast/objects/UZVideoFrame.h",
+      "line": 15,
+      "symbol": "UZVideoFrame.sps",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.property",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/namnd/UIZA/ios/uiza-ios-broadcast-sdk/UZBroadcast/objects/UZVideoFrame.h",
+      "line": 16,
+      "symbol": "UZVideoFrame.pps",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.property",
       "warning": "undocumented"
     }
   ],
-  "source_directory": "/Users/namkennic/Projects/UZBroadcast"
+  "source_directory": "/Users/namnd/UIZA/ios/uiza-ios-broadcast-sdk"
 }

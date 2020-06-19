@@ -107,7 +107,7 @@ lazy var session: UZLiveSession = {
 
 //MARK: - Event
 func startLive() -> Void { 
-	let stream = UZLiveStreamInfo()
+	let stream = UZStreamInfo()
 	stream.url = "your server rtmp url";
 	session.startLive(stream)
 }

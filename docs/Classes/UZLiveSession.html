@@ -1,0 +1,1201 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>UZLiveSession Class Reference</title>
+    <link rel="stylesheet" type="text/css" href="../css/jazzy.css" />
+    <link rel="stylesheet" type="text/css" href="../css/highlight.css" />
+    <meta charset='utf-8'>
+    <script src="../js/jquery.min.js" defer></script>
+    <script src="../js/jazzy.js" defer></script>
+    
+  </head>
+  <body>
+    <a name="//apple_ref/objc/Class/UZLiveSession" class="dashAnchor"></a>
+    <a title="UZLiveSession Class Reference"></a>
+    <header>
+      <div class="content-wrapper">
+        <p><a href="../index.html">UZBroadcast 1.2.2 Docs</a> (79% documented)</p>
+      </div>
+    </header>
+    <div class="content-wrapper">
+      <p id="breadcrumbs">
+        <a href="../index.html">UZBroadcast Reference</a>
+        <img id="carat" src="../img/carat.png" />
+        UZLiveSession Class Reference
+      </p>
+    </div>
+    <div class="content-wrapper">
+      <nav class="sidebar">
+        <ul class="nav-groups">
+          <li class="nav-group-name">
+            <a href="../Classes.html">Classes</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Classes/UZAudioConfiguration.html">UZAudioConfiguration</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/UZAudioFrame.html">UZAudioFrame</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/UZFrame.html">UZFrame</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/UZLiveDebug.html">UZLiveDebug</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/UZLiveSession.html">UZLiveSession</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/UZStreamInfo.html">UZStreamInfo</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/UZVideoConfiguration.html">UZVideoConfiguration</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/UZVideoFrame.html">UZVideoFrame</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../Enums.html">Enumerations</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Enums/UZAudioBitRate.html">UZAudioBitRate</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/UZAudioQuality.html">UZAudioQuality</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/UZAudioSampleRate.html">UZAudioSampleRate</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/UZLiveCaptureType.html">UZLiveCaptureType</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/UZLiveCaptureTypeMask.html">UZLiveCaptureTypeMask</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/UZLiveState.html">UZLiveState</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/UZSocketErrorCode.html">UZSocketErrorCode</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/UZVideoQuality.html">UZVideoQuality</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/UZVideoSessionPreset.html">UZVideoSessionPreset</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../Protocols.html">Protocols</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Protocols/UZLiveSessionDelegate.html">UZLiveSessionDelegate</a>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </nav>
+      <article class="main-content">
+        <section>
+          <section class="section">
+            <h1>UZLiveSession</h1>
+              <div class="declaration">
+                <div class="language">
+                  <pre class="highlight objective_c"><code><span class="k">@interface</span> <span class="nc">UZLiveSession</span> <span class="p">:</span> <span class="nc">NSObject</span>
+
+<span class="cp">#pragma mark - Attribute
+</span><span class="c1">///=============================================================================
+/// @name Attribute
+///=============================================================================
+</span><span class="cm">/** The delegate of the capture. captureData callback */</span>
+<span class="k">@property</span> <span class="p">(</span><span class="n">nullable</span><span class="p">,</span> <span class="n">nonatomic</span><span class="p">,</span> <span class="n">weak</span><span class="p">)</span> <span class="n">id</span><span class="o">&lt;</span><span class="n"><a href="../Protocols/UZLiveSessionDelegate.html">UZLiveSessionDelegate</a></span><span class="o">&gt;</span> <span class="n">delegate</span><span class="p">;</span>
+
+<span class="cm">/** The running control start capture or stop capture*/</span>
+<span class="k">@property</span> <span class="p">(</span><span class="n">nonatomic</span><span class="p">,</span> <span class="n">assign</span><span class="p">)</span> <span class="n">BOOL</span> <span class="n">running</span><span class="p">;</span>
+
+<span class="cm">/** The preView will show OpenGL ES view*/</span>
+<span class="k">@property</span> <span class="p">(</span><span class="n">nonatomic</span><span class="p">,</span> <span class="n">strong</span><span class="p">,</span> <span class="n">null_resettable</span><span class="p">)</span> <span class="n">UIView</span> <span class="o">*</span><span class="n">preView</span><span class="p">;</span>
+
+<span class="cm">/** The captureDevicePosition control camraPosition ,default front*/</span>
+<span class="k">@property</span> <span class="p">(</span><span class="n">nonatomic</span><span class="p">,</span> <span class="n">assign</span><span class="p">)</span> <span class="n">AVCaptureDevicePosition</span> <span class="n">captureDevicePosition</span><span class="p">;</span>
+
+<span class="cm">/** The beautyFace control capture shader filter empty or beautiy */</span>
+<span class="k">@property</span> <span class="p">(</span><span class="n">nonatomic</span><span class="p">,</span> <span class="n">assign</span><span class="p">)</span> <span class="n">BOOL</span> <span class="n">beautyFace</span><span class="p">;</span>
+
+<span class="cm">/** The beautyLevel control beautyFace Level. Default is 0.5, between 0.0 ~ 1.0 */</span>
+<span class="k">@property</span> <span class="p">(</span><span class="n">nonatomic</span><span class="p">,</span> <span class="n">assign</span><span class="p">)</span> <span class="n">CGFloat</span> <span class="n">beautyLevel</span><span class="p">;</span>
+
+<span class="cm">/** The brightLevel control brightness Level, Default is 0.5, between 0.0 ~ 1.0 */</span>
+<span class="k">@property</span> <span class="p">(</span><span class="n">nonatomic</span><span class="p">,</span> <span class="n">assign</span><span class="p">)</span> <span class="n">CGFloat</span> <span class="n">brightLevel</span><span class="p">;</span>
+
+<span class="cm">/** The torch control camera zoom scale default 1.0, between 1.0 ~ 3.0 */</span>
+<span class="k">@property</span> <span class="p">(</span><span class="n">nonatomic</span><span class="p">,</span> <span class="n">assign</span><span class="p">)</span> <span class="n">CGFloat</span> <span class="n">zoomScale</span><span class="p">;</span>
+
+<span class="cm">/** The continuousAutoFocus control continuousAutoFocus is on or off */</span>
+<span class="k">@property</span> <span class="p">(</span><span class="n">nonatomic</span><span class="p">,</span> <span class="n">assign</span><span class="p">)</span> <span class="n">BOOL</span> <span class="n">continuousAutoFocus</span><span class="p">;</span>
+
+<span class="cm">/** The continuousAutoExposure control continuousAutoExposure is on or off */</span>
+<span class="k">@property</span> <span class="p">(</span><span class="n">nonatomic</span><span class="p">,</span> <span class="n">assign</span><span class="p">)</span> <span class="n">BOOL</span> <span class="n">continuousAutoExposure</span><span class="p">;</span>
+
+<span class="cm">/** The torch control capture flash is on or off */</span>
+<span class="k">@property</span> <span class="p">(</span><span class="n">nonatomic</span><span class="p">,</span> <span class="n">assign</span><span class="p">)</span> <span class="n">BOOL</span> <span class="n">torch</span><span class="p">;</span>
+
+<span class="cm">/** The mirror control mirror of front camera is on or off */</span>
+<span class="k">@property</span> <span class="p">(</span><span class="n">nonatomic</span><span class="p">,</span> <span class="n">assign</span><span class="p">)</span> <span class="n">BOOL</span> <span class="n">mirror</span><span class="p">;</span>
+
+<span class="cm">/** The muted control callbackAudioData,muted will memset 0.*/</span>
+<span class="k">@property</span> <span class="p">(</span><span class="n">nonatomic</span><span class="p">,</span> <span class="n">assign</span><span class="p">)</span> <span class="n">BOOL</span> <span class="n">muted</span><span class="p">;</span>
+
+<span class="cm">/*  The adaptiveBitrate control auto adjust bitrate. Default is NO */</span>
+<span class="k">@property</span> <span class="p">(</span><span class="n">nonatomic</span><span class="p">,</span> <span class="n">assign</span><span class="p">)</span> <span class="n">BOOL</span> <span class="n">adaptiveBitrate</span><span class="p">;</span>
+
+<span class="cm">/** The stream control upload and package*/</span>
+<span class="k">@property</span> <span class="p">(</span><span class="n">nullable</span><span class="p">,</span> <span class="n">nonatomic</span><span class="p">,</span> <span class="n">strong</span><span class="p">,</span> <span class="n">readonly</span><span class="p">)</span> <span class="n"><a href="../Classes/UZStreamInfo.html">UZStreamInfo</a></span> <span class="o">*</span><span class="n">streamInfo</span><span class="p">;</span>
+
+<span class="cm">/** The status of the stream .*/</span>
+<span class="k">@property</span> <span class="p">(</span><span class="n">nonatomic</span><span class="p">,</span> <span class="n">assign</span><span class="p">,</span> <span class="n">readonly</span><span class="p">)</span> <span class="n"><a href="../Enums/UZLiveState.html">UZLiveState</a></span> <span class="n">state</span><span class="p">;</span>
+
+<span class="cm">/** The captureType control inner or outer audio and video .*/</span>
+<span class="k">@property</span> <span class="p">(</span><span class="n">nonatomic</span><span class="p">,</span> <span class="n">assign</span><span class="p">,</span> <span class="n">readonly</span><span class="p">)</span> <span class="n"><a href="../Enums/UZLiveCaptureTypeMask.html">UZLiveCaptureTypeMask</a></span> <span class="n">captureType</span><span class="p">;</span>
+
+<span class="cm">/** The showDebugInfo control streamInfo and uploadInfo(1s) *.*/</span>
+<span class="k">@property</span> <span class="p">(</span><span class="n">nonatomic</span><span class="p">,</span> <span class="n">assign</span><span class="p">)</span> <span class="n">BOOL</span> <span class="n">showDebugInfo</span><span class="p">;</span>
+
+<span class="cm">/** The reconnectInterval control reconnect timeInterval(Reconnect interval) *.*/</span>
+<span class="k">@property</span> <span class="p">(</span><span class="n">nonatomic</span><span class="p">,</span> <span class="n">assign</span><span class="p">)</span> <span class="n">NSUInteger</span> <span class="n">reconnectInterval</span><span class="p">;</span>
+
+<span class="cm">/** The reconnectCount control reconnect count (Reconnect times) *.*/</span>
+<span class="k">@property</span> <span class="p">(</span><span class="n">nonatomic</span><span class="p">,</span> <span class="n">assign</span><span class="p">)</span> <span class="n">NSUInteger</span> <span class="n">reconnectCount</span><span class="p">;</span>
+
+<span class="cm">/*** The warterMarkView control whether the watermark is displayed or not ,if set ni,will remove watermark,otherwise add. 
+ set alpha represent mix.Position relative to outVideoSize.
+ *.*/</span>
+<span class="k">@property</span> <span class="p">(</span><span class="n">nonatomic</span><span class="p">,</span> <span class="n">strong</span><span class="p">,</span> <span class="n">nullable</span><span class="p">)</span> <span class="n">UIView</span> <span class="o">*</span><span class="n">warterMarkView</span><span class="p">;</span>
+
+<span class="cm">/* The currentImage is videoCapture shot */</span>
+<span class="k">@property</span> <span class="p">(</span><span class="n">nonatomic</span><span class="p">,</span> <span class="n">strong</span><span class="p">,</span><span class="n">readonly</span> <span class="p">,</span><span class="n">nullable</span><span class="p">)</span> <span class="n">UIImage</span> <span class="o">*</span><span class="n">currentImage</span><span class="p">;</span>
+
+<span class="cm">/* The saveLocalVideo is save the local video */</span>
+<span class="k">@property</span> <span class="p">(</span><span class="n">nonatomic</span><span class="p">,</span> <span class="n">assign</span><span class="p">)</span> <span class="n">BOOL</span> <span class="n">saveLocalVideo</span><span class="p">;</span>
+
+<span class="cm">/* The saveLocalVideoPath is save the local video  path */</span>
+<span class="k">@property</span> <span class="p">(</span><span class="n">nonatomic</span><span class="p">,</span> <span class="n">strong</span><span class="p">,</span> <span class="n">nullable</span><span class="p">)</span> <span class="n">NSURL</span> <span class="o">*</span><span class="n">saveLocalVideoPath</span><span class="p">;</span>
+
+<span class="cp">#pragma mark - Initializer
+</span><span class="c1">///=============================================================================
+/// @name Initializer
+///=============================================================================
+</span><span class="k">-</span> <span class="p">(</span><span class="n">nullable</span> <span class="n">instancetype</span><span class="p">)</span><span class="n">init</span> <span class="n">UNAVAILABLE_ATTRIBUTE</span><span class="p">;</span>
+<span class="k">+</span> <span class="p">(</span><span class="n">nullable</span> <span class="n">instancetype</span><span class="p">)</span><span class="n">new</span> <span class="n">UNAVAILABLE_ATTRIBUTE</span><span class="p">;</span>
+
+<span class="cm">/**
+   The designated initializer. Multiple instances with the same configuration will make the
+   capture unstable.
+ */</span>
+<span class="k">-</span> <span class="p">(</span><span class="n">nullable</span> <span class="n">instancetype</span><span class="p">)</span><span class="nf">initWithAudioConfiguration</span><span class="p">:(</span><span class="n">nullable</span> <span class="n"><a href="../Classes/UZAudioConfiguration.html">UZAudioConfiguration</a></span> <span class="o">*</span><span class="p">)</span><span class="nv">audioConfiguration</span> <span class="nf">videoConfiguration</span><span class="p">:(</span><span class="n">nullable</span> <span class="n"><a href="../Classes/UZVideoConfiguration.html">UZVideoConfiguration</a></span> <span class="o">*</span><span class="p">)</span><span class="nv">videoConfiguration</span><span class="p">;</span>
+
+<span class="cm">/**
+ The designated initializer. Multiple instances with the same configuration will make the
+ capture unstable.
+ */</span>
+<span class="k">-</span> <span class="p">(</span><span class="n">nullable</span> <span class="n">instancetype</span><span class="p">)</span><span class="nf">initWithAudioConfiguration</span><span class="p">:(</span><span class="n">nullable</span> <span class="n"><a href="../Classes/UZAudioConfiguration.html">UZAudioConfiguration</a></span> <span class="o">*</span><span class="p">)</span><span class="nv">audioConfiguration</span> <span class="nf">videoConfiguration</span><span class="p">:(</span><span class="n">nullable</span> <span class="n"><a href="../Classes/UZVideoConfiguration.html">UZVideoConfiguration</a></span> <span class="o">*</span><span class="p">)</span><span class="nv">videoConfiguration</span> <span class="nf">captureType</span><span class="p">:(</span><span class="n"><a href="../Enums/UZLiveCaptureTypeMask.html">UZLiveCaptureTypeMask</a></span><span class="p">)</span><span class="nv">captureType</span> <span class="n">NS_DESIGNATED_INITIALIZER</span><span class="p">;</span>
+
+<span class="cm">/** The start stream .*/</span>
+<span class="k">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">startLive</span><span class="p">:(</span><span class="n">nonnull</span> <span class="n"><a href="../Classes/UZStreamInfo.html">UZStreamInfo</a></span> <span class="o">*</span><span class="p">)</span><span class="nv">streamInfo</span><span class="p">;</span>
+
+<span class="cm">/** The stop stream .*/</span>
+<span class="k">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="n">stopLive</span><span class="p">;</span>
+
+<span class="cm">/** support outer input yuv or rgb video(set UZLiveCaptureTypeMask) .*/</span>
+<span class="k">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">pushVideo</span><span class="p">:(</span><span class="n">nullable</span> <span class="n">CVPixelBufferRef</span><span class="p">)</span><span class="nv">pixelBuffer</span><span class="p">;</span>
+
+<span class="cm">/** support outer input pcm audio(set UZLiveCaptureTypeMask) .*/</span>
+<span class="k">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">pushAudio</span><span class="p">:(</span><span class="n">nullable</span> <span class="n">NSData</span><span class="o">*</span><span class="p">)</span><span class="nv">audioData</span><span class="p">;</span>
+
+<span class="k">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">pushAudioBuffer</span><span class="p">:(</span><span class="n">nullable</span> <span class="n">CMSampleBufferRef</span><span class="p">)</span><span class="nv">sampleBuffer</span><span class="p">;</span>
+<span class="k">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">pushVideoBuffer</span><span class="p">:(</span><span class="n">nullable</span> <span class="n">CMSampleBufferRef</span><span class="p">)</span><span class="nv">sampleBuffer</span><span class="p">;</span>
+
+<span class="k">@end</span></code></pre>
+
+                </div>
+              </div>
+            <p>Undocumented</p>
+
+          </section>
+          <section class="section task-group-section">
+            <div class="task-group">
+              <div class="task-name-container">
+                <a name="/Attribute"></a>
+                <a name="//apple_ref/objc/Section/Attribute" class="dashAnchor"></a>
+                <div class="section-name-container">
+                  <a class="section-name-link" href="#/Attribute"></a>
+                  <h3 class="section-name"><p>Attribute</p>
+</h3>
+                </div>
+              </div>
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)UZLiveSession(py)delegate"></a>
+                    <a name="//apple_ref/objc/Property/delegate" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)UZLiveSession(py)delegate">delegate</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>The delegate of the capture. captureData callback</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">@property</span> <span class="p">(</span><span class="n">nonatomic</span><span class="p">,</span> <span class="n">weak</span><span class="p">,</span> <span class="n">nullable</span><span class="p">)</span> <span class="n">id</span><span class="o">&lt;</span><span class="n"><a href="../Protocols/UZLiveSessionDelegate.html">UZLiveSessionDelegate</a></span><span class="o">&gt;</span> <span class="n">delegate</span><span class="p">;</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)UZLiveSession(py)running"></a>
+                    <a name="//apple_ref/objc/Property/running" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)UZLiveSession(py)running">running</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>The running control start capture or stop capture</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">@property</span> <span class="p">(</span><span class="n">nonatomic</span><span class="p">)</span> <span class="n">BOOL</span> <span class="n">running</span><span class="p">;</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)UZLiveSession(py)preView"></a>
+                    <a name="//apple_ref/objc/Property/preView" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)UZLiveSession(py)preView">preView</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>The preView will show OpenGL ES view</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">@property</span> <span class="p">(</span><span class="n">nonatomic</span><span class="p">,</span> <span class="n">strong</span><span class="p">,</span> <span class="n">null_resettable</span><span class="p">)</span> <span class="n">UIView</span> <span class="o">*</span><span class="n">preView</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)UZLiveSession(py)captureDevicePosition"></a>
+                    <a name="//apple_ref/objc/Property/captureDevicePosition" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)UZLiveSession(py)captureDevicePosition">captureDevicePosition</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>The captureDevicePosition control camraPosition ,default front</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">@property</span> <span class="p">(</span><span class="n">nonatomic</span><span class="p">)</span> <span class="n">AVCaptureDevicePosition</span> <span class="n">captureDevicePosition</span><span class="p">;</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)UZLiveSession(py)beautyFace"></a>
+                    <a name="//apple_ref/objc/Property/beautyFace" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)UZLiveSession(py)beautyFace">beautyFace</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>The beautyFace control capture shader filter empty or beautiy</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">@property</span> <span class="p">(</span><span class="n">nonatomic</span><span class="p">)</span> <span class="n">BOOL</span> <span class="n">beautyFace</span><span class="p">;</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)UZLiveSession(py)beautyLevel"></a>
+                    <a name="//apple_ref/objc/Property/beautyLevel" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)UZLiveSession(py)beautyLevel">beautyLevel</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>The beautyLevel control beautyFace Level. Default is 0.5, between 0.0 ~ 1.0</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">@property</span> <span class="p">(</span><span class="n">nonatomic</span><span class="p">)</span> <span class="n">CGFloat</span> <span class="n">beautyLevel</span><span class="p">;</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)UZLiveSession(py)brightLevel"></a>
+                    <a name="//apple_ref/objc/Property/brightLevel" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)UZLiveSession(py)brightLevel">brightLevel</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>The brightLevel control brightness Level, Default is 0.5, between 0.0 ~ 1.0</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">@property</span> <span class="p">(</span><span class="n">nonatomic</span><span class="p">)</span> <span class="n">CGFloat</span> <span class="n">brightLevel</span><span class="p">;</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)UZLiveSession(py)zoomScale"></a>
+                    <a name="//apple_ref/objc/Property/zoomScale" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)UZLiveSession(py)zoomScale">zoomScale</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>The torch control camera zoom scale default 1.0, between 1.0 ~ 3.0</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">@property</span> <span class="p">(</span><span class="n">nonatomic</span><span class="p">)</span> <span class="n">CGFloat</span> <span class="n">zoomScale</span><span class="p">;</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)UZLiveSession(py)continuousAutoFocus"></a>
+                    <a name="//apple_ref/objc/Property/continuousAutoFocus" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)UZLiveSession(py)continuousAutoFocus">continuousAutoFocus</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>The continuousAutoFocus control continuousAutoFocus is on or off</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">@property</span> <span class="p">(</span><span class="n">nonatomic</span><span class="p">)</span> <span class="n">BOOL</span> <span class="n">continuousAutoFocus</span><span class="p">;</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)UZLiveSession(py)continuousAutoExposure"></a>
+                    <a name="//apple_ref/objc/Property/continuousAutoExposure" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)UZLiveSession(py)continuousAutoExposure">continuousAutoExposure</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>The continuousAutoExposure control continuousAutoExposure is on or off</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">@property</span> <span class="p">(</span><span class="n">nonatomic</span><span class="p">)</span> <span class="n">BOOL</span> <span class="n">continuousAutoExposure</span><span class="p">;</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)UZLiveSession(py)torch"></a>
+                    <a name="//apple_ref/objc/Property/torch" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)UZLiveSession(py)torch">torch</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>The torch control capture flash is on or off</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">@property</span> <span class="p">(</span><span class="n">nonatomic</span><span class="p">)</span> <span class="n">BOOL</span> <span class="n">torch</span><span class="p">;</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)UZLiveSession(py)mirror"></a>
+                    <a name="//apple_ref/objc/Property/mirror" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)UZLiveSession(py)mirror">mirror</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>The mirror control mirror of front camera is on or off</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">@property</span> <span class="p">(</span><span class="n">nonatomic</span><span class="p">)</span> <span class="n">BOOL</span> <span class="n">mirror</span><span class="p">;</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)UZLiveSession(py)muted"></a>
+                    <a name="//apple_ref/objc/Property/muted" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)UZLiveSession(py)muted">muted</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>The muted control callbackAudioData,muted will memset 0.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">@property</span> <span class="p">(</span><span class="n">nonatomic</span><span class="p">)</span> <span class="n">BOOL</span> <span class="n">muted</span><span class="p">;</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)UZLiveSession(py)adaptiveBitrate"></a>
+                    <a name="//apple_ref/objc/Property/adaptiveBitrate" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)UZLiveSession(py)adaptiveBitrate">adaptiveBitrate</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">@property</span> <span class="p">(</span><span class="n">nonatomic</span><span class="p">)</span> <span class="n">BOOL</span> <span class="n">adaptiveBitrate</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)UZLiveSession(py)streamInfo"></a>
+                    <a name="//apple_ref/objc/Property/streamInfo" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)UZLiveSession(py)streamInfo">streamInfo</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>The stream control upload and package</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">@property</span> <span class="p">(</span><span class="n">nonatomic</span><span class="p">,</span> <span class="n">strong</span><span class="p">,</span> <span class="n">readonly</span><span class="p">,</span> <span class="n">nullable</span><span class="p">)</span> <span class="n"><a href="../Classes/UZStreamInfo.html">UZStreamInfo</a></span> <span class="o">*</span><span class="n">streamInfo</span><span class="p">;</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)UZLiveSession(py)state"></a>
+                    <a name="//apple_ref/objc/Property/state" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)UZLiveSession(py)state">state</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>The status of the stream .</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">@property</span> <span class="p">(</span><span class="n">nonatomic</span><span class="p">,</span> <span class="n">readonly</span><span class="p">)</span> <span class="kt">int</span> <span class="n">state</span><span class="p">;</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)UZLiveSession(py)captureType"></a>
+                    <a name="//apple_ref/objc/Property/captureType" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)UZLiveSession(py)captureType">captureType</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>The captureType control inner or outer audio and video .</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">@property</span> <span class="p">(</span><span class="n">nonatomic</span><span class="p">,</span> <span class="n">readonly</span><span class="p">)</span> <span class="n"><a href="../Enums/UZLiveCaptureTypeMask.html">UZLiveCaptureTypeMask</a></span> <span class="n">captureType</span><span class="p">;</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)UZLiveSession(py)showDebugInfo"></a>
+                    <a name="//apple_ref/objc/Property/showDebugInfo" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)UZLiveSession(py)showDebugInfo">showDebugInfo</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>The showDebugInfo control streamInfo and uploadInfo(1s) *.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">@property</span> <span class="p">(</span><span class="n">nonatomic</span><span class="p">)</span> <span class="n">BOOL</span> <span class="n">showDebugInfo</span><span class="p">;</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)UZLiveSession(py)reconnectInterval"></a>
+                    <a name="//apple_ref/objc/Property/reconnectInterval" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)UZLiveSession(py)reconnectInterval">reconnectInterval</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>The reconnectInterval control reconnect timeInterval(Reconnect interval) *.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">@property</span> <span class="p">(</span><span class="n">nonatomic</span><span class="p">)</span> <span class="n">NSUInteger</span> <span class="n">reconnectInterval</span><span class="p">;</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)UZLiveSession(py)reconnectCount"></a>
+                    <a name="//apple_ref/objc/Property/reconnectCount" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)UZLiveSession(py)reconnectCount">reconnectCount</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>The reconnectCount control reconnect count (Reconnect times) *.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">@property</span> <span class="p">(</span><span class="n">nonatomic</span><span class="p">)</span> <span class="n">NSUInteger</span> <span class="n">reconnectCount</span><span class="p">;</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)UZLiveSession(py)warterMarkView"></a>
+                    <a name="//apple_ref/objc/Property/warterMarkView" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)UZLiveSession(py)warterMarkView">warterMarkView</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>The warterMarkView control whether the watermark is displayed or not ,if set ni,will remove watermark,otherwise add. 
+set alpha represent mix.Position relative to outVideoSize.
+*.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">@property</span> <span class="p">(</span><span class="n">nonatomic</span><span class="p">,</span> <span class="n">strong</span><span class="p">,</span> <span class="n">nullable</span><span class="p">)</span> <span class="n">UIView</span> <span class="o">*</span><span class="n">warterMarkView</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)UZLiveSession(py)currentImage"></a>
+                    <a name="//apple_ref/objc/Property/currentImage" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)UZLiveSession(py)currentImage">currentImage</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">@property</span> <span class="p">(</span><span class="n">nonatomic</span><span class="p">,</span> <span class="n">strong</span><span class="p">,</span> <span class="n">readonly</span><span class="p">,</span> <span class="n">nullable</span><span class="p">)</span> <span class="n">UIImage</span> <span class="o">*</span><span class="n">currentImage</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)UZLiveSession(py)saveLocalVideo"></a>
+                    <a name="//apple_ref/objc/Property/saveLocalVideo" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)UZLiveSession(py)saveLocalVideo">saveLocalVideo</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">@property</span> <span class="p">(</span><span class="n">nonatomic</span><span class="p">)</span> <span class="n">BOOL</span> <span class="n">saveLocalVideo</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)UZLiveSession(py)saveLocalVideoPath"></a>
+                    <a name="//apple_ref/objc/Property/saveLocalVideoPath" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)UZLiveSession(py)saveLocalVideoPath">saveLocalVideoPath</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">@property</span> <span class="p">(</span><span class="n">nonatomic</span><span class="p">,</span> <span class="n">strong</span><span class="p">,</span> <span class="n">nullable</span><span class="p">)</span> <span class="n">NSURL</span> <span class="o">*</span><span class="n">saveLocalVideoPath</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <div class="task-name-container">
+                <a name="/Initializer"></a>
+                <a name="//apple_ref/objc/Section/Initializer" class="dashAnchor"></a>
+                <div class="section-name-container">
+                  <a class="section-name-link" href="#/Initializer"></a>
+                  <h3 class="section-name"><p>Initializer</p>
+</h3>
+                </div>
+              </div>
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)UZLiveSession(im)init"></a>
+                    <a name="//apple_ref/objc/Method/-init" class="dashAnchor"></a>
+                    <a class="token discouraged" href="#/c:objc(cs)UZLiveSession(im)init">-init</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="aside aside-unavailable">
+                        <p class="aside-title">Unavailable</p>
+                        
+                      </div>
+                      <div class="abstract">
+                        <p>=============================================================================</p>
+
+<p>=============================================================================</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">-</span> <span class="p">(</span><span class="n">nullable</span> <span class="n">instancetype</span><span class="p">)</span><span class="n">init</span><span class="p">;</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)UZLiveSession(cm)new"></a>
+                    <a name="//apple_ref/objc/Method/+new" class="dashAnchor"></a>
+                    <a class="token discouraged" href="#/c:objc(cs)UZLiveSession(cm)new">+new</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="aside aside-unavailable">
+                        <p class="aside-title">Unavailable</p>
+                        
+                      </div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">+</span> <span class="p">(</span><span class="n">nullable</span> <span class="n">instancetype</span><span class="p">)</span><span class="n">new</span> <span class="n">UNAVAILABLE_ATTRIBUTE</span><span class="p">;</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)UZLiveSession(im)initWithAudioConfiguration:videoConfiguration:"></a>
+                    <a name="//apple_ref/objc/Method/-initWithAudioConfiguration:videoConfiguration:" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)UZLiveSession(im)initWithAudioConfiguration:videoConfiguration:">-initWithAudioConfiguration:<wbr>videoConfiguration:<wbr></a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>The designated initializer. Multiple instances with the same configuration will make the
+capture unstable.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">-</span> <span class="p">(</span><span class="n">nullable</span> <span class="n">instancetype</span><span class="p">)</span><span class="nf">initWithAudioConfiguration</span><span class="p">:(</span><span class="n">id</span><span class="p">)</span><span class="nv">audioConfiguration</span>
+                                 <span class="nf">videoConfiguration</span><span class="p">:(</span><span class="n">id</span><span class="p">)</span><span class="nv">videoConfiguration</span><span class="p">;</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)UZLiveSession(im)initWithAudioConfiguration:videoConfiguration:captureType:"></a>
+                    <a name="//apple_ref/objc/Method/-initWithAudioConfiguration:videoConfiguration:captureType:" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)UZLiveSession(im)initWithAudioConfiguration:videoConfiguration:captureType:">-initWithAudioConfiguration:<wbr>videoConfiguration:<wbr>captureType:<wbr></a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>The designated initializer. Multiple instances with the same configuration will make the
+capture unstable.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">-</span> <span class="p">(</span><span class="n">nullable</span> <span class="n">instancetype</span><span class="p">)</span><span class="nf">initWithAudioConfiguration</span><span class="p">:(</span><span class="n">id</span><span class="p">)</span><span class="nv">audioConfiguration</span>
+                                 <span class="nf">videoConfiguration</span><span class="p">:(</span><span class="n">id</span><span class="p">)</span><span class="nv">videoConfiguration</span>
+                                        <span class="nf">captureType</span><span class="p">:</span>
+                                            <span class="p">(</span><span class="n"><a href="../Enums/UZLiveCaptureTypeMask.html">UZLiveCaptureTypeMask</a></span><span class="p">)</span><span class="nv">captureType</span><span class="p">;</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)UZLiveSession(im)startLive:"></a>
+                    <a name="//apple_ref/objc/Method/-startLive:" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)UZLiveSession(im)startLive:">-startLive:<wbr></a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>The start stream .</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">startLive</span><span class="p">:(</span><span class="n">nonnull</span> <span class="n"><a href="../Classes/UZStreamInfo.html">UZStreamInfo</a></span> <span class="o">*</span><span class="p">)</span><span class="nv">streamInfo</span><span class="p">;</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)UZLiveSession(im)stopLive"></a>
+                    <a name="//apple_ref/objc/Method/-stopLive" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)UZLiveSession(im)stopLive">-stopLive</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>The stop stream .</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="n">stopLive</span><span class="p">;</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)UZLiveSession(im)pushVideo:"></a>
+                    <a name="//apple_ref/objc/Method/-pushVideo:" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)UZLiveSession(im)pushVideo:">-pushVideo:<wbr></a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>support outer input yuv or rgb video(set UZLiveCaptureTypeMask) .</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">pushVideo</span><span class="p">:(</span><span class="n">nullable</span> <span class="n">CVPixelBufferRef</span><span class="p">)</span><span class="nv">pixelBuffer</span><span class="p">;</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)UZLiveSession(im)pushAudio:"></a>
+                    <a name="//apple_ref/objc/Method/-pushAudio:" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)UZLiveSession(im)pushAudio:">-pushAudio:<wbr></a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>support outer input pcm audio(set UZLiveCaptureTypeMask) .</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">pushAudio</span><span class="p">:(</span><span class="n">nullable</span> <span class="n">NSData</span> <span class="o">*</span><span class="p">)</span><span class="nv">audioData</span><span class="p">;</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)UZLiveSession(im)pushAudioBuffer:"></a>
+                    <a name="//apple_ref/objc/Method/-pushAudioBuffer:" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)UZLiveSession(im)pushAudioBuffer:">-pushAudioBuffer:<wbr></a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">pushAudioBuffer</span><span class="p">:(</span><span class="n">nullable</span> <span class="n">CMSampleBufferRef</span><span class="p">)</span><span class="nv">sampleBuffer</span><span class="p">;</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)UZLiveSession(im)pushVideoBuffer:"></a>
+                    <a name="//apple_ref/objc/Method/-pushVideoBuffer:" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)UZLiveSession(im)pushVideoBuffer:">-pushVideoBuffer:<wbr></a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">pushVideoBuffer</span><span class="p">:(</span><span class="n">nullable</span> <span class="n">CMSampleBufferRef</span><span class="p">)</span><span class="nv">sampleBuffer</span><span class="p">;</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </section>
+        </section>
+        <section id="footer">
+          <p>&copy; 2020 <a class="link" href="https://uiza.io/" target="_blank" rel="external">Nam Nguyen</a>. All rights reserved. (Last updated: 2020-06-19)</p>
+          <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.13.4</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
+        </section>
+      </article>
+    </div>
+  </body>
+</div>
+</html>

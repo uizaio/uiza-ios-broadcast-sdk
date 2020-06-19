@@ -10,11 +10,11 @@
     
   </head>
   <body>
-    <a name="//apple_ref/swift/Section/Enumerations" class="dashAnchor"></a>
+    <a name="//apple_ref/objc/Section/Enumerations" class="dashAnchor"></a>
     <a title="Enumerations  Reference"></a>
     <header>
       <div class="content-wrapper">
-        <p><a href="index.html">UZBroadcast Docs</a> (30% documented)</p>
+        <p><a href="index.html">UZBroadcast 1.2.2 Docs</a> (79% documented)</p>
       </div>
     </header>
     <div class="content-wrapper">
@@ -31,10 +31,28 @@
             <a href="Classes.html">Classes</a>
             <ul class="nav-group-tasks">
               <li class="nav-group-task">
-                <a href="Classes/UZBroadcastViewController.html">UZBroadcastViewController</a>
+                <a href="Classes/UZAudioConfiguration.html">UZAudioConfiguration</a>
               </li>
               <li class="nav-group-task">
-                <a href="Classes/UZScreenBroadcast.html">UZScreenBroadcast</a>
+                <a href="Classes/UZAudioFrame.html">UZAudioFrame</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Classes/UZFrame.html">UZFrame</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Classes/UZLiveDebug.html">UZLiveDebug</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Classes/UZLiveSession.html">UZLiveSession</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Classes/UZStreamInfo.html">UZStreamInfo</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Classes/UZVideoConfiguration.html">UZVideoConfiguration</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Classes/UZVideoFrame.html">UZVideoFrame</a>
               </li>
             </ul>
           </li>
@@ -42,35 +60,39 @@
             <a href="Enums.html">Enumerations</a>
             <ul class="nav-group-tasks">
               <li class="nav-group-task">
-                <a href="Enums/UZAudioBitrate.html">UZAudioBitrate</a>
+                <a href="Enums/UZAudioBitRate.html">UZAudioBitRate</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Enums/UZAudioQuality.html">UZAudioQuality</a>
               </li>
               <li class="nav-group-task">
                 <a href="Enums/UZAudioSampleRate.html">UZAudioSampleRate</a>
               </li>
               <li class="nav-group-task">
-                <a href="Enums/UZVideoBitrate.html">UZVideoBitrate</a>
+                <a href="Enums/UZLiveCaptureType.html">UZLiveCaptureType</a>
               </li>
               <li class="nav-group-task">
-                <a href="Enums/UZVideoFPS.html">UZVideoFPS</a>
+                <a href="Enums/UZLiveCaptureTypeMask.html">UZLiveCaptureTypeMask</a>
               </li>
               <li class="nav-group-task">
-                <a href="Enums/UZVideoResolution.html">UZVideoResolution</a>
+                <a href="Enums/UZLiveState.html">UZLiveState</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Enums/UZSocketErrorCode.html">UZSocketErrorCode</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Enums/UZVideoQuality.html">UZVideoQuality</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Enums/UZVideoSessionPreset.html">UZVideoSessionPreset</a>
               </li>
             </ul>
           </li>
           <li class="nav-group-name">
-            <a href="Extensions.html">Extensions</a>
+            <a href="Protocols.html">Protocols</a>
             <ul class="nav-group-tasks">
               <li class="nav-group-task">
-                <a href="Extensions/UIApplication.html">UIApplication</a>
-              </li>
-            </ul>
-          </li>
-          <li class="nav-group-name">
-            <a href="Structs.html">Structures</a>
-            <ul class="nav-group-tasks">
-              <li class="nav-group-task">
-                <a href="Structs/UZBroadcastConfig.html">UZBroadcastConfig</a>
+                <a href="Protocols/UZLiveSessionDelegate.html">UZLiveSessionDelegate</a>
               </li>
             </ul>
           </li>
@@ -89,9 +111,9 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:11UZBroadcast17UZVideoResolutionO"></a>
-                    <a name="//apple_ref/swift/Enum/UZVideoResolution" class="dashAnchor"></a>
-                    <a class="token" href="#/s:11UZBroadcast17UZVideoResolutionO">UZVideoResolution</a>
+                    <a name="/c:@E@UZLiveCaptureType"></a>
+                    <a name="//apple_ref/objc/Enum/UZLiveCaptureType" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@E@UZLiveCaptureType">UZLiveCaptureType</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -101,13 +123,18 @@
                       <div class="abstract">
                         <p>Undocumented</p>
 
-                        <a href="Enums/UZVideoResolution.html" class="slightly-smaller">See more</a>
+                        <a href="Enums/UZLiveCaptureType.html" class="slightly-smaller">See more</a>
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
                         <div class="language">
-                          <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">enum</span> <span class="kt">UZVideoResolution</span> <span class="p">:</span> <span class="kt">CaseIterable</span></code></pre>
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="n">NS_ENUM</span><span class="p">(</span><span class="n">NSInteger</span><span class="p">,</span><span class="n">UZLiveCaptureType</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n">UZLiveCaptureAudio</span><span class="p">,</span>         <span class="c1">///&lt; capture only audio
+</span>    <span class="n">UZLiveCaptureVideo</span><span class="p">,</span>         <span class="c1">///&lt; capture onlt video
+</span>    <span class="n">UZLiveInputAudio</span><span class="p">,</span>           <span class="c1">///&lt; only audio (External input audio)
+</span>    <span class="n">UZLiveInputVideo</span><span class="p">,</span>           <span class="c1">///&lt; only video (External input video)
+</span><span class="p">}</span></code></pre>
 
                         </div>
                       </div>
@@ -117,9 +144,9 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:11UZBroadcast14UZVideoBitrateO"></a>
-                    <a name="//apple_ref/swift/Enum/UZVideoBitrate" class="dashAnchor"></a>
-                    <a class="token" href="#/s:11UZBroadcast14UZVideoBitrateO">UZVideoBitrate</a>
+                    <a name="/c:@E@UZLiveCaptureTypeMask"></a>
+                    <a name="//apple_ref/objc/Enum/UZLiveCaptureTypeMask" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@E@UZLiveCaptureTypeMask">UZLiveCaptureTypeMask</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -129,13 +156,23 @@
                       <div class="abstract">
                         <p>Undocumented</p>
 
-                        <a href="Enums/UZVideoBitrate.html" class="slightly-smaller">See more</a>
+                        <a href="Enums/UZLiveCaptureTypeMask.html" class="slightly-smaller">See more</a>
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
                         <div class="language">
-                          <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">enum</span> <span class="kt">UZVideoBitrate</span> <span class="p">:</span> <span class="kt">UInt</span><span class="p">,</span> <span class="kt">CaseIterable</span></code></pre>
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="n">NS_ENUM</span><span class="p">(</span><span class="n">NSInteger</span><span class="p">,</span><span class="n">UZLiveCaptureTypeMask</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n">UZLiveCaptureMaskAudio</span> <span class="o">=</span> <span class="p">(</span><span class="mi">1</span> <span class="o">&lt;&lt;</span> <span class="n">UZLiveCaptureAudio</span><span class="p">),</span>                                 <span class="c1">///&lt; only inner capture audio (no video)
+</span>    <span class="n">UZLiveCaptureMaskVideo</span> <span class="o">=</span> <span class="p">(</span><span class="mi">1</span> <span class="o">&lt;&lt;</span> <span class="n">UZLiveCaptureVideo</span><span class="p">),</span>                                 <span class="c1">///&lt; only inner capture video (no audio)
+</span>    <span class="n">UZLiveInputMaskAudio</span> <span class="o">=</span> <span class="p">(</span><span class="mi">1</span> <span class="o">&lt;&lt;</span> <span class="n">UZLiveInputAudio</span><span class="p">),</span>                                     <span class="c1">///&lt; only outer input audio (no video)
+</span>    <span class="n">UZLiveInputMaskVideo</span> <span class="o">=</span> <span class="p">(</span><span class="mi">1</span> <span class="o">&lt;&lt;</span> <span class="n">UZLiveInputVideo</span><span class="p">),</span>                                     <span class="c1">///&lt; only outer input video (no audio)
+</span>    <span class="n">UZLiveCaptureMaskAll</span> <span class="o">=</span> <span class="p">(</span><span class="n">UZLiveCaptureMaskAudio</span> <span class="o">|</span> <span class="n">UZLiveCaptureMaskVideo</span><span class="p">),</span>           <span class="c1">///&lt; inner capture audio and video
+</span>    <span class="n">UZLiveInputMaskAll</span> <span class="o">=</span> <span class="p">(</span><span class="n">UZLiveInputMaskAudio</span> <span class="o">|</span> <span class="n">UZLiveInputMaskVideo</span><span class="p">),</span>                 <span class="c1">///&lt; outer input audio and video(method see pushVideo and pushAudio)
+</span>    <span class="n">UZLiveCaptureMaskAudioInputVideo</span> <span class="o">=</span> <span class="p">(</span><span class="n">UZLiveCaptureMaskAudio</span> <span class="o">|</span> <span class="n">UZLiveInputMaskVideo</span><span class="p">),</span> <span class="c1">///&lt; inner capture audio and outer input video(method pushVideo and setRunning)
+</span>    <span class="n">UZLiveCaptureMaskVideoInputAudio</span> <span class="o">=</span> <span class="p">(</span><span class="n">UZLiveCaptureMaskVideo</span> <span class="o">|</span> <span class="n">UZLiveInputMaskAudio</span><span class="p">),</span> <span class="c1">///&lt; inner capture video and outer input audio(method pushAudio and setRunning)
+</span>    <span class="n">UZLiveCaptureDefaultMask</span> <span class="o">=</span> <span class="n">UZLiveCaptureMaskAll</span>                                     <span class="c1">///&lt; default is inner capture audio and video
+</span><span class="p">}</span></code></pre>
 
                         </div>
                       </div>
@@ -145,9 +182,9 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:11UZBroadcast10UZVideoFPSO"></a>
-                    <a name="//apple_ref/swift/Enum/UZVideoFPS" class="dashAnchor"></a>
-                    <a class="token" href="#/s:11UZBroadcast10UZVideoFPSO">UZVideoFPS</a>
+                    <a name="/c:@E@UZAudioBitRate"></a>
+                    <a name="//apple_ref/objc/Enum/UZAudioBitRate" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@E@UZAudioBitRate">UZAudioBitRate</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -155,15 +192,15 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Undocumented</p>
+                        <p>Audio bit rate (default 96Kbps)</p>
 
-                        <a href="Enums/UZVideoFPS.html" class="slightly-smaller">See more</a>
+                        <a href="Enums/UZAudioBitRate.html" class="slightly-smaller">See more</a>
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
                         <div class="language">
-                          <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">enum</span> <span class="kt">UZVideoFPS</span> <span class="p">:</span> <span class="kt">UInt</span><span class="p">,</span> <span class="kt">CaseIterable</span></code></pre>
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">enum</span> <span class="n">UZAudioBitRate</span> <span class="p">{}</span></code></pre>
 
                         </div>
                       </div>
@@ -173,9 +210,9 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:11UZBroadcast14UZAudioBitrateO"></a>
-                    <a name="//apple_ref/swift/Enum/UZAudioBitrate" class="dashAnchor"></a>
-                    <a class="token" href="#/s:11UZBroadcast14UZAudioBitrateO">UZAudioBitrate</a>
+                    <a name="/c:@E@UZAudioSampleRate"></a>
+                    <a name="//apple_ref/objc/Enum/UZAudioSampleRate" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@E@UZAudioSampleRate">UZAudioSampleRate</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -183,43 +220,161 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Undocumented</p>
-
-                        <a href="Enums/UZAudioBitrate.html" class="slightly-smaller">See more</a>
-                      </div>
-                      <div class="declaration">
-                        <h4>Declaration</h4>
-                        <div class="language">
-                          <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">enum</span> <span class="kt">UZAudioBitrate</span> <span class="p">:</span> <span class="kt">UInt</span><span class="p">,</span> <span class="kt">CaseIterable</span></code></pre>
-
-                        </div>
-                      </div>
-                    </section>
-                  </div>
-                </li>
-                <li class="item">
-                  <div>
-                    <code>
-                    <a name="/s:11UZBroadcast17UZAudioSampleRateO"></a>
-                    <a name="//apple_ref/swift/Enum/UZAudioSampleRate" class="dashAnchor"></a>
-                    <a class="token" href="#/s:11UZBroadcast17UZAudioSampleRateO">UZAudioSampleRate</a>
-                    </code>
-                  </div>
-                  <div class="height-container">
-                    <div class="pointer-container"></div>
-                    <section class="section">
-                      <div class="pointer"></div>
-                      <div class="abstract">
-                        <p>Undocumented</p>
+                        <p>Audio sampling rate (default 44.1KHz)</p>
 
                         <a href="Enums/UZAudioSampleRate.html" class="slightly-smaller">See more</a>
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
                         <div class="language">
-                          <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">enum</span> <span class="kt">UZAudioSampleRate</span> <span class="p">:</span> <span class="kt">UInt</span><span class="p">,</span> <span class="kt">CaseIterable</span></code></pre>
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">enum</span> <span class="n">UZAudioSampleRate</span> <span class="p">{}</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:@E@UZAudioQuality"></a>
+                    <a name="//apple_ref/objc/Enum/UZAudioQuality" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@E@UZAudioQuality">UZAudioQuality</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Audio Live quality</p>
+
+                        <a href="Enums/UZAudioQuality.html" class="slightly-smaller">See more</a>
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">enum</span> <span class="n">UZAudioQuality</span> <span class="p">{}</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:@E@UZVideoSessionPreset"></a>
+                    <a name="//apple_ref/objc/Enum/UZVideoSessionPreset" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@E@UZVideoSessionPreset">UZVideoSessionPreset</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Video resolution (both 16:9 when the device does not support the current resolution, it will automatically decrease by one level)</p>
+
+                        <a href="Enums/UZVideoSessionPreset.html" class="slightly-smaller">See more</a>
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">enum</span> <span class="n">UZVideoSessionPreset</span> <span class="p">{}</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:@E@UZVideoQuality"></a>
+                    <a name="//apple_ref/objc/Enum/UZVideoQuality" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@E@UZVideoQuality">UZVideoQuality</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Video quality</p>
+
+                        <a href="Enums/UZVideoQuality.html" class="slightly-smaller">See more</a>
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">enum</span> <span class="n">UZVideoQuality</span> <span class="p">{}</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:@E@UZLiveState"></a>
+                    <a name="//apple_ref/objc/Enum/UZLiveState" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@E@UZLiveState">UZLiveState</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Live state</p>
+
+                        <a href="Enums/UZLiveState.html" class="slightly-smaller">See more</a>
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">enum</span> <span class="n">UZLiveState</span> <span class="p">{}</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:@E@UZSocketErrorCode"></a>
+                    <a name="//apple_ref/objc/Enum/UZSocketErrorCode" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@E@UZSocketErrorCode">UZSocketErrorCode</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                        <a href="Enums/UZSocketErrorCode.html" class="slightly-smaller">See more</a>
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="n">NS_ENUM</span> <span class="p">(</span><span class="n">NSUInteger</span><span class="p">,</span> <span class="n">UZSocketErrorCode</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n">UZSocketErrorCode_PreView</span> <span class="o">=</span> <span class="mi">201</span><span class="p">,</span>              <span class="c1">/// Preview failed
+</span>    <span class="n">UZSocketErrorCode_GetStreamInfo</span> <span class="o">=</span> <span class="mi">202</span><span class="p">,</span>        <span class="c1">/// Failed to obtain streaming information
+</span>    <span class="n">UZSocketErrorCode_ConnectSocket</span> <span class="o">=</span> <span class="mi">203</span><span class="p">,</span>        <span class="c1">/// Socket connection failed
+</span>    <span class="n">UZSocketErrorCode_Verification</span> <span class="o">=</span> <span class="mi">204</span><span class="p">,</span>         <span class="c1">/// Authentication server failed
+</span>    <span class="n">UZSocketErrorCode_ReConnectTimeOut</span> <span class="o">=</span> <span class="mi">205</span>      <span class="c1">/// Reconnect server timeout
+</span><span class="p">}</span></code></pre>
 
                         </div>
                       </div>
@@ -231,8 +386,8 @@
           </section>
         </section>
         <section id="footer">
-          <p>&copy; 2020 <a class="link" href="https://uiza.io/" target="_blank" rel="external">Uiza</a>. All rights reserved. (Last updated: 2020-04-01)</p>
-          <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.13.1</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
+          <p>&copy; 2020 <a class="link" href="https://uiza.io/" target="_blank" rel="external">Nam Nguyen</a>. All rights reserved. (Last updated: 2020-06-19)</p>
+          <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.13.4</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
         </section>
       </article>
     </div>
