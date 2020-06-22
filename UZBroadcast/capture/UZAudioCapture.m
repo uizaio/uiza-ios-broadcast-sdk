@@ -1,6 +1,6 @@
 //
 //  UZAudioCapture.m
-//  UZLiveKit
+//  UZBroadcast
 //
 //  Created by Nam Nguyen on 6/18/20.
 //  Copyright © 2020 namnd. All rights reserved.
@@ -29,7 +29,7 @@ NSString *const UZAudioComponentFailedToCreateNotification = @"UZAudioComponentF
     if(self = [super init]){
         _configuration = configuration;
         self.isRunning = NO;
-        self.taskQueue = dispatch_queue_create("com.youku.Laifeng.audioCapture.Queue", NULL);
+        self.taskQueue = dispatch_queue_create("com.uiza.UZBroadcast.audioCapture.Queue", NULL);
         
         AVAudioSession *session = [AVAudioSession sharedInstance];
         

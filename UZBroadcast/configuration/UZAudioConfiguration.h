@@ -1,6 +1,6 @@
 //
-//  UZLiveAudioConfiguration.h
-//  UZLiveKit
+//  UZAudioConfiguration.h
+//  UZBroadcast
 //
 //  Created by Nam Nguyen on 6/18/20.
 //  Copyright © 2020 namnd. All rights reserved.
@@ -34,7 +34,7 @@ typedef NS_ENUM (NSUInteger, UZAudioSampleRate){
     UZAudioSampleRate_Default = UZAudioSampleRate_44100Hz
 };
 
-///  Audio Live quality
+///  Audio Broadcast quality
 typedef NS_ENUM (NSUInteger, UZAudioQuality){
     /// Low: audio sample rate: 16KHz audio bitrate: numberOfChannels 1 : 32Kbps  2 : 64Kbps
     UZAudioQuality_Low = 0,

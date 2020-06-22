@@ -1,6 +1,6 @@
 //
-//  UZLiveDebug.h
-//  UZLiveKit
+//  UZBroadcastDebug.h
+//  UZBroadcast
 //
 //  Created by Nam Nguyen on 6/18/20.
 //  Copyright © 2020 namnd. All rights reserved.
@@ -9,7 +9,7 @@
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
 
-@interface UZLiveDebug : NSObject
+@interface UZBroadcastDebug : NSObject
 
 @property (nonatomic, copy) NSString *streamId;                     /// Stream Id
 @property (nonatomic, copy) NSString *uploadUrl;                    /// Stream URL

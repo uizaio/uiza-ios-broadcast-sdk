@@ -1,7 +1,7 @@
 #import "UZGPUImageBeautyFilter.h"
 
 #if TARGET_IPHONE_SIMULATOR || TARGET_OS_IPHONE
-NSString *const kLFGPUImageBeautyFragmentShaderString = SHADER_STRING
+NSString *const kUZGPUImageBeautyFragmentShaderString = SHADER_STRING
                                                         (
     varying highp vec2 textureCoordinate;
 
@@ -111,7 +111,7 @@ NSString *const kLFGPUImageBeautyFragmentShaderString = SHADER_STRING
 
                                                         );
 #else
-NSString *const kLFGPUImageBeautyFragmentShaderString = SHADER_STRING
+NSString *const kUZGPUImageBeautyFragmentShaderString = SHADER_STRING
                                                         (
     varying vec2 textureCoordinate;
 
@@ -225,7 +225,7 @@ NSString *const kLFGPUImageBeautyFragmentShaderString = SHADER_STRING
 
 - (id)init;
 {
-    if (!(self = [super initWithFragmentShaderFromString:kLFGPUImageBeautyFragmentShaderString])) {
+    if (!(self = [super initWithFragmentShaderFromString:kUZGPUImageBeautyFragmentShaderString])) {
         return nil;
     }
 

@@ -13,7 +13,7 @@
 		84D8B4341D75778B00752B56 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 84D8B4321D75778B00752B56 /* Main.storyboard */; };
 		84D8B4361D75778B00752B56 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 84D8B4351D75778B00752B56 /* Assets.xcassets */; };
 		84D8B4391D75778B00752B56 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 84D8B4371D75778B00752B56 /* LaunchScreen.storyboard */; };
-		84D8B44B1D75781200752B56 /* UZLivePreview.m in Sources */ = {isa = PBXBuildFile; fileRef = 84D8B44A1D75781200752B56 /* UZLivePreview.m */; };
+		84D8B44B1D75781200752B56 /* UZBroadcastPreview.m in Sources */ = {isa = PBXBuildFile; fileRef = 84D8B44A1D75781200752B56 /* UZBroadcastPreview.m */; };
 		84D8B45B1D75782700752B56 /* UIControl+YYAdd.m in Sources */ = {isa = PBXBuildFile; fileRef = 84D8B44E1D75782700752B56 /* UIControl+YYAdd.m */; };
 		84D8B45C1D75782700752B56 /* UIView+YYAdd.m in Sources */ = {isa = PBXBuildFile; fileRef = 84D8B4501D75782700752B56 /* UIView+YYAdd.m */; };
 		84D8B45D1D75782700752B56 /* camra_beauty@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 84D8B4521D75782700752B56 /* camra_beauty@2x.png */; };
@@ -40,8 +40,8 @@
 		84D8B4351D75778B00752B56 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		84D8B4381D75778B00752B56 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		84D8B43A1D75778B00752B56 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		84D8B4491D75781200752B56 /* UZLivePreview.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UZLivePreview.h; sourceTree = "<group>"; };
-		84D8B44A1D75781200752B56 /* UZLivePreview.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UZLivePreview.m; sourceTree = "<group>"; };
+		84D8B4491D75781200752B56 /* UZBroadcastPreview.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UZBroadcastPreview.h; sourceTree = "<group>"; };
+		84D8B44A1D75781200752B56 /* UZBroadcastPreview.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UZBroadcastPreview.m; sourceTree = "<group>"; };
 		84D8B44D1D75782700752B56 /* UIControl+YYAdd.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIControl+YYAdd.h"; sourceTree = "<group>"; };
 		84D8B44E1D75782700752B56 /* UIControl+YYAdd.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIControl+YYAdd.m"; sourceTree = "<group>"; };
 		84D8B44F1D75782700752B56 /* UIView+YYAdd.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+YYAdd.h"; sourceTree = "<group>"; };
@@ -112,8 +112,8 @@
 				8B3E554C249B6E93006D107D /* MainViewController.m */,
 				84D8B42C1D75778B00752B56 /* AppDelegate.h */,
 				84D8B42D1D75778B00752B56 /* AppDelegate.m */,
-				84D8B4491D75781200752B56 /* UZLivePreview.h */,
-				84D8B44A1D75781200752B56 /* UZLivePreview.m */,
+				84D8B4491D75781200752B56 /* UZBroadcastPreview.h */,
+				84D8B44A1D75781200752B56 /* UZBroadcastPreview.m */,
 				84D8B44C1D75782700752B56 /* category */,
 				84D8B4511D75782700752B56 /* images */,
 				84D8B4321D75778B00752B56 /* Main.storyboard */,
@@ -299,7 +299,7 @@
 				84D8B45C1D75782700752B56 /* UIView+YYAdd.m in Sources */,
 				84D8B42E1D75778B00752B56 /* AppDelegate.m in Sources */,
 				8B3E554E249B6E93006D107D /* MainViewController.m in Sources */,
-				84D8B44B1D75781200752B56 /* UZLivePreview.m in Sources */,
+				84D8B44B1D75781200752B56 /* UZBroadcastPreview.m in Sources */,
 				84D8B42B1D75778B00752B56 /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

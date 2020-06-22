@@ -326,7 +326,7 @@ static int DHComputeSharedSecretKey(MDH *dh, uint8_t *pubkey, size_t nPubkeyLen,
     if (!dh || !secret || nPubkeyLen >= INT_MAX)
         return -1;
 
-    MP_getbin(pubkeyBn, pubkey, nPubkeyLen);
+    MP_getbin(pubkeyBn, pubkey, (int)nPubkeyLen);
     if (!pubkeyBn)
         return -1;
 

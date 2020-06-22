@@ -1,6 +1,6 @@
 //
-//  UZLiveAudioConfiguration.m
-//  UZLiveKit
+//  UZAudioConfiguration.m
+//  UZBroadcast
 //
 //  Created by Nam Nguyen on 6/18/20.
 //  Copyright © 2020 namnd. All rights reserved.
@@ -181,7 +181,7 @@
 
 - (NSString *)description {
     NSMutableString *desc = @"".mutableCopy;
-    [desc appendFormat:@"<LFLiveAudioConfiguration: %p>", self];
+    [desc appendFormat:@"<UZAudioConfiguration: %p>", self];
     [desc appendFormat:@" numberOfChannels:%zi", self.numberOfChannels];
     [desc appendFormat:@" audioSampleRate:%zi", self.audioSampleRate];
     [desc appendFormat:@" audioBitrate:%zi", self.audioBitrate];

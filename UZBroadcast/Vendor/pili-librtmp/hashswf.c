@@ -71,7 +71,7 @@
 #define HMAC_close(ctx) HMAC_CTX_cleanup(&ctx)
 #endif
 
-extern void RTMP_TLS_Init();
+extern void RTMP_TLS_Init(void);
 extern TLS_CTX RTMP_TLS_ctx;
 
 #endif /* CRYPTO */
@@ -122,7 +122,7 @@ HTTPResult
 
     host = p1 + 3;
     path = strchr(host, '/');
-    hlen = path - host;
+    hlen = (int)(path - host);
     strncpy(hbuf, host, hlen);
     hbuf[hlen] = '\0';
     host = hbuf;
@@ -318,7 +318,7 @@ static size_t
     if (i->zlib) {
         unsigned char out[CHUNK];
         i->zs->next_in = (unsigned char *)p;
-        i->zs->avail_in = len;
+        i->zs->avail_in = (unsigned int) len;
         do {
             i->zs->avail_out = CHUNK;
             i->zs->next_out = out;
@@ -368,13 +368,13 @@ static time_t
     n = strchr(s, ' ');
     if (fmt) {
         /* Day, DD-MMM-YYYY HH:MM:SS GMT */
-        time.tm_mday = strtol(n + 1, &n, 0);
+        time.tm_mday = (int)strtol(n + 1, &n, 0);
         month = n + 1;
         n = strchr(month, ' ');
-        time.tm_year = strtol(n + 1, &n, 0);
-        time.tm_hour = strtol(n + 1, &n, 0);
-        time.tm_min = strtol(n + 1, &n, 0);
-        time.tm_sec = strtol(n + 1, NULL, 0);
+        time.tm_year = (int)strtol(n + 1, &n, 0);
+        time.tm_hour = (int)strtol(n + 1, &n, 0);
+        time.tm_min = (int)strtol(n + 1, &n, 0);
+        time.tm_sec = (int)strtol(n + 1, NULL, 0);
     } else {
         /* Unix ctime() format. Does not conform to HTTP spec. */
         /* Day MMM DD HH:MM:SS YYYY */
@@ -382,11 +382,11 @@ static time_t
         n = strchr(month, ' ');
         while (isspace(*n))
             n++;
-        time.tm_mday = strtol(n, &n, 0);
-        time.tm_hour = strtol(n + 1, &n, 0);
-        time.tm_min = strtol(n + 1, &n, 0);
-        time.tm_sec = strtol(n + 1, &n, 0);
-        time.tm_year = strtol(n + 1, NULL, 0);
+        time.tm_mday = (int)strtol(n, &n, 0);
+        time.tm_hour = (int)strtol(n + 1, &n, 0);
+        time.tm_min = (int)strtol(n + 1, &n, 0);
+        time.tm_sec = (int)strtol(n + 1, &n, 0);
+        time.tm_year = (int)strtol(n + 1, NULL, 0);
     }
     if (time.tm_year > 100)
         time.tm_year -= ysub;
@@ -466,7 +466,7 @@ int RTMP_HashSWF(const char *url, unsigned int *size, unsigned char *hash,
 #endif
     if (!home.av_val)
         home.av_val = ".";
-    home.av_len = strlen(home.av_val);
+    home.av_len = (int) strlen(home.av_val);
 
     /* SWF hash info is cached in a fixed-format file.
    * url: <url of SWF file>
@@ -493,7 +493,7 @@ int RTMP_HashSWF(const char *url, unsigned int *size, unsigned char *hash,
         if (!file)
             break;
         file++;
-        hlen = file - url;
+        hlen = (unsigned int) (file - url);
         p = strrchr(file, '/');
         if (p)
             file = p;
@@ -510,18 +510,18 @@ int RTMP_HashSWF(const char *url, unsigned int *size, unsigned char *hash,
             if (strncmp(buf + 5, url, hlen))
                 continue;
             r1 = strrchr(buf, '/');
-            i = strlen(r1);
+            i = (int)strlen(r1);
             r1[--i] = '\0';
             if (strncmp(r1, file, i))
                 continue;
             pos = ftell(f);
             while (got < 4 && fgets(buf, sizeof(buf), f)) {
                 if (!strncmp(buf, "size: ", 6)) {
-                    *size = strtol(buf + 6, NULL, 16);
+                    *size = (unsigned int)strtol(buf + 6, NULL, 16);
                     got++;
                 } else if (!strncmp(buf, "hash: ", 6)) {
                     unsigned char *ptr = hash, *in = (unsigned char *)buf + 6;
-                    int l = strlen((char *)in) - 1;
+                    int l = (int)strlen((char *)in) - 1;
                     for (i = 0; i < l; i += 2)
                         *ptr++ = (HEX2BIN(in[i]) << 4) | HEX2BIN(in[i + 1]);
                     got++;
@@ -590,9 +590,9 @@ int RTMP_HashSWF(const char *url, unsigned int *size, unsigned char *hash,
             fseek(f, 0, SEEK_END);
             q = strchr(url, '?');
             if (q)
-                i = q - url;
+                i = (int) (q - url);
             else
-                i = strlen(url);
+                i = (int) strlen(url);
 
             fprintf(f, "url: %.*s\n", i, url);
         }

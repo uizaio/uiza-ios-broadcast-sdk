@@ -119,7 +119,7 @@ class ViewController: UIViewController {
 		alertController.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: { (action) in
 			alertController.dismiss(animated: true, completion: nil)
 		}))
-		alertController.addAction(UIAlertAction(title: "Start Livestream", style: .default, handler: { [weak self] (action) in
+		alertController.addAction(UIAlertAction(title: "Start Broadcast", style: .default, handler: { [weak self] (action) in
 			guard let textFields = alertController.textFields else { return }
 			guard let url = URL(string: textFields.first?.text ?? ""), let streamKey = textFields.last?.text else { return }
 			self?.startBroadcasting(url: url, streamKey: streamKey)
@@ -254,18 +254,18 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource {
 	
 }
 
-extension ViewController: UZLiveSessionDelegate {
+extension ViewController: UZBroadcastSessionDelegate {
 	
-	func liveSession(_ session: UZLiveSession?, debugInfo: UZLiveDebug?) {
-		print("LFLiveState: \(String(describing: debugInfo))")
+	func broadcastSession(_ session: UZBroadcastSession?, debugInfo: UZBroadcastDebug?) {
+		print("UZBroadcastState: \(String(describing: debugInfo))")
 	}
 	
-	func liveSession(_ session: UZLiveSession?, errorCode: UZSocketErrorCode) {
-		print("LFLiveState errorCode: \(String(describing: errorCode))")
+	func broadcastSession(_ session: UZBroadcastSession?, errorCode: UZSocketErrorCode) {
+		print("UZBroadcastState errorCode: \(String(describing: errorCode))")
 	}
 	
-	func liveSession(_ session: UZLiveSession?, liveStateDidChange state: UZLiveState) {
-		print("LFLiveState: \(String(describing: state.rawValue))")
+	func broadcastSession(_ session: UZBroadcastSession?, broadcastStateDidChange state: UZBroadcastState) {
+		print("UZBroadcastState: \(String(describing: state.rawValue))")
 	}
 	
 }

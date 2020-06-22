@@ -1,5 +1,5 @@
 //
-//  LFMP4Atom.m
+//  UZMP4Atom.m
 //  Encoder Demo
 //
 //  Created by Geraint Davies on 15/01/2013.

@@ -1,6 +1,6 @@
 //
 //  UZH264VideoEncoder
-//  UZLiveKit
+//  UZBroadcast
 //
 //  Created by Nam Nguyen on 6/18/20.
 //  Copyright © 2020 namnd. All rights reserved.
@@ -42,7 +42,7 @@
 #pragma mark -- LifeCycle
 - (instancetype)initWithVideoStreamConfiguration:(UZVideoConfiguration *)configuration {
     if (self = [super init]) {
-        NSLog(@"USE LF264VideoEncoder");
+        NSLog(@"USE UZ264VideoEncoder");
         _configuration = configuration;
         [self initCompressionSession];
     }
@@ -50,7 +50,7 @@
 }
 
 - (void)initCompressionSession{
-    _sendQueue = dispatch_queue_create("com.youku.laifeng.h264.sendframe", DISPATCH_QUEUE_SERIAL);
+    _sendQueue = dispatch_queue_create("com.uiza.UZBroadcast.h264.sendframe", DISPATCH_QUEUE_SERIAL);
     [self initializeNALUnitStartCode];
     _lastPTS = kCMTimeInvalid;
     _timescale = 1000;

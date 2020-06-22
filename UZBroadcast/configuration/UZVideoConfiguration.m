@@ -1,6 +1,6 @@
 //
-//  UZLiveVideoConfiguration.m
-//  UZLiveKit
+//  UZVideoConfiguration.m
+//  UZBroadcast
 //
 //  Created by Nam Nguyen on 6/18/20.
 //  Copyright © 2020 namnd. All rights reserved.
@@ -461,7 +461,7 @@
 
 - (NSString *)description {
     NSMutableString *desc = @"".mutableCopy;
-    [desc appendFormat:@"<LFLiveVideoConfiguration: %p>", self];
+    [desc appendFormat:@"<UZVideoConfiguration: %p>", self];
     [desc appendFormat:@" videoSize:%@", NSStringFromCGSize(self.videoSize)];
     [desc appendFormat:@" videoSizeRespectingAspectRatio:%i",self.videoSizeRespectingAspectRatio];
     [desc appendFormat:@" videoFrameRate:%zi", self.videoFrameRate];

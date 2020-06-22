@@ -1,6 +1,6 @@
 //
 //  UZStreamingBuffer.h
-//  UZLiveKit
+//  UZBroadcast
 //
 //  Created by Nam Nguyen on 6/18/20.
 //  Copyright © 2020 namnd. All rights reserved.
@@ -12,10 +12,10 @@
 
 
 /** current buffer status */
-typedef NS_ENUM (NSUInteger, UZLiveBuffferState) {
-    UZLiveBuffferUnknown = 0,      // Unknown
-    UZLiveBuffferIncrease = 1,    // Poor buffer status should reduce bit rate
-    UZLiveBuffferDecline = 2      // If the buffer status is good, the code rate should be increased
+typedef NS_ENUM (NSUInteger, UZBuffferState) {
+    UZBuffferState_Unknown = 0,      // Unknown
+    UZBuffferState_Increase = 1,    // Poor buffer status should reduce bit rate
+    UZBuffferState_Decline = 2      // If the buffer status is good, the code rate should be increased
 };
 
 @class UZStreamingBuffer;
@@ -23,7 +23,7 @@ typedef NS_ENUM (NSUInteger, UZLiveBuffferState) {
 @protocol UZStreamingBufferDelegate <NSObject>
 @optional
 /** Current buffer changes (increase or decrease) Callback based on the updateInterval time in the buffer */
-- (void)streamingBuffer:(nullable UZStreamingBuffer *)buffer bufferState:(UZLiveBuffferState)state;
+- (void)streamingBuffer:(nullable UZStreamingBuffer *)buffer bufferState:(UZBuffferState)state;
 @end
 
 @interface UZStreamingBuffer : NSObject

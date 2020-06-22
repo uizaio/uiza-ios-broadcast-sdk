@@ -1,6 +1,6 @@
 //
 //  UZStreamInfo.h
-//  UZLiveKit
+//  UZBroadcast
 //
 //  Created by Nam Nguyen on 6/18/20.
 //  Copyright © 2020 namnd. All rights reserved.
@@ -12,20 +12,20 @@
 
 
 
-/// Live state
-typedef NS_ENUM (NSUInteger, UZLiveState){
+/// Broadcast state
+typedef NS_ENUM (NSUInteger, UZBroadcastState){
     /// Ready
-    UZLiveState_Ready = 0,
+    UZBroadcastState_Ready = 0,
     /// Pending
-    UZLiveState_Pending = 1,
+    UZBroadcastState_Pending = 1,
     /// Start
-    UZLiveState_Start = 2,
+    UZBroadcastState_Start = 2,
     /// Stop
-    UZLiveState_Stop = 3,
+    UZBroadcastState_Stop = 3,
     /// Error
-    UZLiveState_Error = 4,
+    UZBroadcastState_Error = 4,
     ///  Refresh
-    UZLiveState_Refresh = 5
+    UZBroadcastState_Refresh = 5
 };
 
 typedef NS_ENUM (NSUInteger, UZSocketErrorCode) {
