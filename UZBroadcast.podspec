@@ -2,7 +2,7 @@
 Pod::Spec.new do |s|
 
   s.name         = "UZBroadcast"
-  s.version      = "1.2.3"
+  s.version      = "1.2.4"
   s.summary      = "Uiza ios Live. UZBroadcast"
   s.summary = 'UZBroadcast'
   s.homepage = 'https://uiza.io/'

@@ -26,7 +26,7 @@ static const NSInteger RetryTimesMargin = 3;
 #define SAVC(x)    static const AVal av_ ## x = AVC(#x)
 
 static const AVal av_setDataFrame = AVC("@setDataFrame");
-static const AVal av_SDKVersion = AVC("UZBroadcast 1.2.3");
+static const AVal av_SDKVersion = AVC("UZBroadcast 1.2.4");
 SAVC(onMetaData);
 SAVC(duration);
 SAVC(width);
