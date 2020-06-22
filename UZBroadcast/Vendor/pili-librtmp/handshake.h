@@ -261,7 +261,7 @@ static void HMACsha256(const uint8_t *message, size_t messageLen,
     unsigned int digestLen;
     HMAC_CTX ctx;
     
-    HMAC_setup(ctx, key, keylen);
+    HMAC_setup(ctx, key, (int)keylen);
     HMAC_crunch(ctx, message, messageLen);
     HMAC_finish(ctx, digest, digestLen);
     

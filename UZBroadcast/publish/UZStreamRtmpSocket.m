@@ -1,6 +1,6 @@
 //
 //  UZStreamRTMPSocket.m
-//  UZLiveKit
+//  UZBroadcast
 //
 //  Created by Nam Nguyen on 6/18/20.
 //  Copyright © 2020 namnd. All rights reserved.
@@ -26,7 +26,7 @@ static const NSInteger RetryTimesMargin = 3;
 #define SAVC(x)    static const AVal av_ ## x = AVC(#x)
 
 static const AVal av_setDataFrame = AVC("@setDataFrame");
-static const AVal av_SDKVersion = AVC("LFLiveKit 2.4.0");
+static const AVal av_SDKVersion = AVC("UZBroadcast 1.2.3");
 SAVC(onMetaData);
 SAVC(duration);
 SAVC(width);
@@ -53,9 +53,9 @@ SAVC(mp4a);
 @property (nonatomic, weak) id<UZStreamSocketDelegate> delegate;
 @property (nonatomic, strong) UZStreamInfo *stream;
 @property (nonatomic, strong) UZStreamingBuffer *buffer;
-@property (nonatomic, strong) UZLiveDebug *debugInfo;
+@property (nonatomic, strong) UZBroadcastDebug *debugInfo;
 @property (nonatomic, strong) dispatch_queue_t rtmpSendQueue;
-//错误信息
+//Error message
 @property (nonatomic, assign) RTMPError error;
 @property (nonatomic, assign) NSInteger retryTimes4netWorkBreaken;
 @property (nonatomic, assign) NSInteger reconnectInterval;
@@ -73,13 +73,13 @@ SAVC(mp4a);
 
 @implementation UZStreamRTMPSocket
 
-#pragma mark -- LFStreamSocket
+#pragma mark -- UZStreamSocket
 - (nullable instancetype)initWithStream:(nullable UZStreamInfo *)stream{
     return [self initWithStream:stream reconnectInterval:0 reconnectCount:0];
 }
 
 - (nullable instancetype)initWithStream:(nullable UZStreamInfo *)stream reconnectInterval:(NSInteger)reconnectInterval reconnectCount:(NSInteger)reconnectCount{
-    if (!stream) @throw [NSException exceptionWithName:@"LFStreamRtmpSocket init error" reason:@"stream is nil" userInfo:nil];
+    if (!stream) @throw [NSException exceptionWithName:@"UZStreamRtmpSocket init error" reason:@"stream is nil" userInfo:nil];
     if (self = [super init]) {
         _stream = stream;
         if (reconnectInterval > 0) _reconnectInterval = reconnectInterval;
@@ -88,7 +88,7 @@ SAVC(mp4a);
         if (reconnectCount > 0) _reconnectCount = reconnectCount;
         else _reconnectCount = RetryTimesBreaken;
         
-        [self addObserver:self forKeyPath:@"isSending" options:NSKeyValueObservingOptionNew context:nil];//这里改成observer主要考虑一直到发送出错情况下，可以继续发送
+        [self addObserver:self forKeyPath:@"isSending" options:NSKeyValueObservingOptionNew context:nil]; /// Changed here to observer mainly to continue sending until the error occurs.
     }
     return self;
 }
@@ -114,7 +114,7 @@ SAVC(mp4a);
     
     _isConnecting = YES;
     if (self.delegate && [self.delegate respondsToSelector:@selector(socketStatus:status:)]) {
-        [self.delegate socketStatus:self status:UZLiveState_Pending];
+        [self.delegate socketStatus:self status:UZBroadcastState_Pending];
     }
     
     if (_rtmp != NULL) {
@@ -133,7 +133,7 @@ SAVC(mp4a);
 
 - (void)_stop {
     if (self.delegate && [self.delegate respondsToSelector:@selector(socketStatus:status:)]) {
-        [self.delegate socketStatus:self status:UZLiveState_Stop];
+        [self.delegate socketStatus:self status:UZBroadcastState_Stop];
     }
     if (_rtmp != NULL) {
         PILI_RTMP_Close(_rtmp, &_error);
@@ -246,12 +246,12 @@ SAVC(mp4a);
 }
 
 - (NSInteger)RTMP264_Connect:(char *)push_url {
-    //由于摄像头的timestamp是一直在累加，需要每次得到相对时间戳
-    //分配与初始化
+    //Since the timestamp of the camera is always accumulating, you need to get the relative timestamp every time
+    //Allocation and initialization
     _rtmp = PILI_RTMP_Alloc();
     PILI_RTMP_Init(_rtmp);
 
-    //设置URL
+    //Set URL
     if (PILI_RTMP_SetupURL(_rtmp, push_url, &_error) == FALSE) {
         //log(LOG_ERR, "RTMP_SetupURL() failed!");
         goto Failed;
@@ -263,21 +263,21 @@ SAVC(mp4a);
     _rtmp->m_msgCounter = 1;
     _rtmp->Link.timeout = RTMP_RECEIVE_TIMEOUT;
     
-    //设置可写，即发布流，这个函数必须在连接前使用，否则无效
+    //Set to write, that is, release stream, this function must be used before connection, otherwise it is invalid
     PILI_RTMP_EnableWrite(_rtmp);
 
-    //连接服务器
+    //connect to the server
     if (PILI_RTMP_Connect(_rtmp, NULL, &_error) == FALSE) {
         goto Failed;
     }
 
-    //连接流
+    //Connection flow
     if (PILI_RTMP_ConnectStream(_rtmp, 0, &_error) == FALSE) {
         goto Failed;
     }
 
     if (self.delegate && [self.delegate respondsToSelector:@selector(socketStatus:status:)]) {
-        [self.delegate socketStatus:self status:UZLiveState_Start];
+        [self.delegate socketStatus:self status:UZBroadcastState_Start];
     }
 
     [self sendMetaData];
@@ -494,7 +494,7 @@ Failed:
            
         } else if (self.retryTimes4netWorkBreaken >= self.reconnectCount) {
             if (self.delegate && [self.delegate respondsToSelector:@selector(socketStatus:status:)]) {
-                [self.delegate socketStatus:self status:UZLiveState_Error];
+                [self.delegate socketStatus:self status:UZBroadcastState_Error];
             }
             if (self.delegate && [self.delegate respondsToSelector:@selector(socketDidError:errorCode:)]) {
                 [self.delegate socketDidError:self errorCode: UZSocketErrorCode_ReConnectTimeOut];
@@ -526,7 +526,7 @@ Failed:
     _sendVideoHead = NO;
     
     if (self.delegate && [self.delegate respondsToSelector:@selector(socketStatus:status:)]) {
-        [self.delegate socketStatus:self status:UZLiveState_Refresh];
+        [self.delegate socketStatus:self status:UZBroadcastState_Refresh];
     }
     
     if (_rtmp != NULL) {
@@ -547,8 +547,8 @@ void RTMPErrorCallback(RTMPError *error, void *userData) {
 void ConnectionTimeCallback(PILI_CONNECTION_TIME *conn_time, void *userData) {
 }
 
-#pragma mark -- LFStreamingBufferDelegate
-- (void)streamingBuffer:(nullable UZStreamingBuffer *)buffer bufferState:(UZLiveBuffferState)state{
+#pragma mark -- UZStreamingBufferDelegate
+- (void)streamingBuffer:(nullable UZStreamingBuffer *)buffer bufferState:(UZBuffferState)state{
     if(self.delegate && [self.delegate respondsToSelector:@selector(socketBufferStatus:status:)]){
         [self.delegate socketBufferStatus:self status:state];
     }
@@ -574,16 +574,16 @@ void ConnectionTimeCallback(PILI_CONNECTION_TIME *conn_time, void *userData) {
     return _buffer;
 }
 
-- (UZLiveDebug *)debugInfo {
+- (UZBroadcastDebug *)debugInfo {
     if (!_debugInfo) {
-        _debugInfo = [[UZLiveDebug alloc] init];
+        _debugInfo = [[UZBroadcastDebug alloc] init];
     }
     return _debugInfo;
 }
 
 - (dispatch_queue_t)rtmpSendQueue{
     if(!_rtmpSendQueue){
-        _rtmpSendQueue = dispatch_queue_create("com.youku.LaiFeng.RtmpSendQueue", NULL);
+        _rtmpSendQueue = dispatch_queue_create("com.uiza.UZBroadcast.RtmpSendQueue", NULL);
     }
     return _rtmpSendQueue;
 }

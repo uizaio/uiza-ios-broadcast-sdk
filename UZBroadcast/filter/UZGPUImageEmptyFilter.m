@@ -1,7 +1,7 @@
 #import "UZGPUImageEmptyFilter.h"
 
 #if TARGET_IPHONE_SIMULATOR || TARGET_OS_IPHONE
-NSString *const kLFGPUImageEmptyFragmentShaderString = SHADER_STRING
+NSString *const kUZGPUImageEmptyFragmentShaderString = SHADER_STRING
                                                        (
     varying highp vec2 textureCoordinate;
 
@@ -34,7 +34,7 @@ NSString *const kGPUImageInvertFragmentShaderString = SHADER_STRING
 
 - (id)init;
 {
-    if (!(self = [super initWithFragmentShaderFromString:kLFGPUImageEmptyFragmentShaderString])) {
+    if (!(self = [super initWithFragmentShaderFromString:kUZGPUImageEmptyFragmentShaderString])) {
         return nil;
     }
 

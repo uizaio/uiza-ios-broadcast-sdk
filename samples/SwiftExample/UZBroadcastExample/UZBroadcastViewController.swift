@@ -19,7 +19,7 @@ open class UZBroadcastViewController: UIViewController {
 	/// Current broadcast configuration
 	public fileprivate(set) var config: UZBroadcastConfig!
 	/// Current live session
-	lazy var session: UZLiveSession = {
+	lazy var session: UZBroadcastSession = {
 		let audioConfiguration = UZAudioConfiguration.defaultConfiguration(for: .veryHigh)!
 		audioConfiguration.numberOfChannels = 2
 		audioConfiguration.audioBitrate = config.audioBitrate
@@ -39,7 +39,7 @@ open class UZBroadcastViewController: UIViewController {
 		videoConfiguration.videoMaxKeyframeInterval = config.videoFPS.rawValue * 2
 		videoConfiguration.autorotate = false
 		
-		let result = UZLiveSession(audioConfiguration: audioConfiguration, videoConfiguration: videoConfiguration)!
+		let result = UZBroadcastSession(audioConfiguration: audioConfiguration, videoConfiguration: videoConfiguration)!
 		result.adaptiveBitrate = config.adaptiveBitrate
 		result.captureDevicePosition = config.cameraPosition
 		result.beautyFace = false
@@ -109,7 +109,7 @@ open class UZBroadcastViewController: UIViewController {
 	- parameter config: Broadcast configuration
 	*/
 	@discardableResult
-	public func prepareForBroadcast(config: UZBroadcastConfig) -> UZLiveSession {
+	public func prepareForBroadcast(config: UZBroadcastConfig) -> UZBroadcastSession {
 		self.config = config
 		return session
 	}
@@ -124,7 +124,7 @@ open class UZBroadcastViewController: UIViewController {
 		
 		let stream = UZStreamInfo()
 		stream.url = broadcastURL.appendingPathComponent(streamKey).absoluteString
-		session.startLive(stream)
+		session.startBroadcast(stream)
 		
 		UIApplication.shared.isIdleTimerDisabled = true
 	}
@@ -133,7 +133,7 @@ open class UZBroadcastViewController: UIViewController {
 	Stop broadcasting
 	*/
 	public func stopBroadcast() {
-		session.stopLive()
+		session.stopBroadcast()
 		session.running = false
 		session.delegate = nil
 		

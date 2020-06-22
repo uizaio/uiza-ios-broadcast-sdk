@@ -1,6 +1,6 @@
 //
 //  UZHardwareAudioEncoder.m
-//  UZLiveKit
+//  UZBroadcast
 //
 //  Created by Nam Nguyen on 6/18/20.
 //  Copyright © 2020 namnd. All rights reserved.//
@@ -24,7 +24,7 @@
 
 - (instancetype)initWithAudioStreamConfiguration:(nullable UZAudioConfiguration *)configuration {
     if (self = [super init]) {
-        NSLog(@"USE LFHardwareAudioEncoder");
+        NSLog(@"USE UZHardwareAudioEncoder");
         _configuration = configuration;
         
         if (!leftBuf) {
@@ -49,7 +49,7 @@
     if (leftBuf) free(leftBuf);
 }
 
-#pragma mark -- LFAudioEncoder
+#pragma mark -- UZAudioEncoder
 - (void)setDelegate:(id<UZAudioEncodingDelegate>)delegate {
     _aacDeleage = delegate;
 }
@@ -60,7 +60,7 @@
     }
     
     if(leftLength + audioData.length >= self.configuration.bufferLength){
-        ///<  发送
+        /// Send
         NSInteger totalSize = leftLength + audioData.length;
         NSInteger encodeCount = totalSize/self.configuration.bufferLength;
         char *totalBuf = malloc(totalSize);
@@ -82,7 +82,7 @@
         free(totalBuf);
         
     }else{
-        ///< 积累
+        /// accumulation
         memcpy(leftBuf+leftLength, audioData.bytes, audioData.length);
         leftLength = leftLength + audioData.length;
     }
@@ -100,12 +100,12 @@
     buffers.mBuffers[0] = inBuffer;
     
     
-    // 初始化一个输出缓冲列表
+    // Initialize an output buffer list
     AudioBufferList outBufferList;
     outBufferList.mNumberBuffers = 1;
     outBufferList.mBuffers[0].mNumberChannels = inBuffer.mNumberChannels;
-    outBufferList.mBuffers[0].mDataByteSize = inBuffer.mDataByteSize;   // 设置缓冲区大小
-    outBufferList.mBuffers[0].mData = aacBuf;           // 设置AAC缓冲区
+    outBufferList.mBuffers[0].mDataByteSize = inBuffer.mDataByteSize;   // Set buffer size
+    outBufferList.mBuffers[0].mData = aacBuf;           // Set AAC buffer
     UInt32 outputDataPacketSize = 1;
     if (AudioConverterFillComplexBuffer(m_converter, inputDataProc, &buffers, &outputDataPacketSize, &outBufferList, NULL) != noErr) {
         return;

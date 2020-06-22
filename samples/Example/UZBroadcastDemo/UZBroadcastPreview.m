@@ -1,15 +1,15 @@
 //
-//  UZLivePreview.m
-//  UZLiveKit
+//  UZBroadcastPreview.m
+//  UZBroadcastDemo
 //
 //  Created by Nam Nguyen on 6/18/20.
 //  Copyright © 2020 namnd. All rights reserved.
 //
 
-#import "UZLivePreview.h"
+#import "UZBroadcastPreview.h"
 #import "category/UIControl+YYAdd.h"
 #import "category/UIView+YYAdd.h"
-#import "UZLiveKit.h"
+#import "UZBroadcast.h"
 
 const CGFloat TOP_MARGIN = 44.0;
 
@@ -32,20 +32,20 @@ inline static NSString *formatedSpeed(float bytes, float elapsed_milli) {
     }
 }
 
-@interface UZLivePreview ()<UZLiveSessionDelegate>
+@interface UZBroadcastPreview ()<UZBroadcastSessionDelegate>
 
 @property (nonatomic, strong) UIButton *beautyButton;
 @property (nonatomic, strong) UIButton *cameraButton;
 @property (nonatomic, strong) UIButton *closeButton;
 @property (nonatomic, strong) UIButton *startLiveButton;
 @property (nonatomic, strong) UIView *containerView;
-@property (nonatomic, strong) UZLiveDebug *debugInfo;
-@property (nonatomic, strong) UZLiveSession *session;
+@property (nonatomic, strong) UZBroadcastDebug *debugInfo;
+@property (nonatomic, strong) UZBroadcastSession *session;
 @property (nonatomic, strong) UILabel *stateLabel;
 
 @end
 
-@implementation UZLivePreview
+@implementation UZBroadcastPreview
 
 - (instancetype)initWithFrame:(CGRect)frame {
     if (self = [super initWithFrame:frame]) {
@@ -116,23 +116,23 @@ inline static NSString *formatedSpeed(float bytes, float elapsed_milli) {
 }
 
 #pragma mark -- UZStreamingSessionDelegate
-/** live status changed will callback */
-- (void)liveSession:(nullable UZLiveSession *)session liveStateDidChange:(UZLiveState)state {
-    NSLog(@"liveStateDidChange: %ld", state);
+/** broadcast status changed will callback */
+- (void)broadcastSession:(nullable UZBroadcastSession *)session broadcastStateDidChange:(UZBroadcastState)state {
+    NSLog(@"broadcastStateDidChange: %ld", state);
     switch (state) {
-        case UZLiveState_Ready:
+        case UZBroadcastState_Ready:
         _stateLabel.text = @"No Connect";
         break;
-    case UZLiveState_Pending:
+    case UZBroadcastState_Pending:
         _stateLabel.text = @"Connecting";
         break;
-    case UZLiveState_Start:
+    case UZBroadcastState_Start:
         _stateLabel.text = @"Connected";
         break;
-    case UZLiveState_Error:
+    case UZBroadcastState_Error:
         _stateLabel.text = @"Connect Error";
         break;
-    case UZLiveState_Stop:
+    case UZBroadcastState_Stop:
         _stateLabel.text = @"No Connect";
         break;
     default:
@@ -140,18 +140,18 @@ inline static NSString *formatedSpeed(float bytes, float elapsed_milli) {
     }
 }
 
-/** live debug info callback */
-- (void)liveSession:(nullable UZLiveSession *)session debugInfo:(nullable UZLiveDebug *)debugInfo {
+/** broadcast debug info callback */
+- (void)broadcastSession:(nullable UZBroadcastSession *)session debugInfo:(nullable UZBroadcastDebug *)debugInfo {
     NSLog(@"debugInfo uploadSpeed: %@", formatedSpeed(debugInfo.currentBandwidth, debugInfo.elapsedMilli));
 }
 
 /** callback socket errorcode */
-- (void)liveSession:(nullable UZLiveSession *)session errorCode:(UZSocketErrorCode)errorCode {
+- (void)broadcastSession:(nullable UZBroadcastSession *)session errorCode:(UZSocketErrorCode)errorCode {
     NSLog(@"errorCode: %ld", errorCode);
 }
 
 #pragma mark -- Getter Setter
-- (UZLiveSession *)session {
+- (UZBroadcastSession *)session {
     if (!_session) {
         UZVideoConfiguration *videoConfiguration = [UZVideoConfiguration new];
         videoConfiguration.videoSize = CGSizeMake(720, 1280);
@@ -163,7 +163,7 @@ inline static NSString *formatedSpeed(float bytes, float elapsed_milli) {
         videoConfiguration.outputImageOrientation = UIInterfaceOrientationPortrait;
         videoConfiguration.autorotate = NO;
         videoConfiguration.sessionPreset = UZVideoSessionPreset720x1280;
-        _session = [[UZLiveSession alloc] initWithAudioConfiguration:[UZAudioConfiguration defaultConfiguration] videoConfiguration:videoConfiguration captureType:UZLiveCaptureDefaultMask];
+        _session = [[UZBroadcastSession alloc] initWithAudioConfiguration:[UZAudioConfiguration defaultConfiguration] videoConfiguration:videoConfiguration captureTypeMask:UZCaptureTypeMask_Default];
 
         /**    Customize your own mono  */
         /*
@@ -171,7 +171,7 @@ inline static NSString *formatedSpeed(float bytes, float elapsed_milli) {
            audioConfiguration.numberOfChannels = 1;
            audioConfiguration.audioBitrate = UZAudioBitRate_64Kbps;
            audioConfiguration.audioSampleRate = UZAudioSampleRate_44100Hz;
-           _session = [[UZLiveSession alloc] initWithAudioConfiguration:audioConfiguration videoConfiguration:[UZVideoConfiguration defaultConfiguration]];
+           _session = [[UZBroadcastSession alloc] initWithAudioConfiguration:audioConfiguration videoConfiguration:[UZVideoConfiguration defaultConfiguration]];
          */
 
         /**    Customize high-quality audio 96K */
@@ -180,7 +180,7 @@ inline static NSString *formatedSpeed(float bytes, float elapsed_milli) {
            audioConfiguration.numberOfChannels = 2;
            audioConfiguration.audioBitrate = UZAudioBitRate_96Kbps;
            audioConfiguration.audioSampleRate = UZAudioSampleRate_44100Hz;
-           _session = [[UZLiveSession alloc] initWithAudioConfiguration:audioConfiguration videoConfiguration:[UZVideoConfiguration defaultConfiguration]];
+           _session = [[UZBroadcastSession alloc] initWithAudioConfiguration:audioConfiguration videoConfiguration:[UZVideoConfiguration defaultConfiguration]];
          */
 
         /**    Customize your own high-quality audio 96K resolution set to 540*960 vertical screen */
@@ -201,7 +201,7 @@ inline static NSString *formatedSpeed(float bytes, float elapsed_milli) {
            videoConfiguration.orientation = UIInterfaceOrientationPortrait;
            videoConfiguration.sessionPreset = UZVideoSessionPreset540x960;
 
-           _session = [[UZLiveSession alloc] initWithAudioConfiguration:audioConfiguration videoConfiguration:videoConfiguration];
+           _session = [[UZBroadcastSession alloc] initWithAudioConfiguration:audioConfiguration videoConfiguration:videoConfiguration];
          */
 
 
@@ -223,7 +223,7 @@ inline static NSString *formatedSpeed(float bytes, float elapsed_milli) {
            videoConfiguration.landscape = NO;
            videoConfiguration.sessionPreset = UZVideoSessionPreset360x640;
 
-           _session = [[UZLiveSession alloc] initWithAudioConfiguration:audioConfiguration videoConfiguration:videoConfiguration];
+           _session = [[UZBroadcastSession alloc] initWithAudioConfiguration:audioConfiguration videoConfiguration:videoConfiguration];
          */
 
 
@@ -245,7 +245,7 @@ inline static NSString *formatedSpeed(float bytes, float elapsed_milli) {
            videoConfiguration.landscape = YES;
            videoConfiguration.sessionPreset = UZVideoSessionPreset720x1280;
 
-           _session = [[UZLiveSession alloc] initWithAudioConfiguration:audioConfiguration videoConfiguration:videoConfiguration];
+           _session = [[UZBroadcastSession alloc] initWithAudioConfiguration:audioConfiguration videoConfiguration:videoConfiguration];
         */
 
         _session.delegate = self;
@@ -360,10 +360,10 @@ inline static NSString *formatedSpeed(float bytes, float elapsed_milli) {
                 [_self.startLiveButton setTitle:@"Stop Broadcast" forState:UIControlStateNormal];
                 UZStreamInfo *stream = [UZStreamInfo new];
                 stream.url = @"rtmp://fee2353514-in.streamwiz.dev/live/live_cu92VD9cCo";
-                [_self.session startLive:stream];
+                [_self.session startBroadcast:stream];
             } else {
                 [_self.startLiveButton setTitle:@"Start Broadcast" forState:UIControlStateNormal];
-                [_self.session stopLive];
+                [_self.session stopBroadcast];
             }
         }];
     }

@@ -1,12 +1,12 @@
 //
-//  UZLiveSession.m
-//  UZLiveKit
+//  UZBroadcastSession.m
+//  UZBroadcast
 //
 //  Created by Nam Nguyen on 6/18/20.
 //  Copyright © 2020 namnd. All rights reserved.
 //
 
-#import "UZLiveSession.h"
+#import "UZBroadcastSession.h"
 #import "UZVideoCapture.h"
 #import "UZAudioCapture.h"
 #import "UZHardwareVideoEncoder.h"
@@ -18,7 +18,7 @@
 #import "UZH264VideoEncoder.h"
 
 
-@interface UZLiveSession ()<UZAudioCaptureDelegate, UZVideoCaptureDelegate, UZAudioEncodingDelegate, UZVideoEncodingDelegate, UZStreamSocketDelegate>
+@interface UZBroadcastSession ()<UZAudioCaptureDelegate, UZVideoCaptureDelegate, UZAudioEncodingDelegate, UZVideoEncodingDelegate, UZStreamSocketDelegate>
 
 /// Audio configuration
 @property (nonatomic, strong) UZAudioConfiguration *audioConfiguration;
@@ -38,15 +38,15 @@
 
 #pragma mark -- Internal identification
 /// Debug information
-@property (nonatomic, strong) UZLiveDebug *debugInfo;
+@property (nonatomic, strong) UZBroadcastDebug *debugInfo;
 /// Stream info
 @property (nonatomic, strong) UZStreamInfo *streamInfo;
 /// Whether to start uploading
 @property (nonatomic, assign) BOOL uploading;
 /// Current state
-@property (nonatomic, assign, readwrite) UZLiveState state;
+@property (nonatomic, assign, readwrite) UZBroadcastState state;
 /// Current live broadcast type
-@property (nonatomic, assign, readwrite) UZLiveCaptureTypeMask captureType;
+@property (nonatomic, assign, readwrite) UZCaptureTypeMask captureTypeMask;
 /// Timestamp lock
 @property (nonatomic, strong) dispatch_semaphore_t lock;
 
@@ -57,7 +57,7 @@
 #define NOW (CACurrentMediaTime()*1000)
 #define SYSTEM_VERSION_LESS_THAN(v) ([[[UIDevice currentDevice] systemVersion] compare:v options:NSNumericSearch] == NSOrderedAscending)
 
-@interface UZLiveSession ()
+@interface UZBroadcastSession ()
 
 /// Upload relative timestamp
 @property (nonatomic, assign) uint64_t relativeTimestamps;
@@ -70,21 +70,21 @@
 
 @end
 
-@implementation UZLiveSession
+@implementation UZBroadcastSession
 
 #pragma mark -- LifeCycle
 - (instancetype)initWithAudioConfiguration:(nullable UZAudioConfiguration *)audioConfiguration videoConfiguration:(nullable UZVideoConfiguration *)videoConfiguration {
-    return [self initWithAudioConfiguration:audioConfiguration videoConfiguration:videoConfiguration captureType:UZLiveCaptureDefaultMask];
+    return [self initWithAudioConfiguration:audioConfiguration videoConfiguration:videoConfiguration captureTypeMask:UZCaptureTypeMask_Default];
 }
 
-- (nullable instancetype)initWithAudioConfiguration:(nullable UZAudioConfiguration *)audioConfiguration videoConfiguration:(nullable UZVideoConfiguration *)videoConfiguration captureType:(UZLiveCaptureTypeMask)captureType{
-    if((captureType & UZLiveCaptureMaskAudio || captureType & UZLiveInputMaskAudio) && !audioConfiguration) @throw [NSException exceptionWithName:@"LFLiveSession init error" reason:@"audioConfiguration is nil " userInfo:nil];
-    if((captureType & UZLiveCaptureMaskVideo || captureType & UZLiveInputMaskVideo) && !videoConfiguration) @throw [NSException exceptionWithName:@"LFLiveSession init error" reason:@"videoConfiguration is nil " userInfo:nil];
+- (nullable instancetype)initWithAudioConfiguration:(nullable UZAudioConfiguration *)audioConfiguration videoConfiguration:(nullable UZVideoConfiguration *)videoConfiguration captureTypeMask:(UZCaptureTypeMask)captureTypeMask{
+    if((captureTypeMask & UZCaptureTypeMask_Audio || captureTypeMask & UZCaptureTypeMask_InputAudio) && !audioConfiguration) @throw [NSException exceptionWithName:@"UZBroadcastSession init error" reason:@"audioConfiguration is nil " userInfo:nil];
+    if((captureTypeMask & UZCaptureTypeMask_Video || captureTypeMask & UZCaptureTypeMask_InputVideo) && !videoConfiguration) @throw [NSException exceptionWithName:@"UZBroadcastSession init error" reason:@"videoConfiguration is nil " userInfo:nil];
     if (self = [super init]) {
         _audioConfiguration = audioConfiguration;
         _videoConfiguration = videoConfiguration;
         _adaptiveBitrate = NO;
-        _captureType = captureType;
+        _captureTypeMask = captureTypeMask;
     }
     return self;
 }
@@ -95,7 +95,7 @@
 }
 
 #pragma mark -- CustomMethod
-- (void)startLive:(UZStreamInfo *)streamInfo {
+- (void)startBroadcast:(UZStreamInfo *)streamInfo {
     if (!streamInfo) return;
     _streamInfo = streamInfo;
     _streamInfo.videoConfiguration = _videoConfiguration;
@@ -103,7 +103,7 @@
     [self.socket start];
 }
 
-- (void)stopLive {
+- (void)stopBroadcast {
     self.uploading = NO;
     [self.socket stop];
     self.socket = nil;
@@ -130,13 +130,13 @@
 }
 
 - (void)pushVideo:(nullable CVPixelBufferRef)pixelBuffer{
-    if(self.captureType & UZLiveInputMaskVideo){
+    if(self.captureTypeMask & UZCaptureTypeMask_InputVideo){
         if (self.uploading) [self.videoEncoder encodeVideoData:pixelBuffer timeStamp:NOW];
     }
 }
 
 - (void)pushAudio:(nullable NSData*)audioData{
-    if(self.captureType & UZLiveInputMaskAudio){
+    if(self.captureTypeMask & UZCaptureTypeMask_InputAudio){
         if (self.uploading) [self.audioEncoder encodeAudioData:audioData timeStamp:NOW];
     }
 }
@@ -176,9 +176,9 @@
     }
 }
 
-#pragma mark -- LFStreamTcpSocketDelegate
-- (void)socketStatus:(nullable id<UZStreamSocket>)socket status:(UZLiveState)status {
-    if (status == UZLiveState_Start) {
+#pragma mark -- UZStreamTcpSocketDelegate
+- (void)socketStatus:(nullable id<UZStreamSocket>)socket status:(UZBroadcastState)status {
+    if (status == UZBroadcastState_Start) {
         if (!self.uploading) {
             self.AVAlignment = NO;
             self.hasCaptureAudio = NO;
@@ -186,40 +186,40 @@
             self.relativeTimestamps = 0;
             self.uploading = YES;
         }
-    } else if(status == UZLiveState_Stop || status == UZLiveState_Error){
+    } else if(status == UZBroadcastState_Stop || status == UZBroadcastState_Error){
         self.uploading = NO;
     }
     dispatch_async(dispatch_get_main_queue(), ^{
         self.state = status;
-        if (self.delegate && [self.delegate respondsToSelector:@selector(liveSession:liveStateDidChange:)]) {
-            [self.delegate liveSession:self liveStateDidChange:status];
+        if (self.delegate && [self.delegate respondsToSelector:@selector(broadcastSession:broadcastStateDidChange:)]) {
+            [self.delegate broadcastSession:self broadcastStateDidChange:status];
         }
     });
 }
 
 - (void)socketDidError:(nullable id<UZStreamSocket>)socket errorCode:(UZSocketErrorCode)errorCode {
     dispatch_async(dispatch_get_main_queue(), ^{
-        if (self.delegate && [self.delegate respondsToSelector:@selector(liveSession:errorCode:)]) {
-            [self.delegate liveSession:self errorCode:errorCode];
+        if (self.delegate && [self.delegate respondsToSelector:@selector(broadcastSession:errorCode:)]) {
+            [self.delegate broadcastSession:self errorCode:errorCode];
         }
     });
 }
 
-- (void)socketDebug:(nullable id<UZStreamSocket>)socket debugInfo:(nullable UZLiveDebug *)debugInfo {
+- (void)socketDebug:(nullable id<UZStreamSocket>)socket debugInfo:(nullable UZBroadcastDebug *)debugInfo {
     self.debugInfo = debugInfo;
     if (self.showDebugInfo) {
         dispatch_async(dispatch_get_main_queue(), ^{
-            if (self.delegate && [self.delegate respondsToSelector:@selector(liveSession:debugInfo:)]) {
-                [self.delegate liveSession:self debugInfo:debugInfo];
+            if (self.delegate && [self.delegate respondsToSelector:@selector(broadcastSession:debugInfo:)]) {
+                [self.delegate broadcastSession:self debugInfo:debugInfo];
             }
         });
     }
 }
 
-- (void)socketBufferStatus:(nullable id<UZStreamSocket>)socket status:(UZLiveBuffferState)status {
-    if((self.captureType & UZLiveCaptureMaskVideo || self.captureType & UZLiveInputMaskVideo) && self.adaptiveBitrate){
+- (void)socketBufferStatus:(nullable id<UZStreamSocket>)socket status:(UZBuffferState)status {
+    if((self.captureTypeMask & UZCaptureTypeMask_Video || self.captureTypeMask & UZCaptureTypeMask_InputVideo) && self.adaptiveBitrate){
         NSUInteger videoBitRate = [self.videoEncoder videoBitRate];
-        if (status == UZLiveBuffferDecline) {
+        if (status == UZBuffferState_Decline) {
             if (videoBitRate < _videoConfiguration.videoMaxBitRate) {
                 videoBitRate = videoBitRate + 50 * 1000;
                 [self.videoEncoder setVideoBitRate:videoBitRate];
@@ -386,7 +386,7 @@
 
 - (UZAudioCapture *)audioCaptureSource {
     if (!_audioCaptureSource) {
-        if(self.captureType & UZLiveCaptureMaskAudio){
+        if(self.captureTypeMask & UZCaptureTypeMask_Audio){
             _audioCaptureSource = [[UZAudioCapture alloc] initWithAudioConfiguration:_audioConfiguration];
             _audioCaptureSource.delegate = self;
         }
@@ -396,7 +396,7 @@
 
 - (UZVideoCapture *)videoCaptureSource {
     if (!_videoCaptureSource) {
-        if(self.captureType & UZLiveCaptureMaskVideo){
+        if(self.captureTypeMask & UZCaptureTypeMask_Video){
             _videoCaptureSource = [[UZVideoCapture alloc] initWithVideoConfiguration:_videoConfiguration];
             _videoCaptureSource.delegate = self;
         }
@@ -455,8 +455,8 @@
 }
 
 - (BOOL)AVAlignment{
-    if((self.captureType & UZLiveCaptureMaskAudio || self.captureType & UZLiveInputMaskAudio) &&
-       (self.captureType & UZLiveCaptureMaskVideo || self.captureType & UZLiveInputMaskVideo)
+    if((self.captureTypeMask & UZCaptureTypeMask_Audio || self.captureTypeMask & UZCaptureTypeMask_InputAudio) &&
+       (self.captureTypeMask & UZCaptureTypeMask_Video || self.captureTypeMask & UZCaptureTypeMask_InputVideo)
        ){
         if(self.hasCaptureAudio && self.hasKeyFrameVideo) return YES;
         else  return NO;

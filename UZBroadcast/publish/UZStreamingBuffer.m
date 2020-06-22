@@ -1,6 +1,6 @@
 //
 //  UZStreamingBuffer.m
-//  UZLiveKit
+//  UZBroadcast
 //
 //  Created by Nam Nguyen on 6/18/20.
 //  Copyright © 2020 namnd. All rights reserved.
@@ -147,7 +147,7 @@ NSInteger frameDataCompare(id obj1, id obj2, void *context){
     return NSOrderedAscending;
 }
 
-- (UZLiveBuffferState)currentBufferState {
+- (UZBuffferState)currentBufferState {
     NSInteger currentCount = 0;
     NSInteger increaseCount = 0;
     NSInteger decreaseCount = 0;
@@ -162,14 +162,14 @@ NSInteger frameDataCompare(id obj1, id obj2, void *context){
     }
 
     if (increaseCount >= self.callBackInterval) {
-        return UZLiveBuffferIncrease;
+        return UZBuffferState_Increase;
     }
 
     if (decreaseCount >= self.callBackInterval) {
-        return UZLiveBuffferDecline;
+        return UZBuffferState_Decline;
     }
     
-    return UZLiveBuffferUnknown;
+    return UZBuffferState_Unknown;
 }
 
 #pragma mark -- Setter Getter
@@ -204,14 +204,14 @@ NSInteger frameDataCompare(id obj1, id obj2, void *context){
     dispatch_semaphore_signal(_lock);
     
     if (self.currentInterval >= self.callBackInterval) {
-        UZLiveBuffferState state = [self currentBufferState];
-        if (state == UZLiveBuffferIncrease) {
+        UZBuffferState state = [self currentBufferState];
+        if (state == UZBuffferState_Increase) {
             if (self.delegate && [self.delegate respondsToSelector:@selector(streamingBuffer:bufferState:)]) {
-                [self.delegate streamingBuffer:self bufferState:UZLiveBuffferIncrease];
+                [self.delegate streamingBuffer:self bufferState:UZBuffferState_Increase];
             }
-        } else if (state == UZLiveBuffferDecline) {
+        } else if (state == UZBuffferState_Decline) {
             if (self.delegate && [self.delegate respondsToSelector:@selector(streamingBuffer:bufferState:)]) {
-                [self.delegate streamingBuffer:self bufferState:UZLiveBuffferDecline];
+                [self.delegate streamingBuffer:self bufferState:UZBuffferState_Decline];
             }
         }
 

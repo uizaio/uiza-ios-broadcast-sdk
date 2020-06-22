@@ -63,7 +63,7 @@ public class UZScreenBroadcast {
 	let screenRecorder = RPScreenRecorder.shared()
 	
 	/// Current live session
-	lazy var session: UZLiveSession = {
+	lazy var session: UZBroadcastSession = {
 		let audioConfiguration = UZAudioConfiguration.defaultConfiguration(for: .veryHigh)!
 		audioConfiguration.numberOfChannels = 2
 		audioConfiguration.audioBitrate = config.audioBitrate
@@ -83,7 +83,7 @@ public class UZScreenBroadcast {
 		videoConfiguration.videoMaxKeyframeInterval = config.videoFPS.rawValue * 2
 		videoConfiguration.autorotate = true
 		
-		let result = UZLiveSession(audioConfiguration: audioConfiguration, videoConfiguration: videoConfiguration, captureType: .inputMaskAll)!
+        let result = UZBroadcastSession(audioConfiguration: audioConfiguration, videoConfiguration: videoConfiguration, captureTypeMask: .inputAll)!
 		return result
 	}()
 	
@@ -92,7 +92,7 @@ public class UZScreenBroadcast {
 	- parameter config: Broadcast configuration
 	*/
 	@discardableResult
-	public func prepareForBroadcast(config: UZBroadcastConfig) -> UZLiveSession {
+	public func prepareForBroadcast(config: UZBroadcastConfig) -> UZBroadcastSession {
 		self.config = config
 		return session
 	}
@@ -109,7 +109,7 @@ public class UZScreenBroadcast {
 		let stream = UZStreamInfo()
 		stream.url = broadcastURL.appendingPathComponent(streamKey).absoluteString
 //		session.running = true
-		session.startLive(stream)
+		session.startBroadcast(stream)
 		
 //		screenRecorder.cameraPosition = config.cameraPosition == .front ? .front : .back
 		screenRecorder.isCameraEnabled = false
@@ -128,7 +128,7 @@ public class UZScreenBroadcast {
 	- parameter handler: Block called when completed, returns `Error` if occured
 	*/
 	public func stopBroadcast(handler: ((Error?) -> Void)? = nil) {
-		session.stopLive()
+		session.stopBroadcast()
 //		session.running = false
 		screenRecorder.stopCapture(handler: handler)
 		isBroadcasting = false

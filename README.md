@@ -36,7 +36,7 @@ UZBroadcast
 ## Installation
 
 #### CocoaPods
-	# To integrate UZLiveKit into your Xcode project using CocoaPods, specify it in your Podfile:
+	# To integrate UZBroadcast into your Xcode project using CocoaPods, specify it in your Podfile:
 
 	source 'https://github.com/CocoaPods/Specs.git'
 	platform :ios, '9.0'
@@ -63,42 +63,42 @@ UZBroadcast
 
 #### Objective-C
 ```objc
-- (UZLiveSession*)session {
+- (UZBroadcastSession*)session {
 	if (!_session) {
-	    _session = [[UZLiveSession alloc] initWithAudioConfiguration:[UZAudioConfiguration defaultConfiguration] videoConfiguration:[UZLiveVideoConfiguration defaultConfiguration]];
+	    _session = [[UZBroadcastSession alloc] initWithAudioConfiguration:[UZAudioConfiguration defaultConfiguration] videoConfiguration:[UZVideoConfiguration defaultConfiguration]];
 	    _session.preView = self;
 	    _session.delegate = self;
 	}
 	return _session;
 }
 
-- (void)startLive {	
+- (void)startBroadcast {	
 	UZStreamInfo *streamInfo = [UZStreamInfo new];
 	streamInfo.url = @"your server rtmp url";
-	[self.session startLive:streamInfo];
+	[self.session startBroadcast:streamInfo];
 }
 
-- (void)stopLive {
-	[self.session stopLive];
+- (void)stopBroadcast {
+	[self.session stopBroadcast];
 }
 
 //MARK: - CallBack:
-- (void)liveSession:(nullable UZLiveSession *)session liveStateDidChange: (UZLiveState)state;
-- (void)liveSession:(nullable UZLiveSession *)session debugInfo:(nullable UZLiveDebug*)debugInfo;
-- (void)liveSession:(nullable UZLiveSession*)session errorCode:(UZSocketErrorCode)errorCode;
+- (void)broadcastSession:(nullable UZBroadcastSession *)session broadcastStateDidChange: (UZLiveState)state;
+- (void)broadcastSession:(nullable UZBroadcastSession *)session debugInfo:(nullable UZBroadcastDebug*)debugInfo;
+- (void)broadcastSession:(nullable UZBroadcastSession*)session errorCode:(UZSocketErrorCode)errorCode;
 ```
 
 #### Swift
 
 ```swift
-// import UZLiveKit in [ProjectName]-Bridging-Header.h
-#import <UZLiveKit.h> 
+// import UZBroadcast in [ProjectName]-Bridging-Header.h
+#import <UZBroadcast.h> 
 
 //MARK: - Getters and Setters
-lazy var session: UZLiveSession = {
+lazy var session: UZBroadcastSession = {
 	let audioConfiguration = UZAudioConfiguration.defaultConfiguration()
 	let videoConfiguration = UZVideoConfiguration.defaultConfigurationForQuality(UZVideoQuality.SD_360, landscape: false)
-	let session = UZLiveSession(audioConfiguration: audioConfiguration, videoConfiguration: videoConfiguration)
+	let session = UZBroadcastSession(audioConfiguration: audioConfiguration, videoConfiguration: videoConfiguration)
 	    
 	session?.delegate = self
 	session?.preView = self.view
@@ -106,23 +106,24 @@ lazy var session: UZLiveSession = {
 }()
 
 //MARK: - Event
-func startLive() -> Void { 
+func startBroadcast() -> Void { 
 	let stream = UZStreamInfo()
 	stream.url = "your server rtmp url";
-	session.startLive(stream)
+	session.startBroadcast(stream)
 }
 
-func stopLive() -> Void {
-	session.stopLive()
+func stopBroadcast() -> Void {
+	session.stopBroadcast()
 }
 
 //MARK: - Callback
-func liveSession(session: UZLiveSession?, debugInfo: UZLiveDebug?) 
-func liveSession(session: UZLiveSession?, errorCode: UZSocketErrorCode)
-func liveSession(session: UZLiveSession?, liveStateDidChange state: UZLiveState)
+func broadcastSession(session: UZBroadcastSession?, debugInfo: UZBroadcastDebug?) 
+func broadcastSession(session: UZBroadcastSession?, errorCode: UZSocketErrorCode)
+func broadcastSession(session: UZBroadcastSession?, broadcastStateDidChange state: UZBroadcastState)
 ```
 
 Remember to add these usage description keys into `Info.plist` file:
+
 ```xml
 <key>NSCameraUsageDescription</key>
 <string>App needs access to camera for broadcasting</string>

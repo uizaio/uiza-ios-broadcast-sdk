@@ -1,6 +1,6 @@
 //
 //  UZVideoCapture.h
-//  UZLiveKit
+//  UZBroadcast
 //
 //  Created by Nam Nguyen on 6/18/20.
 //  Copyright © 2020 namnd. All rights reserved.
@@ -11,7 +11,7 @@
 #import "UZVideoConfiguration.h"
 
 @class UZVideoCapture;
-/** LFVideoCapture callback videoData */
+/** UZVideoCapture callback videoData */
 @protocol UZVideoCaptureDelegate <NSObject>
 - (void)captureOutput:(nullable UZVideoCapture *)capture pixelBuffer:(nullable CVPixelBufferRef)pixelBuffer;
 @end

@@ -1,6 +1,6 @@
 //
 //  UZHardwareVideoEncoder.m
-//  UZLiveKit
+//  UZBroadcast
 //
 //  Created by Nam Nguyen on 6/18/20.
 //  Copyright © 2020 namnd. All rights reserved.
@@ -29,7 +29,7 @@
 #pragma mark -- LifeCycle
 - (instancetype)initWithVideoStreamConfiguration:(UZVideoConfiguration *)configuration {
     if (self = [super init]) {
-        NSLog(@"USE LFHardwareVideoEncoder");
+        NSLog(@"USE UZHardwareVideoEncoder");
         _configuration = configuration;
         [self resetCompressionSession];
         [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(willEnterBackground:) name:UIApplicationWillResignActiveNotification object:nil];
@@ -95,7 +95,7 @@
     [[NSNotificationCenter defaultCenter] removeObserver:self];
 }
 
-#pragma mark -- LFVideoEncoder
+#pragma mark -- UZVideoEncoder
 - (void)encodeVideoData:(CVPixelBufferRef)pixelBuffer timeStamp:(uint64_t)timeStamp {
     if(_isBackGround) return;
     frameCount++;

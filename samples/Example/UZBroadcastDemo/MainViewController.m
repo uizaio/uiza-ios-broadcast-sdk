@@ -1,13 +1,13 @@
 //
 //  ViewController.m
-//  UZLiveKitDemo
+//  UZBroadcastDemo
 //
 //  Created by Nam Nguyen on 6/18/20.
 //  Copyright © 2020 namnd. All rights reserved.
 //
 
 #import "MainViewController.h"
-#import "UZLivePreview.h"
+#import "UZBroadcastPreview.h"
 
 @interface MainViewController ()
 
@@ -18,14 +18,14 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
-     [self.view addSubview:[[UZLivePreview alloc] initWithFrame:self.view.bounds]];
+     [self.view addSubview:[[UZBroadcastPreview alloc] initWithFrame:self.view.bounds]];
 }
 
 - (UIInterfaceOrientationMask)supportedInterfaceOrientations {
     return UIInterfaceOrientationMaskPortrait;
 }
 
-- (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation {
+- (BOOL)shouldAutorotate {
     return YES;
 }
 

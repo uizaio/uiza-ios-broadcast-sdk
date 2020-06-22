@@ -1,6 +1,6 @@
 //
-//  UZLiveSession.h
-//  UZLiveKit
+//  UZBroadcastSession.h
+//  UZBroadcast
 //
 //
 //  Created by Nam Nguyen on 6/18/20.
@@ -14,53 +14,53 @@
 #import "UZVideoFrame.h"
 #import "UZAudioConfiguration.h"
 #import "UZVideoConfiguration.h"
-#import "UZLiveDebug.h"
+#import "UZBroadcastDebug.h"
 
 
 
-typedef NS_ENUM(NSInteger,UZLiveCaptureType) {
-    UZLiveCaptureAudio,         ///< capture only audio
-    UZLiveCaptureVideo,         ///< capture onlt video
-    UZLiveInputAudio,           ///< only audio (External input audio)
-    UZLiveInputVideo,           ///< only video (External input video)
+typedef NS_ENUM(NSInteger, UZCaptureType) {
+    UZCaptureType_Audio,         /// capture only audio
+    UZCaptureType_Video,         /// capture onlt video
+    UZCaptureType_InputAudio,    /// only audio (External input audio)
+    UZCaptureType_InputVideo,    /// only video (External input video)
 };
 
 
 ///< Used to control the type of acquisition（Various combinations can be collected internally or externally，Support single audio and single video, External input is suitable for screen recording，Drones and other peripherals intervene）
-typedef NS_ENUM(NSInteger,UZLiveCaptureTypeMask) {
-    UZLiveCaptureMaskAudio = (1 << UZLiveCaptureAudio),                                 ///< only inner capture audio (no video)
-    UZLiveCaptureMaskVideo = (1 << UZLiveCaptureVideo),                                 ///< only inner capture video (no audio)
-    UZLiveInputMaskAudio = (1 << UZLiveInputAudio),                                     ///< only outer input audio (no video)
-    UZLiveInputMaskVideo = (1 << UZLiveInputVideo),                                     ///< only outer input video (no audio)
-    UZLiveCaptureMaskAll = (UZLiveCaptureMaskAudio | UZLiveCaptureMaskVideo),           ///< inner capture audio and video
-    UZLiveInputMaskAll = (UZLiveInputMaskAudio | UZLiveInputMaskVideo),                 ///< outer input audio and video(method see pushVideo and pushAudio)
-    UZLiveCaptureMaskAudioInputVideo = (UZLiveCaptureMaskAudio | UZLiveInputMaskVideo), ///< inner capture audio and outer input video(method pushVideo and setRunning)
-    UZLiveCaptureMaskVideoInputAudio = (UZLiveCaptureMaskVideo | UZLiveInputMaskAudio), ///< inner capture video and outer input audio(method pushAudio and setRunning)
-    UZLiveCaptureDefaultMask = UZLiveCaptureMaskAll                                     ///< default is inner capture audio and video
+typedef NS_ENUM(NSInteger,UZCaptureTypeMask) {
+    UZCaptureTypeMask_Audio = (1 << UZCaptureType_Audio),     /// only inner capture audio (no video)
+    UZCaptureTypeMask_Video = (1 << UZCaptureType_Video),     /// only inner capture video (no audio)
+    UZCaptureTypeMask_InputAudio = (1 << UZCaptureType_InputAudio),    /// only outer input audio (no video)
+    UZCaptureTypeMask_InputVideo = (1 << UZCaptureType_InputVideo),    /// only outer input video (no audio)
+    UZCaptureTypeMask_All = (UZCaptureTypeMask_Audio | UZCaptureTypeMask_Video), /// inner capture audio and video
+    UZCaptureTypeMask_InputAll = (UZCaptureTypeMask_InputAudio | UZCaptureTypeMask_InputVideo),    /// outer input audio and video(method see pushVideo and pushAudio)
+    UZCaptureTypeMask_AudioInputVideo = (UZCaptureTypeMask_Audio | UZCaptureTypeMask_InputVideo), /// inner capture audio and outer input video(method pushVideo and setRunning)
+    UZCaptureTypeMask_VideoInputAudio = (UZCaptureTypeMask_Video | UZCaptureTypeMask_InputAudio), /// inner capture video and outer input audio(method pushAudio and setRunning)
+    UZCaptureTypeMask_Default = UZCaptureTypeMask_All   /// default is inner capture audio and video
 };
 
-@class UZLiveSession;
-@protocol UZLiveSessionDelegate <NSObject>
+@class UZBroadcastSession;
+@protocol UZBroadcastSessionDelegate <NSObject>
 
 @optional
-/** live status changed will callback */
-- (void)liveSession:(nullable UZLiveSession *)session liveStateDidChange:(UZLiveState)state;
-/** live debug info callback */
-- (void)liveSession:(nullable UZLiveSession *)session debugInfo:(nullable UZLiveDebug *)debugInfo;
+/** broadcast status changed will callback */
+- (void)broadcastSession:(nullable UZBroadcastSession *)session broadcastStateDidChange:(UZBroadcastState)state;
+/** broadcast debug info callback */
+- (void)broadcastSession:(nullable UZBroadcastSession *)session debugInfo:(nullable UZBroadcastDebug *)debugInfo;
 /** callback socket errorcode */
-- (void)liveSession:(nullable UZLiveSession *)session errorCode:(UZSocketErrorCode)errorCode;
+- (void)broadcastSession:(nullable UZBroadcastSession *)session errorCode:(UZSocketErrorCode)errorCode;
 @end
 
 @class UZStreamInfo; 
 
-@interface UZLiveSession : NSObject
+@interface UZBroadcastSession : NSObject
 
 #pragma mark - Attribute
 ///=============================================================================
 /// @name Attribute
 ///=============================================================================
 /** The delegate of the capture. captureData callback */
-@property (nullable, nonatomic, weak) id<UZLiveSessionDelegate> delegate;
+@property (nullable, nonatomic, weak) id<UZBroadcastSessionDelegate> delegate;
 
 /** The running control start capture or stop capture*/
 @property (nonatomic, assign) BOOL running;
@@ -105,10 +105,10 @@ typedef NS_ENUM(NSInteger,UZLiveCaptureTypeMask) {
 @property (nullable, nonatomic, strong, readonly) UZStreamInfo *streamInfo;
 
 /** The status of the stream .*/
-@property (nonatomic, assign, readonly) UZLiveState state;
+@property (nonatomic, assign, readonly) UZBroadcastState state;
 
 /** The captureType control inner or outer audio and video .*/
-@property (nonatomic, assign, readonly) UZLiveCaptureTypeMask captureType;
+@property (nonatomic, assign, readonly) UZCaptureTypeMask captureTypeMask;
 
 /** The showDebugInfo control streamInfo and uploadInfo(1s) *.*/
 @property (nonatomic, assign) BOOL showDebugInfo;
@@ -137,8 +137,8 @@ typedef NS_ENUM(NSInteger,UZLiveCaptureTypeMask) {
 ///=============================================================================
 /// @name Initializer
 ///=============================================================================
-- (nullable instancetype)init UNAVAILABLE_ATTRIBUTE;
-+ (nullable instancetype)new UNAVAILABLE_ATTRIBUTE;
+- (nonnull instancetype)init UNAVAILABLE_ATTRIBUTE;
++ (nonnull instancetype)new UNAVAILABLE_ATTRIBUTE;
 
 /**
    The designated initializer. Multiple instances with the same configuration will make the
@@ -150,18 +150,18 @@ typedef NS_ENUM(NSInteger,UZLiveCaptureTypeMask) {
  The designated initializer. Multiple instances with the same configuration will make the
  capture unstable.
  */
-- (nullable instancetype)initWithAudioConfiguration:(nullable UZAudioConfiguration *)audioConfiguration videoConfiguration:(nullable UZVideoConfiguration *)videoConfiguration captureType:(UZLiveCaptureTypeMask)captureType NS_DESIGNATED_INITIALIZER;
+- (nullable instancetype)initWithAudioConfiguration:(nullable UZAudioConfiguration *)audioConfiguration videoConfiguration:(nullable UZVideoConfiguration *)videoConfiguration captureTypeMask:(UZCaptureTypeMask)captureTypeMask NS_DESIGNATED_INITIALIZER;
 
 /** The start stream .*/
-- (void)startLive:(nonnull UZStreamInfo *)streamInfo;
+- (void)startBroadcast:(nonnull UZStreamInfo *)streamInfo;
 
 /** The stop stream .*/
-- (void)stopLive;
+- (void)stopBroadcast;
 
-/** support outer input yuv or rgb video(set UZLiveCaptureTypeMask) .*/
+/** support outer input yuv or rgb video(set UZCaptureTypeMask) .*/
 - (void)pushVideo:(nullable CVPixelBufferRef)pixelBuffer;
 
-/** support outer input pcm audio(set UZLiveCaptureTypeMask) .*/
+/** support outer input pcm audio(set UZCaptureTypeMask) .*/
 - (void)pushAudio:(nullable NSData*)audioData;
 
 - (void)pushAudioBuffer:(nullable CMSampleBufferRef)sampleBuffer;

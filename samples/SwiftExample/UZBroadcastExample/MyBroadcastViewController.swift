@@ -30,7 +30,7 @@ class MyBroadcastViewController: UZBroadcastViewController {
 	}
 	
 	@objc func askForClose() {
-		let alertController = UIAlertController(title: "Stop Broadcasting?", message: nil, preferredStyle: .alert)
+		let alertController = UIAlertController(title: "Stop Broadcast?", message: nil, preferredStyle: .alert)
 		alertController.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: { (action) in
 			alertController.dismiss(animated: true, completion: nil)
 		}))
