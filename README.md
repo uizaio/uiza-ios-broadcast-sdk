@@ -83,7 +83,7 @@ UZBroadcast
 }
 
 //MARK: - CallBack:
-- (void)broadcastSession:(nullable UZBroadcastSession *)session broadcastStateDidChange: (UZLiveState)state;
+- (void)broadcastSession:(nullable UZBroadcastSession *)session broadcastStateDidChange: (UZBroadcastState)state;
 - (void)broadcastSession:(nullable UZBroadcastSession *)session debugInfo:(nullable UZBroadcastDebug*)debugInfo;
 - (void)broadcastSession:(nullable UZBroadcastSession*)session errorCode:(UZSocketErrorCode)errorCode;
 ```
