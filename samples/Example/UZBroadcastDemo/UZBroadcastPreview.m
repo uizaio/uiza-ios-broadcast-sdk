@@ -37,7 +37,7 @@ inline static NSString *formatedSpeed(float bytes, float elapsed_milli) {
 @property (nonatomic, strong) UIButton *beautyButton;
 @property (nonatomic, strong) UIButton *cameraButton;
 @property (nonatomic, strong) UIButton *closeButton;
-@property (nonatomic, strong) UIButton *startLiveButton;
+@property (nonatomic, strong) UIButton *startBroadcastButton;
 @property (nonatomic, strong) UIView *containerView;
 @property (nonatomic, strong) UZBroadcastDebug *debugInfo;
 @property (nonatomic, strong) UZBroadcastSession *session;
@@ -57,7 +57,7 @@ inline static NSString *formatedSpeed(float bytes, float elapsed_milli) {
         [self.containerView addSubview:self.closeButton];
         [self.containerView addSubview:self.cameraButton];
         [self.containerView addSubview:self.beautyButton];
-        [self.containerView addSubview:self.startLiveButton];
+        [self.containerView addSubview:self.startBroadcastButton];
   
         
     }
@@ -120,20 +120,25 @@ inline static NSString *formatedSpeed(float bytes, float elapsed_milli) {
 - (void)broadcastSession:(nullable UZBroadcastSession *)session broadcastStateDidChange:(UZBroadcastState)state {
     NSLog(@"broadcastStateDidChange: %ld", state);
     switch (state) {
-        case UZBroadcastState_Ready:
+    case UZBroadcastState_Ready:
         _stateLabel.text = @"No Connect";
+        _stateLabel.textColor = UIColor.whiteColor;
         break;
     case UZBroadcastState_Pending:
         _stateLabel.text = @"Connecting";
+        _stateLabel.textColor = UIColor.orangeColor;
         break;
     case UZBroadcastState_Start:
         _stateLabel.text = @"Connected";
+        _stateLabel.textColor = UIColor.whiteColor;
         break;
     case UZBroadcastState_Error:
         _stateLabel.text = @"Connect Error";
+        _stateLabel.textColor = UIColor.redColor;
         break;
     case UZBroadcastState_Stop:
         _stateLabel.text = @"No Connect";
+        _stateLabel.textColor = UIColor.whiteColor;
         break;
     default:
         break;
@@ -282,10 +287,10 @@ inline static NSString *formatedSpeed(float bytes, float elapsed_milli) {
 
 - (UILabel *)stateLabel {
     if (!_stateLabel) {
-        _stateLabel = [[UILabel alloc] initWithFrame:CGRectMake(20, 20, 80, 40)];
+        _stateLabel = [[UILabel alloc] initWithFrame:CGRectMake(20, 20, 100, 40)];
         _stateLabel.text = @"No Connect";
         _stateLabel.textColor = [UIColor whiteColor];
-        _stateLabel.font = [UIFont boldSystemFontOfSize:14.f];
+        _stateLabel.font = [UIFont boldSystemFontOfSize:13.f];
         _stateLabel.top = TOP_MARGIN;
     }
     return _stateLabel;
@@ -341,33 +346,33 @@ inline static NSString *formatedSpeed(float bytes, float elapsed_milli) {
     return _beautyButton;
 }
 
-- (UIButton *)startLiveButton {
-    if (!_startLiveButton) {
-        _startLiveButton = [UIButton new];
-        _startLiveButton.size = CGSizeMake(self.width - 120, 44);
-        _startLiveButton.left = 60;
-        _startLiveButton.bottom = self.height - TOP_MARGIN;
-        _startLiveButton.layer.cornerRadius = _startLiveButton.height/2;
-        [_startLiveButton setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
-        [_startLiveButton.titleLabel setFont:[UIFont systemFontOfSize:16]];
-        [_startLiveButton setTitle:@"Start Broadcast" forState:UIControlStateNormal];
-        [_startLiveButton setBackgroundColor:[UIColor colorWithRed:50 green:32 blue:245 alpha:1]];
-        _startLiveButton.exclusiveTouch = YES;
+- (UIButton *)startBroadcastButton {
+    if (!_startBroadcastButton) {
+        _startBroadcastButton = [UIButton new];
+        _startBroadcastButton.size = CGSizeMake(self.width - 200, 46);
+        _startBroadcastButton.left = 100;
+        _startBroadcastButton.bottom = self.height - TOP_MARGIN;
+        _startBroadcastButton.layer.cornerRadius = _startBroadcastButton.height/2;
+        [_startBroadcastButton setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+        [_startBroadcastButton.titleLabel setFont:[UIFont systemFontOfSize:16]];
+        [_startBroadcastButton setTitle:@"Start Broadcast" forState:UIControlStateNormal];
+        [_startBroadcastButton setBackgroundColor:[UIColor colorWithRed:50 green:32 blue:245 alpha:1]];
+        _startBroadcastButton.exclusiveTouch = YES;
         __weak typeof(self) _self = self;
-        [_startLiveButton addBlockForControlEvents:UIControlEventTouchUpInside block:^(id sender) {
-            _self.startLiveButton.selected = !_self.startLiveButton.selected;
-            if (_self.startLiveButton.selected) {
-                [_self.startLiveButton setTitle:@"Stop Broadcast" forState:UIControlStateNormal];
-                UZStreamInfo *stream = [UZStreamInfo new];
-                stream.url = @"rtmp://fee2353514-in.streamwiz.dev/live/live_cu92VD9cCo";
-                [_self.session startBroadcast:stream];
+        [_startBroadcastButton addBlockForControlEvents:UIControlEventTouchUpInside block:^(id sender) {
+            _self.startBroadcastButton.selected = !_self.startBroadcastButton.selected;
+            if (_self.startBroadcastButton.selected) {
+                [_self.startBroadcastButton setTitle:@"Stop Broadcast" forState:UIControlStateNormal];
+                UZStreamInfo *info = [UZStreamInfo new];
+                info.url = @"rtmp://866a3630e8-in.streamwiz.dev/live/live_FBAO9ttz48";
+                [_self.session startBroadcast:info];
             } else {
-                [_self.startLiveButton setTitle:@"Start Broadcast" forState:UIControlStateNormal];
+                [_self.startBroadcastButton setTitle:@"Start Broadcast" forState:UIControlStateNormal];
                 [_self.session stopBroadcast];
             }
         }];
     }
-    return _startLiveButton;
+    return _startBroadcastButton;
 }
 
 @end

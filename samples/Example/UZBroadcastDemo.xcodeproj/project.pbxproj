@@ -27,6 +27,7 @@
 		84D8B4651D75782700752B56 /* ios-29x29.png in Resources */ = {isa = PBXBuildFile; fileRef = 84D8B45A1D75782700752B56 /* ios-29x29.png */; };
 		84D8B4CF1D757F0700752B56 /* libstdc++.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 84D8B4CE1D757F0700752B56 /* libstdc++.tbd */; };
 		8B3E554E249B6E93006D107D /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B3E554C249B6E93006D107D /* MainViewController.m */; };
+		8B7887FF24A1B9FB00C9FCC5 /* UZPreview.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B7887FE24A1B9FB00C9FCC5 /* UZPreview.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -58,6 +59,8 @@
 		84D8B4CE1D757F0700752B56 /* libstdc++.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = "libstdc++.tbd"; path = "usr/lib/libstdc++.tbd"; sourceTree = SDKROOT; };
 		8B3E554C249B6E93006D107D /* MainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainViewController.m; sourceTree = "<group>"; };
 		8B3E554D249B6E93006D107D /* MainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainViewController.h; sourceTree = "<group>"; };
+		8B7887FD24A1B9FB00C9FCC5 /* UZPreview.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UZPreview.h; sourceTree = "<group>"; };
+		8B7887FE24A1B9FB00C9FCC5 /* UZPreview.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = UZPreview.m; sourceTree = "<group>"; };
 		96E1231310083A3881AD2AB6 /* Pods-LFLiveKitDemo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LFLiveKitDemo.release.xcconfig"; path = "Pods/Target Support Files/Pods-LFLiveKitDemo/Pods-LFLiveKitDemo.release.xcconfig"; sourceTree = "<group>"; };
 		A61BC9C698B7738E62C45FF5 /* Pods-UZBroadcastDemo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-UZBroadcastDemo.debug.xcconfig"; path = "Pods/Target Support Files/Pods-UZBroadcastDemo/Pods-UZBroadcastDemo.debug.xcconfig"; sourceTree = "<group>"; };
 		BFFA578BB406E1431F67F3BC /* Pods-UZBroadcastDemo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-UZBroadcastDemo.release.xcconfig"; path = "Pods/Target Support Files/Pods-UZBroadcastDemo/Pods-UZBroadcastDemo.release.xcconfig"; sourceTree = "<group>"; };
@@ -121,6 +124,8 @@
 				84D8B4371D75778B00752B56 /* LaunchScreen.storyboard */,
 				84D8B43A1D75778B00752B56 /* Info.plist */,
 				84D8B4291D75778B00752B56 /* Supporting Files */,
+				8B7887FD24A1B9FB00C9FCC5 /* UZPreview.h */,
+				8B7887FE24A1B9FB00C9FCC5 /* UZPreview.m */,
 			);
 			path = UZBroadcastDemo;
 			sourceTree = "<group>";
@@ -296,6 +301,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				84D8B45B1D75782700752B56 /* UIControl+YYAdd.m in Sources */,
+				8B7887FF24A1B9FB00C9FCC5 /* UZPreview.m in Sources */,
 				84D8B45C1D75782700752B56 /* UIView+YYAdd.m in Sources */,
 				84D8B42E1D75778B00752B56 /* AppDelegate.m in Sources */,
 				8B3E554E249B6E93006D107D /* MainViewController.m in Sources */,
@@ -374,7 +380,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -423,7 +429,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
@@ -440,7 +446,7 @@
 				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				HEADER_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = "$(SRCROOT)/UZBroadcastDemo/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = "$(inherited)";
 				OTHER_LDFLAGS = "$(inherited)";
@@ -459,7 +465,7 @@
 				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				HEADER_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = "$(SRCROOT)/UZBroadcastDemo/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = "$(inherited)";
 				OTHER_LDFLAGS = "$(inherited)";
