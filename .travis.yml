@@ -5,5 +5,5 @@ xcode_scheme: UZBroadcastDemo
 
 script:
 - cd samples/Example/
-- pod install
-- xctool -project UZBroadcastDemo.xcodeproj -scheme 'UZBroadcastDemo' -configuration Release -sdk iphonesimulator -arch i386 build
+- travis_wait 30 pod install
+- xcodebuild clean build -sdk iphonesimulator -workspace UZBroadcastDemo.xcworkspace -scheme UZBroadcastDemo CODE_SIGNING_REQUIRED=NO
