@@ -2,6 +2,7 @@ UZBroadcast
 ==============
 
 [![License MIT](https://img.shields.io/badge/license-BSD-green.svg?style=flat)](https://raw.githubusercontent.com/uizaio/uiza-ios-broadcast-sdk/master/LICENSE)&nbsp;
+[![Build Status](https://travis-ci.org/uizaio/uiza-ios-broadcast-sdk.svg?branch=master)](https://travis-ci.org/uizaio/uiza-ios-broadcast-sdk)
 [![CocoaPods](http://img.shields.io/cocoapods/v/UZBroadcast.svg?style=flat)](http://cocoapods.org/?q=UZBroadcast)&nbsp;
 [![Support](https://img.shields.io/badge/ios-9-orange.svg)](https://www.apple.com/nl/ios/)&nbsp;
 ![platform](https://img.shields.io/badge/platform-ios-ff69b4.svg)&nbsp;
