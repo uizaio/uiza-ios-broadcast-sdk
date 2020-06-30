@@ -1,5 +1,7 @@
-UZBroadcast
-==============
+<p align="center">
+<img src="https://d3co7cvuqq9u2k.cloudfront.net/public/image/logo/uiza_logo_color.png" data-canonical-src="https://uiza.io" width="450" height="220" />
+</p>
+
 
 [![License BSD](https://img.shields.io/badge/license-BSD-success.svg?style=flat)](https://raw.githubusercontent.com/uizaio/uiza-ios-broadcast-sdk/master/LICENSE)&nbsp;
 [![CocoaPods](http://img.shields.io/cocoapods/v/UZBroadcast.svg?style=flat)](http://cocoapods.org/?q=UZBroadcast)&nbsp;
