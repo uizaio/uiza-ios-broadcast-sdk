@@ -4,8 +4,8 @@ UZBroadcast
 [![License BSD](https://img.shields.io/badge/license-BSD-success.svg?style=flat)](https://raw.githubusercontent.com/uizaio/uiza-ios-broadcast-sdk/master/LICENSE)&nbsp;
 [![CocoaPods](http://img.shields.io/cocoapods/v/UZBroadcast.svg?style=flat)](http://cocoapods.org/?q=UZBroadcast)&nbsp;
 [![Build Status](https://travis-ci.org/uizaio/uiza-ios-broadcast-sdk.svg?branch=master)](https://travis-ci.org/uizaio/uiza-ios-broadcast-sdk)
-[![Support](https://img.shields.io/badge/ios-9-success.svg)](https://www.apple.com/nl/ios/)&nbsp;
 ![Platform](https://img.shields.io/badge/platform-ios-success.svg)&nbsp;
+[![Support](https://img.shields.io/badge/ios-9-success.svg)](https://www.apple.com/nl/ios/)&nbsp;
 
 
 **UZBroadcast is a opensource RTMP streaming SDK for iOS.**  
